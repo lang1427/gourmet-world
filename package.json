@@ -1,0 +1,36 @@
+{
+  "name": "gourmet-world",
+  "version": "1.0.0",
+  "description": "koa typescript  实现美食天下项目",
+  "main": "read.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lang1427/gourmet-world.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lang1427/gourmet-world/issues"
+  },
+  "homepage": "https://github.com/lang1427/gourmet-world#readme",
+  "devDependencies": {
+    "@types/koa": "^2.13.1",
+    "@types/koa-ejs": "^4.2.2",
+    "@types/koa-views": "^2.0.4",
+    "sequelize-cli": "^6.2.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "koa": "^2.13.1",
+    "koa-controllers": "^0.1.6",
+    "koa-ejs": "^4.3.0",
+    "koa-views": "^7.0.1",
+    "mysql2": "^2.2.5",
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.6.2"
+  }
+}

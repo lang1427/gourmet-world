@@ -1,2 +1,2 @@
 # gourmet-world
- koa typescript vue  实现美食天下项目
+ koa typescript  实现美食天下项目
