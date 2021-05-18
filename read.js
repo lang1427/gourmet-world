@@ -9,6 +9,13 @@
 7. src新建controllers目录：控制层，存放路由规则
 8. src新建view目录：存放模板文件.ejs
 
+
+数据库：
+   1.创建数据库    ./node_modules/.bin/sequelize db:create 
+   2.执行迁移文件   ./node_modules/.bin/sequelize db:migrate
+   3.执行种子文件    ./node_modules/.bin/sequelize db:seed:all    
+
+
  监听src文件变化   tsc -w
  运行项目          node ./dist/app.js 
  

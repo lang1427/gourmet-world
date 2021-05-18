@@ -25,12 +25,14 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.9",
     "koa": "^2.13.1",
     "koa-controllers": "^0.1.6",
     "koa-ejs": "^4.3.0",
     "koa-views": "^7.0.1",
     "mysql2": "^2.2.5",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "superagent": "^6.1.0"
   }
 }
