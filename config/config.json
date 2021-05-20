@@ -5,7 +5,8 @@
     "database": "gourmet_development",
     "host": "127.0.0.1",
     "port":"5690",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone":"+08:00"
   },
   "test": {
     "username": "root",

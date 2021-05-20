@@ -3,11 +3,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var koa_1 = __importDefault(require("koa"));
-var koa_controllers_1 = require("koa-controllers");
-var koa_views_1 = __importDefault(require("koa-views")); // 模板渲染中间件 
-var app = new koa_1.default();
-var render = koa_views_1.default(__dirname + '/view', {
+const path = require('path');
+const koa_1 = __importDefault(require("koa"));
+const koa_controllers_1 = require("koa-controllers");
+const koa_views_1 = __importDefault(require("koa-views")); // 模板渲染中间件 
+const koa_static_cache_1 = __importDefault(require("koa-static-cache")); // 静态资源文件处理
+const app = new koa_1.default();
+app.use(koa_static_cache_1.default(path.join(__dirname, 'static'), {
+    prefix: '/public',
+    gzip: true
+}));
+const render = koa_views_1.default(__dirname + '/view', {
     extension: 'ejs' // 省略后缀名
 });
 app.use(render);

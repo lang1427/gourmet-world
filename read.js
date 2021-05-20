@@ -7,7 +7,11 @@
 5. 新建src文件：项目源代码文件
 6. 新建dist文件：项目经过ts编译后的文件
 7. src新建controllers目录：控制层，存放路由规则
-8. src新建view目录：存放模板文件.ejs
+8. dist新建view目录：存放模板文件.ejs     （不会编译生成的文件）
+9. 创建模型文件     ./node_modules/.bin/sequelize model:create --name users --attributes username:STRING
+10. 将模型文件models放在src目录下，并将js文件更改为ts文件
+11. 备份config目录到dist目录下
+12. dist新建static目录，存放静态资源文件  （不会编译生成的文件）
 
 
 数据库：
@@ -21,4 +25,8 @@
  
  注意点：
     src/view模板文件中的改动需要手动同步到dist/view中，因为ts不会对ejs进行编译处理，或则可以直接在dist/view文件中进行修改
+
+ Bug?
+   1.Class constructor Model cannot be invoked without 'new'
+      设置tsconfig.json target 为 ES2015 即可解决    (保留class关键字)
  */

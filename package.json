@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/koa": "^2.13.1",
     "@types/koa-ejs": "^4.2.2",
+    "@types/koa-static-cache": "^5.1.0",
     "@types/koa-views": "^2.0.4",
     "sequelize-cli": "^6.2.0",
     "typescript": "^4.2.4"
@@ -29,7 +30,9 @@
     "koa": "^2.13.1",
     "koa-controllers": "^0.1.6",
     "koa-ejs": "^4.3.0",
+    "koa-static-cache": "^5.1.4",
     "koa-views": "^7.0.1",
+    "md5": "^2.3.0",
     "mysql2": "^2.2.5",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.6.2",
