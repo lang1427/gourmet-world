@@ -1,0 +1,62 @@
+.ui_title{height:35px;border-bottom:1px solid #eee;position:relative;margin-bottom:15px}
+.ui_title_wrap{line-height:30px;font-size:0}
+.ui_title_wrap h1,.ui_title_wrap h2,.ui_title_wrap h3{float:left;font-weight:400;display:inline-block;font-size:18px;margin-right:20px;color:#656565;padding-bottom:5px;outline:0}
+.ui_title_wrap h1,.ui_title_wrap h2,.ui_title_wrap h3{border-bottom:1px solid #BA2020;text-decoration:none;color:#333}
+.ui_title_right .ui_btn_blue{position:absolute;right:0;top:5px}
+.ui_nav_box .ui_title_wrap a.on{color:#ba2020}
+.ui_nav_box .ui_title,.ui_nav_box .ui_title_wrap a.on,.ui_nav_box .ui_title_wrap a:hover,.ui_nav_box .ui_title_wrap h1,.ui_nav_box .ui_title_wrap h2,.ui_nav_box .ui_title_wrap h3{border-bottom-width:2px}
+.ui_title_wrap h1 a,.ui_title_wrap h2 a,.ui_title_wrap h3 a{text-decoration:none}
+a.ui_title_wrap_right{float:right;font-size:14px;margin:0 0 0 35px;padding:0}
+a.ui_title_wrap_right:hover{border:0;text-decoration:underline}
+.mod_right{min-height:350px}
+.ui_form_1 li{margin-bottom:20px;zoom:1;vertical-align:top;padding-left:180px;min-height:35px}
+.ui_form_1 .label{display:inline;float:left;width:150px;margin-left:-160px;text-align:right;line-height:28px;font-size:14px;color:#666}
+.ui_form_1 select{display:none;padding:4px 2px;outline:0;vertical-align:middle}
+.ui_form_1 .ui_btn_blue,.ui_form_1 .ui_btn_gray{height:30px;line-height:30px;margin-top:1px}
+.ui_form_1 .text{font-size:14px;line-height:18px;height:18px;padding:6px;width:150px;border:1px solid #d2d2d2;vertical-align:middle}
+.ui_form_1 .text_2{width:550px;height:190px;line-height:22px}
+.ui_form_1 p{color:#d2d2d2;line-height:20px;padding-bottom:10px}
+.ui_form_1 .subline{line-height:30px}
+.ui_form_1 .textarea .detail{padding-top:4px}
+.ui_form_1 .radio label{margin-right:15px;vertical-align:-5px;cursor:pointer}
+.ui_form_1 .radio input{vertical-align:-2px;margin-right:5px}
+.ui_form_1 .submit{margin-bottom:0}
+.ui_form_1 .sublineLeft{float:left;width:480px}
+.ui_form_1 .sublineLeft .text{width:320px}
+.ui_form_1 span{color:#999}
+.vegas-loading{display:none}
+.vegas-overlay{background:transparent url(//static.meishichina.com/v6/img/center/overlays.png);opacity:.5;z-index:-1}
+.vegas-background{-ms-interpolation-mode:bicubic;image-rendering:optimizeQuality;max-width:none!important;z-index:-2}
+.vegas-background,.vegas-overlay{-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+.loginbox{width:530px;position:absolute;margin:-180px 0 0 -265px;top:50%;left:50%;border-radius:4px;overflow:hidden;font-size:14px;color:#333}
+.loginbox a{color:#333}
+.loginbox a:hover{color:#ff6767}
+.loginbox_h{height:50px;line-height:50px;text-align:center;font-size:20px}
+.loginbox_h a{background:rgba(0,0,0,.6);color:#fff;width:50%;float:left}
+.loginbox_h a.on{background:rgba(255,255,255,.8);color:#333}
+.loginbox_c{background:rgba(255,255,255,.8);height:250px}
+.loginbox_l{float:left;padding:20px;margin:20px 65px;}
+.loginbox_l ul{display:block;border:1px solid #999;border-radius:4px}
+.loginbox_l ul li{border-bottom:1px solid #999;height:32px;line-height:32px}
+.loginbox_l ul li label{padding:0 5px 0 10px}
+.loginbox_l ul li input{width:280px;border:0;font-size:14px;background:rgba(0,0,0,0)}
+.loginbox_l p{padding:10px 0}
+.loginbox_l p label{float:left}
+.loginbox_l p a{text-decoration:underline}
+.loginbtn{height:40px;line-height:40px;border-radius:4px;background:#ff6767;color:#fff;font-size:18px;width:100%;text-align:center;border:0;cursor:pointer;margin:5px 0 0}
+.loginbox_r{float:left;width:165px;text-align:center;margin:10px}
+.loginbox_r p{padding:3px 0 0}
+.loginbox_r a{width:30px;height:30px;display:inline-block;margin:5px;background:url(//static.meishichina.com/v6/img/zhen/i.png?v=2) no-repeat;background:rgba(0,0,0,0) url(//static.meishichina.com/v6/img/zhen/ix2.png?v=2) no-repeat scroll 0 0/auto 30px}
+.loginbox_r a.a1{background-position:-90px 0}
+.loginbox_r a.a2{background-position:-60px 0}
+.loginbox_r a.a3{background-position:-150px 0}
+#yanzcode{width:75px}
+.loginbox_register{height:290px}
+.loginbox_register .loginbox_l{padding:0 20px 20px}
+input::-webkit-input-placeholder{color:#666!important}
+input:-moz-placeholder{color:#666!important}
+input::-moz-placeholder{color:#666!important}
+input:-ms-input-placeholder{color:#666!important}
+#getcode{float:right;text-align:center;width:70px;text-decoration:none}
+#getcode.c1{background:#ff6767;color:#fff}
+#getcode.c2{background:grey;color:#fff;cursor:default}

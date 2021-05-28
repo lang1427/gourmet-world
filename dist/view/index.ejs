@@ -1,5 +1,45 @@
 <%- include('components/header'); -%>
 
-    
+<link rel="stylesheet" href="/public/css/index.css">
+
+    <div class="wrap">
+        <div class="w clear">
+            <!-- banner -->
+            <section class="w1">
+                <div class="w1_1">
+                    <ul>
+                        <% for(let i = 0; i < category.length; i++){ %>
+                            <li class="i<%=i+1%> category_item">          
+                                <a class="la" href="" target="_blank">
+                                    <i></i>
+                                    <%= category[i].name %>
+                                    <b></b>
+                                </a>
+                                <% if(category[i].children.length > 0){ %> 
+                                    <ul class="sub" style="display: none;">
+                                        <% for(let j = 0; j < category[i].children.length; j++){ %> 
+                                            <li>
+                                                <% 
+                                                    let name = category[i].children[j].name.split('/')    
+                                                    let title = name[0]
+                                                    let sub_title = name[1]
+                                                %> 
+                                                <a href="">
+                                                    <%= title %> 
+                                                    <span><%= sub_title %> </span>
+                                                </a>
+                                            </li>
+                                        <% } %> 
+                                    </ul>
+                                <% } %> 
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+<script src="/public/js/index.js"></script>
 
 <%- include('components/footer') -%>

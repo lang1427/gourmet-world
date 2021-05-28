@@ -1,0 +1,29 @@
+<%- include('../../components/header'); -%>
+
+    <link rel="stylesheet" href="/public/jsLib/vegas/vegas.css">
+    <script src="/public/jsLib/vegas/jquery.vegas.js"></script>
+    <link rel="stylesheet" href="/public/css/user.css">
+    <div class="loginbox">
+        <div class="loginbox_h">
+            <a href="/user/register/">注册</a>
+            <a href="/user/login/" class="on">登录</a>
+        </div>
+        <div class="loginbox_c" style="clear:both;height:215px;">
+            <form id="loginform" name="loginform" action="/user/login/" method="post">
+                <div class="loginbox_l">
+                    <ul class="mform_r">
+                        <li><label for="username">昵　称：</label><input type="text" name="username" id="username"></li>
+                        <li style="border:0;"><label for="password">密　码：</label><input type="password" name="password"
+                                id="password"></li>
+                    </ul>
+                    <p style="clear:both;padding:5px;">登录即代表你同意美食天下《<a
+                            href="https://static.meishichina.com/v6/help/policy.html" target="_blank">用户协议</a>》和《<a
+                            href="https://static.meishichina.com/v6/help/privacy.html" target="_blank">隐私政策</a>》</p>
+                    <input type="button" id="loginbtn" class="loginbtn" value="登&nbsp;录">
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="/public/js/login.js"></script>
+    <%- include('../../components/footer') -%>

@@ -3,6 +3,7 @@ node_modules
 dist/config
 dist/controllers
 dist/models
+dist/static/js
 dist/app.js
 
 # local env files

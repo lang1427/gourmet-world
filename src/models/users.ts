@@ -5,7 +5,6 @@
 import { Sequelize, Model } from "sequelize";
 import { IDataTypes } from "../@type-app/data-types";
 import { IModelsName } from "../@type-app/models-name";
-const md5 = require('md5') 
 
 module.exports = (sequelize:Sequelize, DataTypes:IDataTypes) => {
   class users extends Model {
@@ -33,10 +32,7 @@ module.exports = (sequelize:Sequelize, DataTypes:IDataTypes) => {
     password: {
       type: DataTypes.CHAR(32),
       allowNull: false,
-      defaultValue: '',
-      set(val:string) {
-        return md5(val)
-      }
+      defaultValue: ''
     }
   }, {
     sequelize,
