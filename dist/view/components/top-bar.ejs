@@ -30,11 +30,10 @@
             <% } %>
         <% } %>
     </ul>
-    <div class="right" id="J_top_bar_user">
+    <div class="right" id="J_top_bar_user">    
         <ul class="clear bar-info right bar-noLogin" id="J_barUser">
-            <li class="bar-item bar-loading images-loading bar-link"></li>
-            <li class="bar-link bar-item bar-reg"><a href="/user/register/" target="_blank">注册</a></li>
-            <li class="bar-link bar-item bar-login"><a href="/user/login/" target="_blank">登录</a></li>
+            <li class="bar-link bar-item bar-reg"><a href="/user/register/" >注册</a></li>
+            <li class="bar-link bar-item bar-login"><a href="/user/login/" >登录</a></li>
             <li class="bar-user J_down bar-item">
                     <div class="bar-text">
                         <div class="bar-text-userName" id="J_barUserName"></div><i class="arrow"></i>
@@ -47,11 +46,11 @@
                                     { name:'管理', href:'/my_manage' },
                                     { name:'私信', href:'/my_privately_list' },
                                     { name:'通知', href:'/my_notice_list' },
-                                    { name:'退出', href:'#' },
+                                    { name:'退出', href:'javascript:;' },
                                 ]   
                             %> 
                             <% for(let i = 0; i<barUser.length; i++){ %> 
-                                <li class="bar-box-item-<%=i%> <%= i=== 4 ? "J_barExit" : "" %>"><a title="<%= barUser[i].name %>" href="<%= barUser[i].href %> " target="_blank"><%= barUser[i].name %></a></li>
+                                <li class="bar-box-item-<%=i%> <%= i=== barUser.length-1 ? "J_barExit" : "" %>"><a title="<%= barUser[i].name %>" href="<%= barUser[i].href %> " target="<%= i===barUser.length-1 ? "" : "_blank" %>"><%= barUser[i].name %></a></li>
                             <% } %> 
                         </ul>
                     </div>
@@ -77,4 +76,3 @@
         </ul>
     </div>
 </div>
-<div class="w logo_wrap2"></div>

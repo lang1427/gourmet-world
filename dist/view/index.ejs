@@ -1,6 +1,18 @@
 <%- include('components/header'); -%>
-
+<script src="/public/jsLib/jquery.sudoSlider.min.js"></script>
 <link rel="stylesheet" href="/public/css/index.css">
+
+    <div class="w logo_wrap2">
+        <div class="logo_inner left">
+            <a href="/" title="美食天下">美食天下</a>
+        </div>
+        <div class="logo_search right">
+            <div class="searchBox J_search">
+                <a href="javascript:;" title="搜索" class="search_Btn J_searchBTN right" id="search">搜索</a>
+                <input type="text" id="q" class="search_Text J_searchTxt right">
+            </div>
+        </div>
+    </div>
 
     <div class="wrap">
         <div class="w clear">
@@ -36,8 +48,48 @@
                         <% } %>
                     </ul>
                 </div>
+                <div id="home_index_slider">
+                    <ul>
+                        <li>
+                            <a title="" href="" target="_blank"><img src="https://i3.meishichina.com/attachment/magic/2019/05/30/2019053015591834964388197577.jpg" srcset="https://i3.meishichina.com/attachment/magic/2019/05/30/2019053015591834969318197577.jpg 2x"></a>
+                        </li>
+                        <li>
+                            <a title="夏日美食大作战" href="https://home.meishichina.com/event-515.html#hmsr=www&hmpl=index&hmcu=magic&hmkw=D2&hmci=105622" target="_blank"><img src="https://i3.meishichina.com/attachment/magic/2021/05/27/2021052716221011154008197577.jpg" srcset="https://i3.meishichina.com/attachment/magic/2021/05/27/2021052716221011164658197577.jpg 2x"></a>
+                        </li>
+                        <li>
+                            <a title="高颜值小厨电，帮你轻松做好饭" href="https://www.meishichina.com/mofang/gaokaobunao/#hmsr=www&hmpl=index&hmcu=magic&hmkw=D3&hmci=102960" target="_blank"><img src="https://i3.meishichina.com/attachment/magic/2021/05/21/2021052116215894761878197577.jpg" srcset="https://i3.meishichina.com/attachment/magic/2021/05/21/2021052116215894766088197577.jpg 2x"></a>
+                        </li>
+                        <li>
+                            <a title="“莓”完“莓”了 的草莓甜品" href="https://www.meishichina.com/mofang/meiwml/#hmsr=www&hmpl=index&hmcu=magic&hmkw=D4&hmci=23867" target="_blank"><img src="https://i3.meishichina.com/attachment/magic/2018/05/04/2018050415254011765318197577.jpg" srcset="https://i3.meishichina.com/attachment/magic/2018/05/04/2018050415254011766368197577.jpg 2x"></a>
+                        </li>
+                        <li>
+                            <a title="清爽菠萝の花样吃法" href="https://www.meishichina.com/mofang/boluochifadaquan/#hmsr=www&hmpl=index&hmcu=magic&hmkw=D5&hmci=76765" target="_blank"><img src="https://i3.meishichina.com/attachment/magic/2020/04/13/2020041315867448189338197577.jpg" srcset="https://i3.meishichina.com/attachment/magic/2020/04/13/2020041315867448187268197577.jpg 2x"></a>
+                        </li>
+                        <li>
+                            <a title="快手早餐，营养满分の三明治" href="https://www.meishichina.com/mofang/sanmingzhizuofadaquan/#hmsr=www&hmpl=index&hmcu=magic&hmkw=D6&hmci=72698" target="_blank"><img src="https://i3.meishichina.com/attachment/magic/2021/02/26/2021022616143300886098197577.jpg" srcset="https://i3.meishichina.com/attachment/magic/2021/02/26/2021022616143300888008197577.jpg 2x"></a>
+                        </li>
+                    </ul>
+                </div>
             </section>
-
+            <!-- 菜谱数据 50条 图片懒加载 -->
+            <section class="w5">
+                <div class="big4_list clear mt10">
+                    <ul class="on">
+                        <% for(let i = 0;i < goodsInfo.length; i++){ %> 
+                            <li>
+                                <a title="<%=goodsInfo[i].good_name %> " href="/step?g_id=<%=goodsInfo[i].good_id%>&a=3" target="_blank">
+                                    <span class="copyright">独家</span>
+                                    <i>
+                                        <img alt="<%=goodsInfo[i].good_name %> " src="//static.meishichina.com/v6/img/blank.gif" class="imgLoad" data-original="<%=goodsInfo[i].good_img %> " style="display: block;">
+                                    </i>
+                                    <p><%=goodsInfo[i].good_name %> </p>
+                                </a>
+                                <a title="<%=goodsInfo[i].user_name %> " href="https://home.meishichina.com/space-7850148.html" target="_blank" class="u"><%=goodsInfo[i].user_name %> </a>
+                            </li>
+                        <% } %> 
+                    </ul>
+                </div>
+            </section>
         </div>
     </div>
 <script src="/public/js/index.js"></script>

@@ -19,11 +19,12 @@ export class Index {
 
     public category: object[] = []
     public categoryTree: object[] = []
+    public goodsInfo: object[] = []
 
     @Get('/')     // 当通过get请求/时 则进入到下面这个方法中
     public async index(@Ctx ctx: Context) {
 
-        let categoryList = await ctx.state.db.category.findAll()
+        let categoryList = await ctx.state.db['category'].findAll()
         this.category = categoryList.map((category: Model) => {
             return {
                 id: category.get('id'),
@@ -32,7 +33,26 @@ export class Index {
             }
         })
         this.categoryTree = this._tree(0)
-        await ctx.render('index', Object.assign({}, conf, { category: this.categoryTree }))
+        // SELECT goods.id,goods.g_name,goods.img,goods.user_id,users.username FROM goods LEFT JOIN users on goods.user_id=users.id WHERE goods.status = 1 LIMIT 50
+        let goods = await ctx.state.db['goods'].findAll({
+            where: {
+                status: 1
+            },
+            attributes: ['id', 'g_name', 'img', 'user_id'],
+            limit: 50,
+            include: ctx.state.db['users']
+        })
+
+        this.goodsInfo = goods.map((good: Model) => {
+            return {
+                good_id: good.get('id'),
+                good_img: good.get('img'),
+                good_name: good.get('g_name'),
+                user_id: good.get('user_id'),
+                user_name: (<any>good).user.get('username')
+            }
+        })
+        await ctx.render('index', Object.assign({}, conf, { category: this.categoryTree }, { goodsInfo: this.goodsInfo }))
     }
     public _tree(id: number): object[] {
         let data = this.category.filter(item => {
@@ -42,13 +62,5 @@ export class Index {
             (<any>item).children = this._tree((<ICategory>item).id)
         })
         return data
-    }
-}
-
-@Controller
-export class User {
-    @Get('/user')     // 当通过get请求/时 则进入到下面这个方法中
-    public async user(@Ctx ctx: Context) {
-        ctx.body = 'user';
     }
 }

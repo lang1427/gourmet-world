@@ -19,6 +19,8 @@
   "homepage": "https://github.com/lang1427/gourmet-world#readme",
   "devDependencies": {
     "@types/jquery": "^3.5.5",
+    "@types/jquery-lazyload": "^1.9.2",
+    "@types/jquery.cookie": "^1.4.31",
     "@types/koa": "^2.13.1",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-ejs": "^4.2.2",
@@ -36,6 +38,7 @@
     "@types/jquery.form": "^3.26.30",
     "cheerio": "^1.0.0-rc.9",
     "jquery": "^1.12.4",
+    "jquery.cookie": "^1.4.1",
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-controllers": "^0.1.6",

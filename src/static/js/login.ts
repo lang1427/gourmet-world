@@ -51,9 +51,9 @@ $(function () {
             $('#password').val(md5(<string>$('#password').val()))
             $("#loginform").ajaxSubmit({
                 success: function (res) {
-                    if(res.code === 1){
+                    if (res.code === 1) {
                         window.location.href = '/'
-                    }else{
+                    } else {
                         layer.msg(res.mes)
                         $('#password').val('')
                     }

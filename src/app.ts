@@ -19,7 +19,7 @@ app.use(async (ctx: Context, next) => {
 app.keys = ['kanglang']
 
 const sessionConf = {
-    maxAge: 56400   // 过期时间15分钟
+    maxAge: 900000   // 过期时间15分钟
 }
 
 app.use(session(sessionConf, app))
