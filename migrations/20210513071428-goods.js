@@ -70,6 +70,23 @@ module.exports = {
         default: 0,
         comment: '审核状态'
       },
+      step_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        comment: '步骤id'
+      },
+      like_count: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        default: 0,
+        comment: '点赞数量'
+      },
+      comment_count: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        default: 0,
+        comment: '评论数量'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

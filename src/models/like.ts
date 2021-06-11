@@ -7,7 +7,7 @@ import { IDataTypes } from "../@type-app/data-types";
 import { IModelsName } from "../@type-app/models-name";
 
 module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
-    class step extends Model {
+    class like extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -17,25 +17,33 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
             // define association here
         }
     };
-    step.init({
+    like.init({
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        desc: {
-            type: DataTypes.STRING(2000),
-            allowNull: false
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: (<any>Model).users,
+                key: 'id'
+            }
         },
-        url: {
-            type: DataTypes.STRING(5000),
-            allowNull: false
-        }
+        g_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: (<any>Model).goods,
+                key: 'id'
+            }
+        },
     }, {
         sequelize,
-        modelName: 'step',
+        modelName: 'like',
         freezeTableName: true
     });
-    return step;
+    return like;
 };

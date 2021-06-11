@@ -8,24 +8,27 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.createTable('step', {
+    await queryInterface.createTable('comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      desc: {
-        type: Sequelize.STRING(2000),
+      user_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        default: '',
-        comment: '步骤描述'
+        comment: '用户id'
       },
-      url: {
-        type: Sequelize.STRING(5000),
+      g_id: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        default: '',
-        comment: '步骤图片存放路径'
+        comment: '菜谱id'
+      },
+      comment: {
+        type: Sequelize.STRING(500),
+        allowNull: false,
+        comment: '评论内容'
       },
       createdAt: {
         allowNull: false,
@@ -48,6 +51,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('step');
+    await queryInterface.dropTable('comments');
   }
 };

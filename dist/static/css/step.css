@@ -1,0 +1,2068 @@
+.ui_title {
+    height: 35px;
+    border-bottom: 1px solid #eee;
+    position: relative
+}
+
+.ui_title_wrap {
+    line-height: 30px;
+    font-size: 20px
+}
+
+.ui_title_wrap h1,.ui_title_wrap h2,.ui_title_wrap h3 {
+    float: left;
+    font-weight: 400;
+    font-size: 20px;
+    margin-right: 20px;
+    color: #666;
+    padding-bottom: 4px;
+    outline: 0;
+    color: #333;
+    max-width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.ui_title_wrap h1 a,.ui_title_wrap h2 a,.ui_title_wrap h3 a {
+    color: #666
+}
+
+.ui_title_wrap h1.on,.ui_title_wrap h2.on,.ui_title_wrap h3.on {
+    color: #ff6767;
+    border-bottom: 3px solid #ff6767
+}
+
+.ui_title_wrap h1.on a,.ui_title_wrap h2.on a,.ui_title_wrap h3.on a {
+    color: #ff6767
+}
+
+.ui_title_wrap a.on {
+    color: #ff6767
+}
+
+.ui_title_wrap a {
+    text-decoration: none
+}
+
+.ui_title_wrap .right {
+    float: right;
+    margin: 0 0 0 20px;
+    font-size: 16px
+}
+
+.ui_no_data {
+    font-size: 20px;
+    padding: 100px;
+    padding-right: 0;
+    color: #999
+}
+
+.ui_no_data a,.ui_no_data a:hover {
+    color: #6599ff;
+    padding: 5px
+}
+
+.ui-loading {
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden
+}
+
+.ui-loading a {
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    color: #ff6767;
+    background-color: #f8f8f8;
+    outline: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    -moz-transition: color .3s ease-in-out .3s,background-color .3s ease-in-out .3s;
+    -o-transition: color .3s ease-in-out .3s,background-color .3s ease-in-out .3s;
+    -ms-transition: color .3s ease-in-out .3s,background-color .3s ease-in-out .3s;
+    transition: color .3s ease-in-out .3s,background-color .3s ease-in-out .3s
+}
+
+.ui-loading a:hover {
+    background-color: #ff8d8d;
+    color: #fff;
+    text-decoration: none
+}
+
+.ui-loading a.on {
+    cursor: default;
+    background: url(//static.meishichina.com/v6/img/loading-16-16.gif) no-repeat center center #f9f9f9;
+    text-indent: -9999em
+}
+
+li.feed {
+    display: none
+}
+
+#navlist .navlist_a {
+    padding: 0 10px;
+    color: #333
+}
+
+#navlist .on {
+    color: #ff6767
+}
+
+#navlist .navlist_a b,#navlist .navlist_a i {
+    position: absolute;
+    top: 15px;
+    right: 6px;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    border: 4px dashed transparent;
+    border-top: 6px solid #333
+}
+
+#navlist .navlist_a b {
+    top: 13px;
+    border-top: 6px solid #fff
+}
+
+#navlist .on i {
+    border-top: 6px solid #ff6767
+}
+
+#navlist_sub {
+    background: #fff;
+    width: 990px;
+    position: absolute;
+    right: 0;
+    top: 35px;
+    z-index: 50;
+    box-shadow: 0 2px 3px #ddd;
+    display: none;
+    overflow: hidden
+}
+
+#navlist_sub div {
+    float: left;
+    width: 15%;
+    margin: 0 .8%;
+    padding: 0 0 10px
+}
+
+#navlist_sub h4 {
+    padding: 15px 0 0 0;
+    width: 100%;
+    font-weight: 700;
+    clear: both
+}
+
+#navlist_sub h5 {
+    padding: 15px 3px 0;
+    width: 100%;
+    font-weight: 700;
+    clear: both
+}
+
+#navlist_sub ul {
+    float: left;
+    margin: 0 0 10px
+}
+
+#navlist_sub li {
+    line-height: 160%;
+    width: 47%;
+    padding: 0
+}
+
+#navlist_sub li a {
+    color: #333;
+    font-size: 12px;
+    line-height: 28px;
+    height: 28px
+}
+
+#navlist_sub li a:hover {
+    text-decoration: none;
+    color: #ff6767
+}
+
+.space_left {
+    width: 640px;
+    float: left;
+    overflow: hidden
+}
+
+.space_right {
+    width: 300px;
+    float: right;
+    overflow: hidden
+}
+
+.big3_list {
+    width: 100%
+}
+
+.big3_list ul {
+    display: block;
+    width: 1040px
+}
+
+.big3_list li {
+    float: left;
+    margin: 0 45px 20px 0;
+    text-align: center;
+    width: 300px;
+    height: 305px;
+    overflow: hidden
+}
+
+.big3_list li a {
+    display: block;
+    overflow: hidden;
+    text-decoration: none
+}
+
+.big3_list li a i {
+    display: block;
+    overflow: hidden;
+    width: 300px;
+    height: 250px
+}
+
+.big3_list li a img {
+    width: 300px;
+    height: 300px;
+    margin-top: -25px;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+.big3_list li:hover a img {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1)
+}
+
+.big3_list li a p {
+    font-size: 18px;
+    line-height: 120%;
+    padding: 5px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.big3_list li a span {
+    color: #999
+}
+
+.big4_list {
+    width: 100%
+}
+
+.big4_list ul {
+    display: block;
+    width: 1040px
+}
+
+.big4_list li {
+    float: left;
+    margin: 0 23px 0 0;
+    text-align: center;
+    width: 230px;
+    height: 305px;
+    overflow: hidden
+}
+
+.big4_list li a {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative
+}
+
+.big4_list li a span.copyright {
+    background: #333;
+    background: rgba(0,0,0,.5);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+    height: 20px;
+    left: 5px;
+    line-height: 20px;
+    padding: 1px 4px;
+    position: absolute;
+    top: 5px;
+    z-index: 1
+}
+
+.big4_list li a i {
+    display: block;
+    overflow: hidden;
+    width: 230px;
+    height: 230px
+}
+
+.big4_list li a img {
+    width: 230px;
+    height: 230px;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+.big4_list li:hover a img {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1)
+}
+
+.big4_list li a p {
+    font-size: 18px;
+    line-height: 120%;
+    padding: 8px 0 2px
+}
+
+.big4_list li a span {
+    color: #999
+}
+
+.big4_list li a.u {
+    margin: auto;
+    color: #999;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.big4_list li a.u:hover {
+    color: #ff6767
+}
+
+.big4_list li a span.copyright {
+    background: #333;
+    background: rgba(0,0,0,.5);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+    height: 20px;
+    left: 5px;
+    line-height: 20px;
+    padding: 1px 4px;
+    position: absolute;
+    top: 5px;
+    z-index: 1
+}
+
+.collect_d {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0
+}
+
+.collect_dp {
+    float: left;
+    width: 70%
+}
+
+.collect_dp h1 {
+    font-size: 32px;
+    padding: 10px 0
+}
+
+.collect_dp h1 a,.collect_dp h1 a:hover {
+    color: #333;
+    text-decoration: none
+}
+
+.collect_dp span,.collect_dp span a {
+    color: #999
+}
+
+.collect_da {
+    display: block;
+    float: right;
+    width: 30%;
+    margin: 20px 0 0
+}
+
+.collect_da li {
+    float: left;
+    width: 20%
+}
+
+.collect_da li a {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+    font-size: 11px
+}
+
+.collect_da li a {
+    text-decoration: none;
+    color: #666
+}
+
+.collect_da li a i {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 2px auto;
+    background: transparent url(//static.meishichina.com/v6/img/zhen/i.png?v=2) no-repeat;
+    background: rgba(0,0,0,0) url(//static.meishichina.com/v6/img/zhen/ix2.png?v=4) no-repeat scroll 0 0/auto 30px
+}
+
+.collect_da li.fav a i {
+    background-position: 0 0
+}
+
+.collect_da li.fav a.on i,.collect_da li.fav a:hover i {
+    background-position: -30px 0
+}
+
+.collect_da li a.J_s1 i {
+    background-position: -60px 0
+}
+
+.collect_da li a.J_s2 i {
+    background-position: -90px 0
+}
+
+.collect_da li a.J_s3 i {
+    background-position: -120px 0
+}
+
+.collect_da li a.J_s4 i {
+    background-position: -150px 0
+}
+
+.collect_da li a.J_col i {
+    background-position: -240px 0
+}
+
+.collect_da li.lik a i {
+    background-position: -210px 0
+}
+
+.collect_da li.lik a.on i,.collect_da li.lik a:hover i {
+    background-position: -180px 0
+}
+
+#bdshare {
+    display: none
+}
+
+.collect_txt {
+    font-size: 14px;
+    color: #999;
+    overflow: hidden;
+    line-height: 20px;
+    max-height: 3em
+}
+
+#collect_txt_show {
+    display: none;
+    padding: 1px 6px;
+    text-align: right
+}
+
+#collect_txt_show a {
+    color: #519af6
+}
+
+#collect_txt.collect_txt_all {
+    height: auto;
+    max-height: 100%
+}
+
+.get_num .collect_num,.get_num .collect_num_span,.get_num .substatus .left {
+    display: none
+}
+
+.ui_newlist_1 li {
+    padding: 0 0 20px 0;
+    clear: both
+}
+
+.ui_newlist_1 li h2 {
+    font-size: 20px;
+    padding: 3px 0 10px
+}
+
+.ui_newlist_1 li h2 em {
+    color: #ba2020;
+    font-style: normal
+}
+
+.ui_newlist_1 .pic {
+    float: left;
+    height: 180px;
+    width: 180px;
+    margin: 20px 0 0;
+    overflow: hidden;
+    position: relative
+}
+
+.ui_newlist_1 .pic span.copyright {
+    background: #333;
+    background: rgba(0,0,0,.5);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+    height: 20px;
+    left: 5px;
+    line-height: 20px;
+    padding: 1px 4px;
+    position: absolute;
+    top: 5px;
+    z-index: 1
+}
+
+.ui_newlist_1 .detail {
+    color: #666;
+    padding: 16px 0 0 200px
+}
+
+.ui_newlist_1 .detail p {
+    font-size: 14px
+}
+
+.ui_newlist_1 .subline {
+    padding: 0 0 2px 0
+}
+
+.ui_newlist_1 .subline a {
+    color: #999
+}
+
+.ui_newlist_1 .subcontent {
+    color: #333
+}
+
+.ui_newlist_1 .substatus {
+    line-height: 30px;
+    padding: 20px 0 0
+}
+
+.ui_newlist_1 .substatus .left,.ui_newlist_1 .substatus .left a {
+    color: #999
+}
+
+.ui_newlist_1 .substatus .right a {
+    color: #519af6
+}
+
+.ui_newlist_1 .substatus .right {
+    display: none
+}
+
+.ui_newlist_1 .get_nums {
+    color: #999;
+    display: none
+}
+
+.ui_newlist_1 li:hover .substatus .right {
+    display: block
+}
+
+.ui_newlist_1 .substatus a.right:hover {
+    background: #ff6767;
+    color: #fff;
+    text-decoration: none
+}
+
+.ui_newlist_1 li img {
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+.ui_newlist_1 li:hover img {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1)
+}
+
+.new_r_list li {
+    padding: 15px 0 0;
+    clear: both
+}
+
+.new_r_list li .pic {
+    float: left
+}
+
+.new_r_list li p {
+    padding: 0 0 0 70px
+}
+
+.new_r_list li p.p90 {
+    padding: 0 0 0 90px
+}
+
+.new_r_list li p a {
+    font-size: 16px;
+    line-height: 1.2em
+}
+
+.new_r_list li p span {
+    color: #999
+}
+
+.new_r_list li img.imgLoad {
+    background: #f2f2f2 url(//static.meishichina.com/v6/img/loading-16-16.gif) no-repeat scroll center center;
+    display: block
+}
+
+.home_index_slider {
+    position: relative;
+    height: 225px;
+    width: 990px;
+    overflow: hidden
+}
+
+#home_index_slider {
+    height: 225px;
+    overflow: hidden;
+    position: relative;
+    width: 990px
+}
+
+#home_index_slider ul {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0
+}
+
+#home_index_slider li {
+    display: block;
+    height: 225px;
+    overflow: hidden;
+    position: relative;
+    width: 345px;
+    float: left;
+    padding: 0
+}
+
+#home_index_slider li a {
+    width: 300px;
+    height: 225px;
+    display: block;
+    float: left;
+    margin: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden
+}
+
+#home_index_slider li a i {
+    display: block;
+    height: 225px;
+    overflow: hidden;
+    width: 300px
+}
+
+#home_index_slider li a img {
+    height: 300px;
+    margin-top: -37px;
+    width: 300px;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+#home_index_slider li a:hover img {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1)
+}
+
+#home_index_slider li a .os {
+    width: 300px;
+    height: 250px;
+    background: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    filter: alpha(opacity=20);
+    -moz-opacity: .2;
+    -khtml-opacity: .2;
+    opacity: .2
+}
+
+#home_index_slider li a p {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    font-size: 26px;
+    line-height: 120%;
+    display: block;
+    width: 240px;
+    padding: 0 30px;
+    height: 75px;
+    margin-top: -30px;
+    text-align: center;
+    z-index: 2
+}
+
+#home_index_slider li a p.line2 {
+    font-size: 20px
+}
+
+#home_index_slider li a p span {
+    font-size: 12px
+}
+
+.home_index_slider .nextBtn,.home_index_slider .prevBtn {
+    z-index: 3;
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    background-color: #000;
+    opacity: .3;
+    filter: alpha(opacity=30);
+    overflow: hidden;
+    text-indent: -9999em;
+    top: 87.5px;
+    left: 0;
+    cursor: pointer
+}
+
+.home_index_slider .nextBtn:hover,.home_index_slider .prevBtn:hover {
+    text-decoration: none;
+    opacity: .7;
+    filter: alpha(opacity=70);
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s
+}
+
+.home_index_slider .nextBtn i,.home_index_slider .prevBtn i {
+    display: block;
+    background: url(//static.meishichina.com/v6/img/lookImg/arrow.png) no-repeat;
+    width: 18px;
+    height: 35px;
+    margin: 7px 0 0 11px
+}
+
+.home_index_slider .nextBtn {
+    left: auto;
+    right: 0
+}
+
+.home_index_slider .nextBtn i {
+    background-position: -18px 0
+}
+
+.home_index_slider .controls {
+    display: none
+}
+
+.recipe_index_n10 {
+    padding: 0
+}
+
+.recipe_index_n10 a {
+    float: left;
+    width: 99px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px
+}
+
+.recipe_index_n10 a img {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 5px;
+    background: #f2f2f2 url(//static.meishichina.com/v6/img/loading-16-16.gif) no-repeat scroll center center;
+    border-radius: 50%
+}
+
+#recipeindex_info {
+    margin: 30px 0 0 0
+}
+
+#recipeindex_info_wrap {
+    background: #fff;
+    padding: 10px 0 5px;
+    width: 990px;
+    overflow: hidden
+}
+
+#recipeindex_living ul {
+    display: none
+}
+
+#recipeindex_living ul.on {
+    display: block
+}
+
+.category_sub {
+    margin: 0 0 30px 0;
+    width: 100%;
+    overflow: hidden;
+    background: #f8f8f8;
+    position: relative;
+    border-top: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA
+}
+
+.category_sub h3 {
+    float: left;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: -20px;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: 186px;
+    color: #666
+}
+
+.category_sub ul {
+    width: 804px;
+    float: right;
+    background: #fff;
+    margin-bottom: -1px;
+    overflow: hidden
+}
+
+.category_sub li {
+    float: left;
+    position: relative
+}
+
+.category_sub a {
+    float: left;
+    height: 70px;
+    line-height: 64px;
+    width: 133px;
+    border-left: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.category_sub a:hover {
+    background: #F8F8F8
+}
+
+.category_sub span {
+    line-height: 20px;
+    position: absolute;
+    bottom: 7px;
+    font-size: 12px;
+    color: #999;
+    width: 100%;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.userTop {
+    padding: 5px 0 10px 0
+}
+
+.userTop h1 {
+    float: left;
+    width: 535px;
+    line-height: 36px;
+    padding: 5px 0 0
+}
+
+.userTop a.uright {
+    float: right;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100px
+}
+
+.userTop a#recipe_title {
+    font-size: 32px;
+    text-decoration: none;
+    color: #333;
+    vertical-align: middle;
+    font-weight: bold
+}
+
+.userTop a {
+    color: #111;
+    text-decoration: none
+}
+
+.userTop a:hover {
+    color: #ff6767
+}
+
+.userTop .userName {
+    font-size: 12px
+}
+
+.userTop img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 2px
+}
+
+.userTop .rtime {
+    float: right;
+    color: #999;
+    line-height: 26px
+}
+
+.userTop h1 span.copyright {
+    background: #ff6767;
+    vertical-align: middle;
+    color: #fff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    display: inline-block;
+    height: 18px;
+    line-height: 18px
+}
+
+.space_box_home .recipDetail .recipe_De_title {
+    padding: 20px 0;
+    font-size: 24px
+}
+
+.space_box_home .recipDetail .recipe_De_imgBox {
+    /* background: url(//static.meishichina.com/v6/img/newrecipe/bg_89.jpg); */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    cursor: pointer
+}
+
+.space_box_home .recipDetail .recipe_De_imgBox p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 46px;
+    background: #000;
+    margin-left: -90px;
+    margin-top: -23px;
+    border-radius: 5px;
+    overflow: hidden
+}
+
+.space_box_home .recipDetail .recipe_De_imgBox p .De_photo {
+    display: block;
+    height: 46px;
+    line-height: 46px;
+    font-size: 16px;
+    color: #fff;
+    text-align: left;
+    padding-left: 73px;
+    letter-spacing: .1em
+}
+
+.space_box_home .recipDetail .recipe_De_imgBox p .De_bg {
+    display: block;
+    float: left;
+    height: 100%;
+    background: url(//static.meishichina.com/v6/img/newrecipe/log_14.png) no-repeat scroll 30px -272px #000;
+    width: 80px
+}
+
+.space_box_home .recipDetail .block_txt {
+    margin: 30px 0 0 0;
+    font-size: 16px
+}
+
+.space_box_home .recipDetail .block_txt .txt_tart {
+    text-indent: -10px
+}
+
+.space_box_home .recipDetail .block_txt .txt_end,.space_box_home .recipDetail .block_txt .txt_tart {
+    font-size: 40px;
+    font-family: "宋体","Hiragino Sans GB",STHeiti,"微软雅黑","Microsoft YaHei";
+    color: #bfbfbf;
+    height: 16px;
+    line-height: 100%;
+    width: 30px;
+    overflow: hidden;
+    display: inline-block;
+    zoom:1;display: inline;
+    line-height: 40px
+}
+
+.ui_nav_box2 .ui_title_wrap a.right {
+    float: right;
+    font-size: 12px;
+    margin: 0;
+    color: #999;
+    padding: 0;
+    border: none
+}
+
+a.J_photo {
+    display: block;
+    font-size: 0;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 640px
+}
+
+a.J_photo span {
+    display: inline-block;
+    font-size: 0;
+    height: 100%;
+    line-height: 0;
+    margin-left: -1px;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 0
+}
+
+a.J_photo img {
+    max-width: 100%
+}
+
+#addtocollect {
+    padding: 20px
+}
+
+#addtocollect div.line {
+    padding: 5px 0
+}
+
+#addtocollect div.line span {
+    color: #5b5b5b;
+    font-size: 12px
+}
+
+#addtocollect div.line span.gay {
+    color: #ccc
+}
+
+#addtocollect div.line a {
+    color: #6599ff;
+    font-size: 12px
+}
+
+#addtocollect select {
+    display: none;
+    font-size: 14px
+}
+
+#addtocollect textarea {
+    vertical-align: sub;
+    width: 270px;
+    height: 90px;
+    color: #ccc;
+    border: 1px solid #ccc;
+    padding: 5px;
+    line-height: 130%
+}
+
+#addtocollect textarea.color_5b {
+    color: #5b5b5b
+}
+
+h3.recipe_De_title {
+    display: none
+}
+
+.recipeTag {
+    padding: 10px 0;
+    color: #999
+}
+
+.recipeTag a {
+    color: #519af6;
+    padding: 0 5px
+}
+
+.recipeTag a:hover {
+    color: #519af6;
+    text-decoration: underline
+}
+
+.recipeCategory_sub_R {
+    width: 100%
+}
+
+.recipeCategory_sub_R ul {
+    display: block;
+    float: left;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.recipeCategory_sub_R li {
+    float: left;
+    width: 159px;
+    text-align: center;
+    height: 70px;
+    position: relative;
+}
+
+.recipeCategory_sub_R li .category_s1 {
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    line-height: 45px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #666
+}
+
+.recipeCategory_sub_R li .category_s1 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-decoration: none
+}
+
+.recipeCategory_sub_R li .category_s1 a:hover {
+    color: #ff6767
+}
+
+.recipeCategory_sub_R li .category_s1 a b:before {
+    content: '';
+    width: 15px;
+    display: inline-block
+}
+
+.recipeCategory_sub_R li .category_s1 a b:after {
+    background: url(//static.meishichina.com/v6/img/newrecipe/link12.png) no-repeat scroll 0 0;
+    background: rgba(0,0,0,0) url(//static.meishichina.com/v6/img/newrecipe/link24.png) no-repeat scroll 0 0/12px auto;
+    content: "";
+    display: inline-block;
+    height: 12px;
+    margin: -2px 0 0 4px;
+    vertical-align: middle;
+    width: 12px
+}
+
+.recipeCategory_sub_R li .category_s1 a:hover b:after {
+    background: url(//static.meishichina.com/v6/img/newrecipe/link12.png) no-repeat scroll 0 -12px;
+    background: rgba(0,0,0,0) url(//static.meishichina.com/v6/img/newrecipe/link24.png) no-repeat scroll 0 -12px/12px auto
+}
+
+.recipeCategory_sub_R li .category_s2 {
+    color: #999;
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    overflow: hidden;
+    text-align: center;
+    width: 84%;
+    margin: 0 auto;
+}
+
+.recipeStep li {
+    display: block;
+    margin: 0 0 40px 0
+}
+
+.recipeCategory_sub_R div {
+    padding: 1px 0;
+    font-size: 14px
+}
+
+.recipeCategory_sub_R div a {
+    color: #519af6;
+    padding: 0 10px 0 0
+}
+
+.recipeStep li .recipeStep_img {
+    width: 240px;
+    display: inline-block;
+    zoom:1;position: relative
+}
+
+.recipeStep li .noStep_img {
+    height: 30px;
+    width: 52px
+}
+
+.recipeStep li .recipeStep_img img {
+    width: 220px;
+    background: url(//static.meishichina.com/v6/img/lib/load.png) no-repeat scroll center center #f8f8f8
+}
+
+.recipeStep li .recipeStep_word {
+    position: relative;
+    width: 390px;
+    display: inline-block;
+    zoom:1;vertical-align: middle;
+    font-size: 18px
+}
+
+.recipeStep li .noStep_word {
+    width: 100%
+}
+
+.recipeStep_num {
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    font-size: 18px;
+    height: 34px;
+    left: 0;
+    line-height: 34px;
+    position: absolute;
+    text-align: center;
+    top: -44px;
+    width: 34px
+}
+
+.recipeStep_zoom {
+    display: none;
+    background: url(//static.meishichina.com/v6/img/xian/zoom.png) no-repeat;
+    bottom: 3px;
+    cursor: pointer;
+    height: 20px;
+    position: absolute;
+    right: 42px;
+    width: 20px
+}
+
+.recipeTip {
+    font-size: 16px
+}
+
+.recipeArction {
+    padding: 15px 0
+}
+
+#recipe_addcolist {
+    height: 17px;
+    line-height: 17px;
+    text-decoration: none;
+    float: left;
+    background: #ba2020;
+    border: 1px solid #ba2020;
+    color: #fff;
+    border-radius: 3px;
+    padding: 0 10px;
+    margin: 6px 1px 6px 0
+}
+
+.collectTitle h2 {
+    float: left;
+    font-size: 24px;
+    color: #333;
+    line-height: 24px;
+    padding: 10px 0
+}
+
+.collectTitle span {
+    float: left;
+    font-size: 14px;
+    color: #999;
+    line-height: 24px;
+    padding: 10px
+}
+
+.collectArction {
+    padding: 15px 0
+}
+
+p.J_photo {
+    display: none
+}
+
+.recipeArction .collect_da {
+    display: block;
+    float: none;
+    margin: auto;
+    width: 640px
+}
+
+.recipeArction .collect_da li {
+    float: left;
+    width: 77px
+}
+
+.recipe_topic {
+    overflow: hidden
+}
+
+.recipe_topic ul {
+    width: 666px
+}
+
+.recipe_topic li {
+    float: left;
+    float: left;
+    margin: 0 12px 20px 0;
+    width: 120px
+}
+
+.recipe_topic li a {
+    display: block;
+    text-decoration: none
+}
+
+.recipe_topic li a span {
+    background: #fafafa;
+    color: #585858;
+    font-size: 14px;
+    height: 38px;
+    line-height: 38px;
+    overflow: hidden;
+    text-align: center;
+    width: 120px;
+    display: block;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.recipe_topic li a:hover span {
+    background: #E9E9E9;
+    text-decoration: none
+}
+
+.a_main_recipe {
+    margin: 20px 0 0 0
+}
+
+.a_main_recipe>div {
+    float: left;
+    padding: 0 0 15px;
+    width: 16.66%;
+    font-size: 14px;
+    color: #ccc
+}
+
+.a_main_recipe>div h5 {
+    font-size: 14px;
+    color: #ba2020;
+    padding: 0 0 5px 0
+}
+
+.recipeH5line3 h5 {
+    color: #ba2020;
+    font-size: 14px
+}
+
+.recipeH5line3 li {
+    width: 33.3%;
+    float: left;
+    font-size: 14px
+}
+
+.sPic2List6 {
+    overflow: hidden;
+    width: 100%
+}
+
+.sPic2List6 .Pic {
+    float: left;
+    width: 46.5%
+}
+
+.sPic2List6 .Pic a {
+    display: block;
+    margin: 10px 10px 0 0
+}
+
+.sPic2List6 ul {
+    float: left;
+    width: 50%;
+    padding: 5px 0 0
+}
+
+.sPic2List6 li {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 240%
+}
+
+.sPic2 {
+    overflow: hidden;
+    width: 100%
+}
+
+.sPic2 ul {
+    display: block;
+    width: 320px
+}
+
+.sPic2 ul li {
+    width: 140px;
+    margin: 20px 20px 0 0;
+    float: left
+}
+
+.sList2 {
+    overflow: hidden;
+    width: 100%
+}
+
+.sList2 ul {
+    padding: 10px 0 0 0
+}
+
+.sList2 li {
+    float: left;
+    width: 48%;
+    padding: 0 2% 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 180%
+}
+
+.sList4 {
+    overflow: hidden;
+    width: 100%
+}
+
+.sList4 ul {
+    padding: 10px 0 0 0
+}
+
+.sList4 li {
+    float: left;
+    width: 25%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 180%
+}
+
+.kanbox {
+    clear: both;
+    float: left;
+    width: 650px;
+    padding: 10px 0 20px 0
+}
+
+.kanbox a {
+    clear: both;
+    float: left;
+    width: 650px;
+    display: block;
+    border: 1px solid #f0f0f0;
+    border-left: none;
+    border-right: 0
+}
+
+.kanbox .kanpic {
+    clear: none;
+    float: left;
+    width: 110px;
+    color: #ba2020
+}
+
+.kanbox .kandetail {
+    clear: none;
+    float: left;
+    width: 460px
+}
+
+.kandetail h4 {
+    width: 440px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px
+}
+
+.kandetail div {
+    width: 440px;
+    font-size: 12px;
+    color: #777
+}
+
+.kanbox a:active .kandetail div,.kanbox a:hover .kandetail div {
+    color: #555
+}
+
+.kandetail p {
+    width: 440px;
+    font-size: 12px;
+    color: #aaa
+}
+
+.kanbox a:active .kandetail p,.kanbox a:hover .kandetail p {
+    color: #999
+}
+
+.kanactive {
+    clear: none;
+    float: left;
+    width: 80px;
+    padding-top: 19px;
+    text-align: right
+}
+
+.kankan {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-radius: 30px;
+    background: #ff8f30;
+    color: #fff;
+    font-size: 18px;
+    line-height: 58px
+}
+
+.kanbox a:active .kankan,.kanbox a:hover .kankan {
+    background: #f50
+}
+
+#path,#path2 {
+    clear: both;
+    color: #111;
+}
+
+#path a,#path2 a {
+    color: #111
+}
+
+#path a.on,#path a:hover {
+    color: #ff6767
+}
+
+#path ins {
+    float: right;
+    text-decoration: none
+}
+
+#path .vest {
+    padding-right: 10px
+}
+
+.bd_weixin_popup .bd_weixin_popup_foot,.bd_weixin_popup .bd_weixin_popup_head span {
+    display: none!important
+}
+
+.pai_zhen {
+    background: #eee;
+    margin: 20px auto 0;
+    height: 60px;
+    width: 382px
+}
+
+.pai_zhen a img {
+    margin: 0 10px 0 0;
+    float: left;
+    width: 58px;
+    margin: 1px
+}
+
+.pai_zhen div {
+    width: 225px;
+    float: left;
+    padding: 0 10px
+}
+
+.pai_zhen div a {
+    display: block;
+    font-size: 14px;
+    padding: 6px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.pai_zhen div span {
+    color: #ff6767
+}
+
+.pai_zhen p a {
+    display: block;
+    float: right;
+    width: 60px;
+    height: 60px;
+    background: #e5e5e5
+}
+
+.pai_zhen p a:hover {
+    background: #e5e5e5
+}
+
+.pai_zhen p img {
+    margin: 15px;
+    float: right;
+    width: 30px
+}
+
+.collect_da3 {
+    width: 100%;
+    margin: 0
+}
+
+.left3_list {
+    width: 100%
+}
+
+.left3_list ul {
+    display: block;
+    width: 666px
+}
+
+.left3_list li {
+    float: left;
+    margin: 0 20px 0 0;
+    text-align: center;
+    width: 200px;
+    height: 275px;
+    overflow: hidden
+}
+
+.left3_list li a {
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    position: relative
+}
+
+.left3_list li a span.copyright {
+    background: #333;
+    background: rgba(0,0,0,.5);
+    border-radius: 3px;
+    color: #fff;
+    font-size: 12px;
+    height: 20px;
+    left: 5px;
+    line-height: 20px;
+    padding: 1px 4px;
+    position: absolute;
+    top: 5px;
+    z-index: 1
+}
+
+.left3_list li a i {
+    display: block;
+    overflow: hidden;
+    width: 200px;
+    height: 200px
+}
+
+.left3_list li a img {
+    width: 200px;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+.left3_list li:hover a img {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1)
+}
+
+.left3_list li a p {
+    font-size: 18px;
+    line-height: 120%;
+    padding: 8px 0 2px
+}
+
+.left3_list li a p em {
+    font-style: normal
+}
+
+.left3_list li a span {
+    color: #999
+}
+
+.left3_list li a.u {
+    margin: auto;
+    color: #999;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.left3_list li a.u:hover {
+    color: #ff6767
+}
+
+.left3_list li span.mf {
+    border: 1px solid #ff6767;
+    display: inline-block;
+    margin: auto;
+    border-radius: 3px;
+    color: #ff6767;
+    font-size: 11px;
+    padding: 0 4px;
+    margin: 3px 0 0 0
+}
+
+.recipe_rlist li {
+    height: 60px;
+    padding: 15px 0 0 0;
+    clear: both
+}
+
+.recipe_rlist li a {
+    height: 100%;
+    display: block
+}
+
+.recipe_rlist li a:hover {
+    text-decoration: none
+}
+
+.recipe_rlist img {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin: 0 10px 0 0
+}
+
+.recipe_rlist p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.recipe_rlist .t1 {
+    font-size: 16px
+}
+
+.recipe_rlist .t2 {
+    padding: 5px 0 0 0;
+    color: #666
+}
+
+.recipe_rlist .t3 {
+    font-size: 16px
+}
+
+.tuijian {
+    padding: 5px 0 0 0
+}
+
+.tuijian p {
+    font-size: 16px;
+    padding: 10px 0 0;
+    line-height: 26px
+}
+
+.tuijian p a {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.tuijian p a:before {
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    content: "";
+    float: left;
+    height: 5px;
+    margin: 8px 8px 0 2px;
+    vertical-align: middle;
+    width: 5px
+}
+
+.tuijian p a:hover {
+    text-decoration: none
+}
+
+.tuijian p a:hover:before {
+    border: 2px solid #ff6767
+}
+
+.gongxiao_r {
+    width: 100%;
+    overflow: hidden
+}
+
+.gongxiao_r div {
+    width: 333px
+}
+
+.gongxiao_r div a {
+    float: left;
+    width: 88px;
+    border: 1px solid #eee;
+    margin: 15px 15px 0 0;
+    text-align: center;
+    font-size: 14px;
+    height: 34px;
+    line-height: 34px
+}
+
+.gongxiao_r div a:hover {
+    text-decoration: none;
+    border: 1px solid #ff6767
+}
+
+.copyright {
+    color: #999
+}
+
+#getRecommendNewRecipe li {
+    padding: 0
+}
+
+#getRecommendNewRecipe .pic {
+    width: 120px;
+    height: 120px
+}
+
+#getRecommendNewRecipe .pic img {
+    width: 100%;
+    height: 100%
+}
+
+#getRecommendNewRecipe .detail {
+    padding: 16px 0 0 140px
+}
+
+.timeline a {
+    color: #888;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0
+}
+
+.timeline a:hover {
+    text-decoration: none;
+}
+
+.timeline h2 {
+    font-size: 20px;
+    color: #111;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 120%
+}
+
+.timeline a:hover h2 {
+    color: #ff6767
+}
+
+.timeline p {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 100%
+}
+
+.timeline span {
+    font-size: 12px;
+    line-height: 100%
+}
+
+.timeline .t1 h2 {
+    padding: 5px 5px 0 0
+}
+
+.timeline .t1 p {
+    padding: 15px 0 40px;
+    height: 1em;
+}
+
+.timeline .t1 div {
+    float: left;
+    width: 120px;
+    height: 120px;
+    margin: 0 10px 0 0;
+    overflow: hidden;
+}
+
+.timeline .t1 div b {
+    display: block;
+}
+
+.timeline .t1 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out
+}
+
+.timeline .t1 a:hover img {
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1)
+}
+
+.timeline .t2 h2 {
+    padding: 0 0 10px 0
+}
+
+.timeline .t2 p {
+    padding: 0 0 10px 0
+}
+
+.timeline .t2 div {
+    float: left;
+    width: 120px;
+    height: 120px;
+    margin: 0 15px 0 0
+}
+
+.timeline .t2 div b {
+    display: block;
+}
+
+.timeline .t2 img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9;
+}
+
+.timeline .t2 span {
+    clear: both;
+    display: block;
+    padding: 10px 0 0 0
+}
+
+.timeline .t3 h2 {
+    padding: 0 0 10px 0
+}
+
+.timeline .t3 p {
+    padding: 0 0 10px 0
+}
+
+.timeline .t3 div {
+    width: 50%;
+    position: relative;
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.timeline .t3 div.video:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+    background: url(//static.meishichina.com/v6/img/lib/play.png) no-repeat center center/50px 50px
+}
+
+.timeline .t3 div b {
+    display: block;
+    background: #f9f9f9;
+    height: 0;
+    overflow: hidden
+}
+
+.timeline .t3 img {
+    display: block;
+    width: 100%
+}
+
+.timeline .t3 span {
+    clear: both;
+    display: block;
+    padding: 10px 0 0 0
+}
+
+.particulars {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 0 0 10px 0;
+    margin: 0 0 15px 0
+}
+
+.particulars legend {
+    font-size: 16px;
+    margin: 0 35px;
+    padding: 0 10px
+}
+
+.particulars .recipeCategory_sub_R ul {
+    border: none
+}
+
+.collect_da li.com a i {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 2px auto;
+    background: transparent url(//static.meishichina.com/v6/img/zhen/pl3.png?v=2) no-repeat;
+    background: rgba(0,0,0,0) url(//static.meishichina.com/v6/img/zhen/pl3.png?v=2) no-repeat scroll 0 0/auto 30px;
+}
+
+.gongxiao_r div a {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.more_recipe a {
+    margin: 0 0 0 20px;
+    font-size: 16px;
+}
+
+.left3_list li a .tit {
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding: 8px 0 1px
+}

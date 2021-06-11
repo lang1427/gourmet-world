@@ -6,17 +6,23 @@ import { Sequelize } from "sequelize";
 import { IDataTypes } from "../@type-app/data-types";
 import { IModelsName } from "../@type-app/models-name";
 
-module.exports = (sequelize:Sequelize, DataTypes:IDataTypes) => {
+module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
     class goods extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
          * The `models/index` file will call this method automatically.
          */
-        static associate(models:IModelsName) {
+        static associate(models: IModelsName) {
             // define association here
             goods.belongsTo(models.users, {
                 foreignKey: 'user_id'
+            })
+            goods.belongsTo(models.step, {
+                foreignKey: 'step_id'
+            })
+            goods.belongsTo(models.category, {
+                foreignKey: 'category_id'
             })
         }
     };
@@ -31,13 +37,17 @@ module.exports = (sequelize:Sequelize, DataTypes:IDataTypes) => {
             type: DataTypes.STRING(30),
             allowNull: false
         },
+        img: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
                 model: (<any>Model).users,
                 key: 'id'
-            } 
+            }
         },
         desc: {
             type: DataTypes.STRING(500),
@@ -61,10 +71,32 @@ module.exports = (sequelize:Sequelize, DataTypes:IDataTypes) => {
         },
         category_id: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references: {
+                model: Model.category,
+                key: 'id'
+            }
         },
         status: {
             type: DataTypes.TINYINT,
+            allowNull: false,
+            defaultValue: 0
+        },
+        step_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: Model.step,
+                key: 'id'
+            }
+        },
+        like_count: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
+        comment_count: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
         }
