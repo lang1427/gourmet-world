@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/public/css/user.css">
+<input type="hidden" id="userid" value="<%= userid %> ">
+<!-- 个人信息 -->
+<div class="space_wrap">
+    <div class="space_info w">
+        <div class="mod clear">
+            <div class="pic">
+                <a href="javascript:window.location.reload();">
+                    <img class="imgLoad"
+                        src="https://i5.meishichina.com/data/avatar/001/80/65/50_avatar_big.jpg?x-oss-process=style/c320&amp;v=2021061510"
+                        width="150" height="150" alt="" style="display: block;"></a>
+            </div>
+            <div class="detail">
+                <div class="subname">
+                    <em><a href="javascript:window.location.reload();">
+                            <%= username %>
+                        </a></em>
+                    <i class="space_icon woman"></i>
+                    <br>
+                    <i class="messagenum">
+                        <%= create_user %> 加入
+                    </i>
+                </div>
+
+                <div class="subtools clear">
+
+                    <div class="subbtn left" style="display:none"></div>
+
+                    <div class="right">
+                        <ul class="substatus">
+                            <li>
+                                <a title="粉丝" href="javascript:void(0);" rel="nofollow">
+                                    <b class="followedcount" style="font-size:12px;color:#999;">暂无统计</b><br>
+                                    粉丝
+                                </a>
+                            </li>
+                            <li>
+                                <a title="关注" href="javascript:void(0);" rel="nofollow">
+                                    <b class="followingcount" style="font-size:12px;color:#999;">暂无统计</b><br>
+                                    关注
+                                </a>
+                            </li>
+                            <li class="last">
+                                <a title="喜欢的作品" href="javascript:void(0);" rel="nofollow">
+                                    <b class="viewnum">
+                                        <%= like_count %>
+                                    </b><br>
+                                    喜欢的作品
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/js/user.js"></script>

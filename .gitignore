@@ -5,6 +5,7 @@ dist/controllers
 dist/models
 dist/static/js
 dist/app.js
+dist/formatDate.js
 
 # local env files
 .env.local

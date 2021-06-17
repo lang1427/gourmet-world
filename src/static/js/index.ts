@@ -21,6 +21,5 @@ $(function () {
         nextHtml: '<a class="nextBtn" href="javascript:void(0);"><i>&nbsp;</i></a>'
     });
 
-    // 菜谱图片懒加载
-    $('img.imgLoad').lazyload()
+
 })

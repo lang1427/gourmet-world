@@ -1,0 +1,151 @@
+<%- include('../../components/header'); -%>
+<%- include('../../components/user-info') -%> 
+    <!-- 菜谱、话题、日志 -->
+    <div class="wrap">
+        <div class="w clear">
+
+            <div class="ui_title mt10">
+                <div class="ui_title_wrap clear">
+                    <h3 class="on"><a target="_blank"
+                            href="/user/menu-page/1?userid=<%= userid %> "><%= username %> 的菜谱</a></h3>
+                    <a href="javascript:void(0)" class="recipe_ser"></a>
+                    <a target="_blank" class="right"
+                        href="/user/menu-page/1?userid=<%= userid %> ">共<%= good_num %>篇</a>
+                </div>
+            </div>
+            <div class="search_b">
+                <span>
+                    <input name="recipename" id="tbid" onkeydown="keyLogin(event)" placeholder="搜索本作者的菜谱" type="text"
+                        value="">&nbsp;
+                    <input value="　搜索　" type="submit" id="tbid_btn" class="ui_btn">
+                </span>
+                <a class="ui_btn close" href="javascript:void(0);">关闭</a>
+                &nbsp;
+            </div>
+
+            <div class="big4_list clear mt10">
+                <ul>
+                    <% for(let i = 0; i < goods_list.length; i++){ %> 
+                        <li>
+                            <a title="<%= goods_list[i].good_name %> " href="/step?g_id=<%=goods_list[i].good_id%>" target="_blank">
+                                <span class="copyright">独家</span>
+                                <i>
+                                    <img alt="<%= goods_list[i].good_name %> " class="imgLoad" src="//static.meishichina.com/v6/img/blank.gif" data-original="<%= goods_list[i].good_img %> "  style="display: block;">
+                                </i>
+                                <p><%= goods_list[i].good_name %></p>
+                            </a>
+                        </li>
+                    <% } %> 
+
+                </ul>
+            </div>
+            <!-- 话题 -->
+            <div class="ui_title mt10">
+                <div class="ui_title_wrap clear">
+                    <h3 class="on"><a target="_blank"
+                            href="https://home.meishichina.com/space-1806550-do-pai.html"><%= username %> 的话题</a></h3>
+
+                    <a target="_blank" class="right"
+                        href="https://home.meishichina.com/space-1806550-do-pai.html">共4791个</a>
+                </div>
+            </div>
+
+            <div class="pin_list clear">
+                <ul>
+                    <li>
+                        <div class="u">
+                            <a href="javascript:window.location.reload();" target="_blank"><img width="40"
+                                    height="40" class="imgLoad"
+                                    src="https://i5.meishichina.com/data/avatar/001/80/65/50_avatar_big.jpg?x-oss-process=style/c180&amp;v=1623723155"
+                                    style="display: block;"></a>
+                            <div>
+                                <a href="javascript:window.location.reload();" class="t"
+                                    target="_blank"><%= username %> </a>
+                                <span>2021-06-15 05:57</span>
+                            </div>
+                        </div>
+
+                        <div class="c clear">
+                            <div class="pp"><a href="https://home.meishichina.com/pai-1352426.html" target="_blank">#早餐#
+                                    青菜黄瓜精肉
+                                    雪魔芋
+                                    樱桃</a></div>
+                            <a class="clear" href="https://home.meishichina.com/pai-1352426.html" target="_blank">
+                                <img class="imgLoad"
+                                    src="https://i3.meishichina.com/attachment/pai/2021/06/15/2021061516237081337069821806550.jpg?x-oss-process=style/c180"
+                                    style="display: block;">
+                                <img class="imgLoad"
+                                    src="https://i3.meishichina.com/attachment/pai/2021/06/15/2021061516237081346939011806550.jpg?x-oss-process=style/c180"
+                                    style="display: block;">
+                                <img class="imgLoad"
+                                    src="https://i3.meishichina.com/attachment/pai/2021/06/15/2021061516237081353092861806550.jpg?x-oss-process=style/c180"
+                                    style="display: block;">
+                            </a>
+                            <span>2个喜欢，3条评论</span>
+                        </div>
+
+                    </li>
+                    <li class="clear">
+                        <div class="u">
+                            <a href="javascript:window.location.reload();" target="_blank"><img width="40"
+                                    height="40" class="imgLoad"
+                                    src="https://i5.meishichina.com/data/avatar/001/80/65/50_avatar_big.jpg?x-oss-process=style/c180&amp;v=1623723155"
+                                    style="display: block;"></a>
+                            <div>
+                                <a href="javascript:window.location.reload();" class="t"
+                                    target="_blank"><%= username %> </a>
+                                <span>2021-06-14 06:01</span>
+                            </div>
+                        </div>
+
+                        <div class="c clear">
+                            <div class="pp"><a href="https://home.meishichina.com/pai-1352196.html" target="_blank">#早餐#
+                                    牛奶
+                                    三丝茄子
+                                    煮西兰花
+                                    梅花肉拌马齿苋
+                                    肉酱
+                                    樱桃
+                                    还有忘了拍的馒头</a></div>
+                            <a class="clear" href="https://home.meishichina.com/pai-1352196.html" target="_blank">
+                                <img class="imgLoad"
+                                    src="https://i3.meishichina.com/attachment/pai/2021/06/14/2021061416236219659754911806550.jpg?x-oss-process=style/c180"
+                                    style="display: block;">
+                            </a>
+                            <span>5个喜欢，6条评论</span>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <!-- 日志 -->
+            <div class="ui_title mt10">
+                <div class="ui_title_wrap clear">
+                    <h3 class="on"><a target="_blank"
+                            href="https://home.meishichina.com/space-1806550-do-blog.html"><%= username %> 的日志</a></h3>
+
+                    <a target="_blank" class="right"
+                        href="https://home.meishichina.com/space-1806550-do-blog.html">共114篇</a>
+                </div>
+            </div>
+
+            <div class="big4_list big4_list2 clear mt10">
+                <ul>
+                    <li>
+                        <a title="香煎扁豆夹" href="https://home.meishichina.com/space-1806550-do-blog-id-539839.html"
+                            target="_blank">
+                            <i>
+                                <img alt="香煎扁豆夹" class="imgLoad"
+                                    src="https://i3.meishichina.com/attachment/good/2014/10/13/20141013152615415759611.jpg?x-oss-process=style/f320x240"
+                                    style="display: block;">
+                            </i>
+                            <p>香煎扁豆夹</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    
+    <%- include('../../components/footer') -%>

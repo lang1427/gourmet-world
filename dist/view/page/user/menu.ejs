@@ -1,0 +1,104 @@
+<%- include('../../components/header'); -%>
+    <%- include('../../components/user-info') -%>
+        <div class="wrap">
+            <div class="w clear">
+                <!-- 左侧 -->
+                <div class="space_left">
+                    <div class="ui_title mt10">
+                        <div class="ui_title_wrap clear">
+                            <h3 class="on"><%= username %> 的菜谱</h3>
+                            <a href="javascript:void(0)" class="recipe_ser"></a>
+                            <span class="right">共<%= good_num %>篇</span>
+                        </div>
+                    </div>
+                    <div class="search_b">
+                        <span>
+                            <input name="recipename" id="tbid" placeholder="搜索本作者的菜谱" type="text"
+                                value="<%= search_str %> ">&nbsp;
+                            <input value="　搜索　" type="submit" id="tbid_btn" class="ui_btn">
+                        </span>
+                        <a class="ui_btn close" href="javascript:void(0);">关闭</a>
+                        &nbsp;
+                    </div>
+                    <div class="ui_newlist_1 get_num" id="J_list">
+                        <ul>
+                            <% for(let i = 0; i < goods_list.length; i++){ %> 
+                                <li data-id="<%= goods_list[i].good_id %> ">
+                                    <div class="pic">
+                                        <a target="_blank" href="/step?g_id=<%= goods_list[i].good_id %> "
+                                            title="<%= goods_list[i].good_name %> ">
+                                            <span class="copyright">独家</span>
+                                            <img width="180" height="180" src="//static.meishichina.com/v6/img/blank.gif" data-original="<%=goods_list[i].good_img %> " class="imgLoad" style="display: block;">
+                                        </a>
+                                    </div>
+                                    <div class="detail">
+                                        <h2>
+                                            <a target="_blank" href="/step?g_id=<%= goods_list[i].good_id %> "
+                                                title="<%= goods_list[i].good_name %> "><%= goods_list[i].good_name %> </a>
+                                        </h2>
+                                        <p class="subline"><%= goods_list[i].good_time %> </p>
+    
+                                        <p class="subcontent">原料：<%= goods_list[i].ingredients %></p>
+    
+                                        <div class="substatus clear">
+                                            <span class="get_nums2"><%= goods_list[i].like_count %> 人喜欢</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            <% } %> 
+                        </ul>
+                    </div>
+                    <div class="ui-page mt10">
+                        <div class="ui-page-inner">
+                            <% let total_page = Math.ceil(good_num / 10) %> 
+                            <% if(total_page > 1){ %> 
+                                <% if(total_page < 6){ %> 
+                                    <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)-1)+'?userid='+ userid %> ">上一页</a>
+                                    <% for(let i = 1;i <= total_page;i++){ %> 
+                                        <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "
+                                            href="<%= (i === parseInt(page))? 'javascript:;' : '/user/menu-page/'+i+'?userid='+ userid %> "><%= i %></a> 
+                                    <% } %> 
+                                    <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)+1)+'?userid='+ userid %> ">下一页</a>
+                                <% }else{ %> 
+                                    <% if(page < 6){ %> 
+                                        <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)-1)+'?userid='+ userid %> ">上一页</a>
+                                        <% for(let i = 1;i <= 6;i++){ %> 
+                                            <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "
+                                                href="<%= (i === parseInt(page))? 'javascript:;' : '/user/menu-page/'+i+'?userid='+ userid %> "><%= i %></a> 
+                                        <% } %> 
+                                        <span>...</span>
+                                        <a href="<%= '/user/menu-page/'+total_page+'?userid='+ userid %> "><%= total_page %> </a>    
+                                        <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)+1)+'?userid='+ userid %> ">下一页</a>    
+                                    <% }else{ %> 
+                                        <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)-1)+'?userid='+ userid %> ">上一页</a>
+                                        <a href="<%= '/user/menu-page/1?userid='+ userid %> "> 1 </a> 
+                                        <span>...</span>
+                                        <a href="<%= '/user/menu-page/'+(parseInt(page)-1)+'?userid='+ userid %> "><%= (parseInt(page)-1) %></a> 
+                                        <a class="now_page" href="javascript:;"><%= parseInt(page) %></a> 
+                                        <% if(page != total_page){ %> 
+                                            <a href="<%= '/user/menu-page/'+(parseInt(page)+1)+'?userid='+ userid %> "><%= (parseInt(page)+1) %></a>
+                                            <% if(page != total_page - 1){ %> 
+                                                <% if(page != total_page - 2){ %> <span>...</span><% } %> 
+                                                <a href="<%= '/user/menu-page/'+total_page+'?userid='+ userid %> "><%= total_page %> </a>
+                                            <% } %>     
+                                        <% } %> 
+                                        <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)+1)+'?userid='+ userid %> ">下一页</a>    
+                                    <% } %> 
+                                <% } %> 
+                            <% } %> 
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="space_right">
+                    <div class="mt20">
+                        <a title="美食天下客户端" href="https://www.meishichina.com/Mobile/" target="_blank">
+                         <img width="300" height="600" src="//static.meishichina.com/v6/img/center/r0.jpg" class="imgLoad" style="display: block;">
+                        </a>
+                    </div>
+                </div>
+                <!-- 右侧结束 -->
+            </div>
+        </div>
+        <%- include('../../components/footer') -%>
