@@ -1,15 +1,16 @@
 import { Context } from "koa";
 import { Controller, Ctx, Get } from "koa-controllers";
 import { Model } from "sequelize/types";
+import { Session } from 'koa-session'
 
 @Controller
 export class Step {
     @Get('/step')
     public async step(@Ctx ctx: Context) {
-        let id = ctx.query['g_id']
+        let g_id = ctx.query['g_id']
         let res: Model = await ctx.state.db['goods'].findOne({
             where: {
-                id,
+                id: g_id,
                 status: 1
             },
             include: [ctx.state.db['step'], ctx.state.db['users'], ctx.state.db['category']]
@@ -34,6 +35,7 @@ export class Step {
             tiaoliao: res.get('tiaoliao'),
             category,
             like_count: res.get('like_count'),
+            isLike: false,
             comment_count: res.get('comment_count'),
             step_desc: (<any>res)['step'].get('desc'),
             step_img: (<any>res)['step'].get('url'),
@@ -48,6 +50,16 @@ export class Step {
             title: `${data.goods_name}的做法_${data.goods_name}怎么做_${data.user_name}的菜谱_美食天下`,
             keywords: `${data.goods_name},${data.goods_name}的做法,${data.goods_name}的家常做法,${data.goods_name}怎么做,${data.goods_name}的做法步骤,${data.goods_name}的最正宗做法,${data.goods_name}怎么做好吃`,
             description: description
+        }
+        // 判断当前用户是否已点赞 （首先判断用户是否登陆）  若点赞 则把 isLike设置为true
+        if (!!(<Session>ctx.session).userID) {
+            let islike = await ctx.state.db['like'].count({
+                where: {
+                    user_id: (<Session>ctx.session).userID,
+                    g_id
+                }
+            })
+            if (islike === 1) data.isLike = true
         }
         await ctx.render('page/step/index', Object.assign({}, conf, data))
     }
