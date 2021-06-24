@@ -205,7 +205,8 @@ export class Login {
         })
         if (res.length > 0) {
             (<Session>ctx.session).userID = res[0].get('id')
-            ctx.cookies.set('username', username, { signed: false, httpOnly: false, maxAge: 900000 })
+            // koa中cookie不能存放中文的解决办法: 用buffer将中文转换为base64编码,从cookie获取时，再用buffer转换回来
+            ctx.cookies.set('username', new Buffer(username).toString('base64'), { signed: false, httpOnly: false, expires: new Date(Date.now() + 86400000) })
             ctx.body = {
                 code: 1
             };

@@ -1,0 +1,363 @@
+#comment_box {
+    background: #fff;
+    margin: 30px auto 70px;
+    border-radius: 5px;
+}
+
+#comment_box p {
+    font-size: 12px;
+    color: #666;
+    font-family: "微软雅黑";
+    line-height: 45px;
+    text-indent: 20px;
+}
+
+#comment_box .message {
+    height: 70px;
+    margin: 0 auto;
+    overflow: hidden;
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-clip: text;
+}
+
+#comment_box .But {
+    height: 35px;
+    margin: 15px auto 0px;
+    position: relative;
+}
+
+#comment_box .But img.bq {
+    float: left;
+}
+
+#comment_box .But span.submit {
+    width: 80px;
+    height: 30px;
+    background: #ff8140;
+    display: block;
+    float: right;
+    line-height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    font-family: "微软雅黑";
+}
+
+/*face begin*/
+
+#comment_box .But .face {
+    width: 440px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 12px #666;
+    position: absolute;
+    top: 21px;
+    left: 15px;
+    display: none;
+    z-index: 99;
+}
+
+#comment_box .But .face ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#comment_box .But .face ul li {
+    width: 30px;
+    height: 30px;
+    list-style-type: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-post {
+    position: relative;
+    zoom: 1
+}
+
+.comment-login {
+    height: 100%;
+    background: #ccc;
+    z-index: 101;
+    opacity: 0;
+    filter: alpha(opacity=0)
+}
+
+.comment-login-text {
+    text-align: center;
+}
+
+.comment-login-text a {
+    color: #069;
+    padding-right: 6px
+}
+
+.comment-wrap .islogin .comment-login, .comment-wrap .islogin .comment-login-text {
+    display: none
+}
+
+.comment-post-loading {
+    display: none;
+    z-index: 100;
+    height: 100%;
+    background: url(//static.meishichina.com/v6/img/loading-32-32.gif) center no-repeat
+}
+
+.comment-wrap .loading .comment-post-loading {
+    display: block
+}
+
+.comment-post .arrow {
+    display: none
+}
+
+.comment-post-text {
+    border: 1px solid #ccc;
+    padding: 5px 0 5px 5px;
+    background-color: #fff
+}
+
+.comment-post-focus {
+    box-shadow: 2px 2px 3px #f0f0f0 inset
+}
+
+.comment-post-text-inner {
+    width: 100%
+}
+
+.comment-wrap .text {
+    overflow: hidden;
+    overflow-y: auto;
+    height: 90px;
+    line-height: 20px;
+    font-size: 14px;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    vertical-align: top
+}
+
+.comment-post-tools {
+    overflow: hidden;
+    height: 32px;
+    line-height: 32px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-top: 0;
+    font-size: 0
+}
+
+.comment-post-tools a, .comment-post-tools span {
+    display: inline-block;
+    font-size: 12px
+}
+
+.comment-post-tools .tips {
+    color: #999
+}
+
+.comment-smilies-a {
+    width: 24px;
+    height: 24px;
+    background-image: url(//static.meishichina.com/v6/img/model/smilies-icon.gif);
+    margin: 3px 10px 0 3px;
+    border: 1px solid #eee;
+    vertical-align: top
+}
+
+.comment-post-tools .comment-btn {
+    background-color: #ba2020;
+    padding: 0 26px;
+    color: #fff;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    vertical-align: top
+}
+
+.comment-post-tools .comment-btn:hover {
+    color: #fff
+}
+
+.comment-nav {
+    overflow: hidden;
+    height: 30px;
+    border-left: 2px solid #ba2020;
+    padding-left: 10px;
+    line-height: 30px
+}
+
+.comment-nav .left {
+    font-size: 16px
+}
+
+.comment-nav strong {
+    color: #666
+}
+
+.comment-nav .right a {
+    color: #666;
+    padding-left: 10px;
+    font-size: 14px
+}
+
+.comment-nav .right a.on {
+    color: red
+}
+
+.comment-list li {
+    overflow: hidden;
+    border-bottom: 1px dotted #e4e4e4;
+    padding: 10px 0;
+    position: relative;
+    background-color: #fff;
+    vertical-align: top;
+    zoom: 1
+}
+
+.comment-list .pic {
+    width: 48px;
+    float: left
+}
+
+.comment-list .pic a {
+    display: block
+}
+
+.comment-list .pic img {
+    background: #f2f2f2 url("//static.meishichina.com/v6/img/loading-16-16.gif") no-repeat scroll center center;
+    border-radius: 50%
+}
+
+.comment-list .detail {
+    padding-left: 58px
+}
+
+.comment-list .quote {
+    border-left: 3px solid #f0f0f0;
+    padding-left: 3px;
+    margin-bottom: 6px
+}
+
+.comment-list .quote span {
+    background-color: #f8f8f8;
+    padding: 5px;
+    display: block;
+    color: #666
+}
+
+.comment-list .tools {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    zoom: 1
+}
+
+.comment-list .tools span {
+    color: #666;
+    padding-left: 10px
+}
+
+.comment-list .tools .right a {
+    padding-left: 10px
+}
+
+.comment-list .content {
+    padding-top: 5px;
+    font-size: 14px
+}
+
+.comment-reply {
+    background-color: #f3f3f3;
+    padding: 10px;
+    margin-top: 20px
+}
+
+.comment-cid a, .comment-loading {
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #f0f0f0
+}
+
+.comment-reply .arrow {
+    position: absolute;
+    display: block;
+    left: 10px;
+    top: -20px;
+    border-width: 10px;
+    border-bottom: 10px solid #f0f0f0
+}
+
+.comment-edit {
+    margin-top: 10px
+}
+
+.comment-cid {
+    display: none
+}
+
+.comment-cid a {
+    display: block;
+    height: 30px
+}
+
+.comment-list .data-error {
+    display: none;
+    font-size: 14px;
+    line-height: 30px
+}
+
+.comment-list .data-error a {
+    color: #069;
+    padding: 0 5px
+}
+
+.comment-befrom {
+    padding-top: 5px;
+    color: #999;
+    font-size: 11px
+}
+
+.comment-befrom a {
+    color: #999
+}
+
+.comment-list .tools div.left>a {
+    color: #6599ff
+}
+
+.comment-list .content img.imgLoad {
+    margin: 10px 0 0 0;
+    width: auto;
+    max-width: 550px;
+    *width: 550px;
+}
+
+.ui-webkit-scrollbar::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    margin-right: 2px
+}
+
+.ui-webkit-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #c9c9c9;
+    border-radius: 5px;
+    width: 8px
+}
+
+.ui-webkit-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #b5b5b5
+}

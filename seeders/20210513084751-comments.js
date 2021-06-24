@@ -5,17 +5,20 @@ module.exports = {
       {
         user_id: 2,
         g_id: 2,
-        comment: '根据这个手法做出来的，好好吃哦！'
+        comment: '根据这个手法做出来的，好好吃哦！',
+        createdAt:'2021-06-02 10:43:00'
       },
       {
         user_id: 1,
         g_id: 1,
-        comment: '根据这个手法做出来的，好好吃哦！'
+        comment: '根据这个手法做出来的，好好吃哦！',
+        createdAt:'2021-06-12 16:43:17'
       },
       {
         user_id: 3,
         g_id: 3,
-        comment: '根据这个手法做出来的，好好吃哦！'
+        comment: '根据这个手法做出来的，好好吃哦！',
+        createdAt:'2021-05-23 08:50:28'
       }
     ], {});
   },

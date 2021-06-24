@@ -20,9 +20,9 @@
 
                     <div class="recipDetail">
 
-                        <input type="hidden" id="recipe_id" value="<%= goods_id %> ">
-                        <input type="hidden" id="recipe_uid" value="<%= user_id %> ">
-                        <input type="hidden" id="recipe_title" value="<%= goods_name %> ">
+                        <input type="hidden" id="recipe_id" value="<%= goods_id %>">
+                        <input type="hidden" id="recipe_uid" value="<%= user_id %>">
+                        <input type="hidden" id="recipe_title" value="<%= goods_name %>">
                         <div class="recipe_De_imgBox" id="recipe_De_imgBox">
                             <a class="J_photo" title="<%= goods_name %> 的做法"><span></span>
                                 <img src="<%= goods_img %> " alt="<%= goods_name %> 的做法"> 
@@ -149,11 +149,7 @@
 
                         </div>
 
-                        <div id="comment_top" class="mt20">
-
-                        </div>
-
-                        <div class="recipeComment mt30" id="comment"> </div>
+                        <%- include('../../components/comment') -%> 
                     </div>
                 </div>
             </div>

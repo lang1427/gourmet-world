@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/public/css/comment.css">
+<div id="comment_box">
+    <div class="message" contenteditable="true" id="comment_val"></div>
+    <div class="But">
+        <img src="/public/images/emoticon/bba_thumb.gif" class="bq">
+        <span class="submit">发表</span>
+        <!-- 表情 -->
+        <div class="face" style="display:none;">
+            <ul>
+                <li><img src="/public/images/emoticon/smilea_thumb.gif" title="呵呵]"></li>
+                <li><img src="/public/images/emoticon/tootha_thumb.gif" title="嘻嘻]"></li>
+                <li><img src="/public/images/emoticon/laugh.gif" title="[哈哈]"></li>
+                <li><img src="/public/images/emoticon/tza_thumb.gif" title="[可爱]"></li>
+                <li><img src="/public/images/emoticon/kl_thumb.gif" title="[可怜]"></li>
+                <li><img src="/public/images/emoticon/kbsa_thumb.gif" title="[挖鼻屎]"></li>
+                <li><img src="/public/images/emoticon/cj_thumb.gif" title="[吃惊]"></li>
+                <li><img src="/public/images/emoticon/shamea_thumb.gif" title="[害羞]"></li>
+                <li><img src="/public/images/emoticon/zy_thumb.gif" title="[挤眼]"></li>
+                <li><img src="/public/images/emoticon/bz_thumb.gif" title="[闭嘴]"></li>
+                <li><img src="/public/images/emoticon/bs2_thumb.gif" title="[鄙视]"></li>
+                <li><img src="/public/images/emoticon/lovea_thumb.gif" title="[爱你]"></li>
+                <li><img src="/public/images/emoticon/sada_thumb.gif" title="[泪]"></li>
+                <li><img src="/public/images/emoticon/heia_thumb.gif" title="[偷笑]"></li>
+                <li><img src="/public/images/emoticon/qq_thumb.gif" title="[亲亲]"></li>
+                <li><img src="/public/images/emoticon/sb_thumb.gif" title="[生病]"></li>
+                <li><img src="/public/images/emoticon/mb_thumb.gif" title="[太开心]"></li>
+                <li><img src="/public/images/emoticon/ldln_thumb.gif" title="[懒得理你]"></li>
+                <li><img src="/public/images/emoticon/yhh_thumb.gif" title="[右哼哼]"></li>
+                <li><img src="/public/images/emoticon/zhh_thumb.gif" title="[左哼哼]"></li>
+                <li><img src="/public/images/emoticon/x_thumb.gif" title="[嘘]"></li>
+                <li><img src="/public/images/emoticon/cry.gif" title="[衰]"></li>
+                <li><img src="/public/images/emoticon/wq_thumb.gif" title="[委屈]"></li>
+                <li><img src="/public/images/emoticon/t_thumb.gif" title="[吐]"></li>
+                <li><img src="/public/images/emoticon/k_thumb.gif" title="[打哈气]"></li>
+                <li><img src="/public/images/emoticon/bba_thumb.gif" title="[抱抱]"></li>
+                <li><img src="/public/images/emoticon/angrya_thumb.gif" title="[怒]"></li>
+                <li><img src="/public/images/emoticon/yw_thumb.gif" title="[疑问]"></li>
+                <li><img src="/public/images/emoticon/cza_thumb.gif" title="[馋嘴]"></li>
+                <li><img src="/public/images/emoticon/88_thumb.gif" title="[拜拜]"></li>
+                <li><img src="/public/images/emoticon/sk_thumb.gif" title="[思考]"></li>
+                <li><img src="/public/images/emoticon/sweata_thumb.gif" title="[汗]"></li>
+                <li><img src="/public/images/emoticon/sleepya_thumb.gif" title="[困]"></li>
+                <li><img src="/public/images/emoticon/sleepa_thumb.gif" title="[睡觉]"></li>
+                <li><img src="/public/images/emoticon/money_thumb.gif" title="[钱]"></li>
+                <li><img src="/public/images/emoticon/sw_thumb.gif" title="[失望]"></li>
+                <li><img src="/public/images/emoticon/cool_thumb.gif" title="[酷]"></li>
+                <li><img src="/public/images/emoticon/hsa_thumb.gif" title="[花心]"></li>
+                <li><img src="/public/images/emoticon/hatea_thumb.gif" title="[哼]"></li>
+                <li><img src="/public/images/emoticon/gza_thumb.gif" title="[鼓掌]"></li>
+                <li><img src="/public/images/emoticon/dizzya_thumb.gif" title="[晕]"></li>
+                <li><img src="/public/images/emoticon/bs_thumb.gif" title="[悲伤]"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="comment-nav mt20" data-dom="nav"><div class="left">最新评论 <strong>（<span id="recordCount">0条</span>）</strong></div></div>
+    <!-- 评论列表 -->
+    <div class="comment-list mt10">
+        <div class="comment-loading" data-dom="loading" style="display: none;">正在请求数据</div>
+        <div class="comment-error" data-dom="error" style="display: none;">还没有人评论，抢占第一条吧~</div>
+        <div data-dom="list">
+            <ul id="comment_list">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/public/js/comment.js"></script>

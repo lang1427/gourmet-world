@@ -19,7 +19,8 @@ app.use(async (ctx: Context, next) => {
 app.keys = ['kanglang']
 
 const sessionConf = {
-    key:'gourmet.world',
+    key: 'gourmet.world',
+    maxAge: 86400000
     // maxAge: 900000   // 过期时间15分钟
 }
 

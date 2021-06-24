@@ -15,6 +15,9 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
          */
         static associate(models: IModelsName) {
             // define association here
+            comments.belongsTo(models.users, {
+                foreignKey: 'user_id'
+            })
         }
     };
     comments.init({
