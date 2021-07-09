@@ -1,6 +1,28 @@
 # gourmet-world
  koa typescript  实现美食天下项目
 
+## 项目运行步骤
+1. 安装依赖项
+```
+npm install 
+```
+2. 数据库创建   (请确保你已安装并启动了数据库软件)
+- 修改 dist/config/config.json 配置文件，（数据库链接相关）
+- 创建数据库 执行 以下命令
+> ./node_modules/.bin/sequelize db:create
+- 执行迁移文件（创建数据库表，字段）
+> ./node_modules/.bin/sequelize db:migrate
+- 执行种子文件（添加伪造数据）
+> ./node_modules/.bin/sequelize db:seed:all 
+3. 编译TS文件 
+```
+npm run compile
+```
+4. 运行项目
+```
+npm run app
+```
+
 ## 表结构
 
 ### 用户表
@@ -28,16 +50,16 @@
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | id | INTEGER | No | - | Yes | 菜谱id |
 | g_name | VARCHAR(30) | No | - | No | 菜谱名称 |
-| img | VARCHAR | No | - | No | 菜谱图片 |
+| img | VARCHAR | No | "" | No | 菜谱图片 |
 | user_id | INTEGER | No | - | No | 用户id |
-| desc | VARCHAR(500) | Yes | - | No | 菜谱描述 |
-| difficulty | ENUM(['简单', '初级', '中级', '高级']) | No | - | No | 制作难度 |
-| zhuliao | VARCHAR | No | - | No | 主料 |
-| fuliao | VARCHAR | No | - | No | 辅料 |
-| tiaoliao | VARCHAR | No | - | No | 调料 |
-| category_id | INTEGER | No | - | No | 分类id |
-| status | TINYINT | No | 0 | No | 审核状态 0：未审核  1：审核通过  2：审核不通过 |
-| step_id | INTEGER | No | - | No | 步骤id |
+| desc | VARCHAR(500) | Yes | "" | No | 菜谱描述 |
+| difficulty | ENUM(['简单', '初级', '中级', '高级']) | No | "简单" | No | 制作难度 |
+| zhuliao | VARCHAR | No | "" | No | 主料 |
+| fuliao | VARCHAR | No | "" | No | 辅料 |
+| tiaoliao | VARCHAR | No | "" | No | 调料 |
+| category_id | INTEGER | No | -1 | No | 分类id |
+| status | TINYINT | No | 0 | No | 审核状态 0：未审核  1：审核通过  2：审核不通过  3：存为草稿|
+| step_id | INTEGER | No | -1 | No | 步骤id |
 | like_count | INTEGER | No | 0 | No | 点赞数量 |
 | comment_count | INTEGER | No | 0 | No | 评论数量 |
 
