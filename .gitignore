@@ -5,6 +5,8 @@ dist/models
 dist/static/js
 dist/app.js
 dist/formatDate.js
+dist/static/upload/*
+dist/utils
 
 # local env files
 .env.local

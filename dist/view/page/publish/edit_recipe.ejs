@@ -1,0 +1,209 @@
+<%- include('../../components/header'); -%>
+    <link rel="stylesheet" href="/public/css/publish.css">
+    <div class="w_main clear">
+        <%- include('./left_aside') %>
+            <div class="mod_right">
+
+                <div id="mod_location">
+                    <div class="mod_location clear">
+
+                        <div class="left">
+                            <a href="https://member.meishichina.com/center/my_recipe_me/" title="回到我的菜谱" class="return">
+                            </a>
+                            编辑菜谱
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mr_edit mr_edit_center clear">
+                    <ul>
+                        <li>
+                            <label class="must">菜谱名称</label><br>
+                            <input name="subject" class="inputL" type="text" value="<%= g_name %> ">
+                        </li>
+                        <li>
+                            <label class="must">成品图片</label><br>
+                            <div class="J_upload">上传成品图
+                                <input multiple="" class="J_img" id="J_m_cover" type="file"
+                                    accept="image/png,image/gif,image/jpeg" name="gourmet" data-url="/upload/recipe_step" onchange="fileChange(this)">
+                            </div>
+                            <span class="img_status" id="multi_cover_status"> </span>
+                            <div id="cover" class="clear">
+                                <% if(!!cover_img){ %>
+                                <div>
+                                    <a href="javascript:void(0);" class="del">删除</a>
+                                    <span></span>
+                                    <img class="imgLoad" src="//static.meishichina.com/v6/img/blank.gif" data-original="<%= cover_img %>" data-w="120" style="display: inline-block;">
+                                    <input type="hidden" name="allpic" value="<%= cover_img %>">
+                                    <a href="javascript:void(0);" class="picw picws">图过小</a>
+                                </div>
+                                <% } %>
+                            </div>
+                        </li>
+                        <li>
+                            <textarea class="autosize" name="message" maxlength="500" placeholder="请输入菜谱描述，最多输入500字"
+                                style="overflow: hidden; overflow-wrap: break-word; height: 120px;"><%= desc %></textarea>
+                        </li>
+                        <li class="makedifficulty">
+                            <label class="must">制作难度</label><br>
+                            <input type="hidden" id="difficulty" name="level" value="<%= difficulty %>">
+                            <div class="things_type1 clear difficulty">
+                                <span data-value="1">简单</span>
+                                <span data-value="2">初级</span>
+                                <span data-value="3">中级</span>
+                                <span data-value="4">高级</span>
+                            </div>
+                        </li>
+
+                        <li class="ingredient clear">
+                            <label class="must">食材明细</label>                       
+
+                            <blockquote>
+                                <p><span>主料</span></p>
+                                <% let zhuliao_arr = zhuliao.split('、') %>
+                                <% if(!!zhuliao){ %>
+                                    <% for(let i = 0;i < zhuliao_arr.length;i++){ %>
+                                        <div class="<%= i===zhuliao_arr.length-1 ? 'J_addDiv' : '' %>">
+                                            <input type="text" class="liao" autocomplete="off" value="<%= zhuliao_arr[i] %>">
+                                            <% if(i != 0){ %>
+                                                <a href="javascript:void(0);" class="delete J_delete"></a>
+                                            <% } %>
+                                        </div>
+                                    <% } %>
+                                <% }else{ %>
+                                    <div class="J_addDiv">
+                                        <input type="text" class="liao" placeholder="食材名" autocomplete="off">
+                                    </div>
+                                <% } %>
+                            </blockquote>
+                            <blockquote>
+                                <p><span>辅料</span>
+                                </p>
+                                <% let fuliao_arr = fuliao.split('、') %>
+                                <% if(!!fuliao){ %>
+                                    <% for(let i = 0;i < fuliao_arr.length;i++){ %>
+                                        <div class="<%= i===fuliao_arr.length-1 ? 'J_addDiv' : '' %>">
+                                            <input type="text" class="liao" autocomplete="off" value="<%= fuliao_arr[i] %>">
+                                            <% if(i != 0){ %>
+                                                <a href="javascript:void(0);" class="delete J_delete"></a>
+                                            <% } %>
+                                        </div>
+                                    <% } %>
+                                <% }else{ %>
+                                    <div class="J_addDiv">
+                                        <input type="text" class="liao" placeholder="食材名" autocomplete="off">
+                                    </div>
+                                <% } %>
+                            </blockquote>
+                            <blockquote>
+                                <p><span>调料</span><a href="javascript:void(0);" title="删除食材组" class="del"></a></p>
+                                <% let tiaoliao_arr = tiaoliao.split('、') %>
+                                <% if(!!tiaoliao){ %>
+                                    <% for(let i = 0;i < tiaoliao_arr.length;i++){ %>
+                                        <div class="<%= i===tiaoliao_arr.length-1 ? 'J_addDiv' : '' %>">
+                                            <input type="text" class="liao" autocomplete="off" value="<%= tiaoliao_arr[i] %>">
+                                            <% if(i != 0){ %>
+                                                <a href="javascript:void(0);" class="delete J_delete"></a>
+                                            <% } %>
+                                        </div>
+                                    <% } %>
+                                <% }else{ %>
+                                    <div class="J_addDiv">
+                                        <input type="text" class="liao" placeholder="食材名" autocomplete="off">
+                                    </div>
+                                <% } %>
+                            </blockquote>
+                        </li>
+
+                        <li class="step">
+                            <label class="must">做法步骤</label><br>
+                            <div class="J_upload">批量上传
+                                <input multiple="" class="J_img" id="J_s_cover" type="file"
+                                    accept="image/png,image/gif,image/jpeg" name="gourmet" data-url="/upload/recipe_step" onchange="fileChange(this)">
+                            </div>
+                            <span class="img_status" id="multi_step_status"></span>
+
+                            <div id="dragsort" data-listidx="0">
+                                <blockquote class="cp_block J_blockQ clear" style="cursor: move;">
+                                    <div class="left addicon J_fileImag">
+                                        <input type="hidden" value="1" name="step_img" class="J_imghidden">
+                                        <input type="file" name="gourmet" data-url="/upload/recipe_step" class="file"
+                                            accept="image/png,image/gif,image/jpeg" value="">
+                                        <p class="p1">点击上传步骤图</p>
+                                        <p class="p3">（可不填）</p>
+                                    </div>
+                                    <div class="right">
+                                        <textarea class="textArea J_input" name="note" placeholder="请输入步骤说明"
+                                            maxlength="200"></textarea>
+                                        <span class="J_step_num">1、</span> <a href="javascript:void(0);"
+                                            class="add J_addTextarea">&nbsp;添加一步&nbsp;</a> <a href="javascript:void(0);"
+                                            class="up J_upTextarea">&nbsp;上移一步&nbsp;</a> <a href="javascript:void(0);"
+                                            class="down J_downTextarea">&nbsp;下移一步&nbsp;</a> <a
+                                            href="javascript:void(0);" class="delete J_delTextarea">&nbsp;删除本步&nbsp;</a>
+                                    </div>
+                                </blockquote>
+                                <blockquote class="cp_block J_blockQ clear" style="cursor: move;">
+                                    <div class="left addicon J_fileImag">
+                                        <input type="hidden" value="2" name="step_img" class="J_imghidden">
+                                        <input type="file" name="gourmet" data-url="/upload/recipe_step" class="file"
+                                            accept="image/png,image/gif,image/jpeg" value="">
+                                        <p class="p1">点击上传步骤图</p>
+                                        <p class="p3">（可不填）</p>
+                                    </div>
+                                    <div class="right">
+                                        <textarea class="textArea J_input" name="note" placeholder="请输入步骤说明"
+                                            maxlength="200"></textarea>
+                                        <span class="J_step_num">2、</span> <a href="javascript:void(0);"
+                                            class="add J_addTextarea">&nbsp;添加一步&nbsp;</a> <a href="javascript:void(0);"
+                                            class="up J_upTextarea">&nbsp;上移一步&nbsp;</a> <a href="javascript:void(0);"
+                                            class="down J_downTextarea">&nbsp;下移一步&nbsp;</a> <a
+                                            href="javascript:void(0);" class="delete J_delTextarea">&nbsp;删除本步&nbsp;</a>
+                                    </div>
+                                </blockquote>
+                                <blockquote class="cp_block J_blockQ clear" style="cursor: move;">
+                                    <div class="left addicon J_fileImag">
+                                        <input type="hidden" value="3" name="step_img" class="J_imghidden">
+                                        <input type="file" name="gourmet" data-url="/upload/recipe_step" class="file"
+                                            accept="image/png,image/gif,image/jpeg" value="">
+                                        <p class="p1">点击上传步骤图</p>
+                                        <p class="p3">（可不填）</p>
+                                    </div>
+
+                                    <div class="left addicon J_fileImag">
+                                        <input type="hidden" value="https://i8.meishichina.com/attachment/recipe/2021/07/12/20210712162607039208558412754692.png?x-oss-process=style/p320" name="step_img" class="J_imghidden">
+                                        <input type="file" name="file" class="file" accept="image/png,image/gif,image/jpeg">
+                                        <p class="p1">点击上传步骤图</p>
+                                        <p class="p3">（可不填）</p>
+                                        <div class="div_file_img"><b></b><img class="file_img imgLoad" src="https://i8.meishichina.com/attachment/recipe/2021/07/12/20210712162607039208558412754692.png?x-oss-process=style/p800" style="display: inline-block;"></div>
+                                    </div>
+
+                                    <div class="right">
+                                        <textarea class="textArea J_input" name="note" placeholder="请输入步骤说明"
+                                            maxlength="200"></textarea>
+                                        <span class="J_step_num">3、</span> <a href="javascript:void(0);"
+                                            class="add J_addTextarea">&nbsp;添加一步&nbsp;</a> <a href="javascript:void(0);"
+                                            class="up J_upTextarea">&nbsp;上移一步&nbsp;</a> <a href="javascript:void(0);"
+                                            class="down J_downTextarea">&nbsp;下移一步&nbsp;</a> <a
+                                            href="javascript:void(0);" class="delete J_delTextarea">&nbsp;删除本步&nbsp;</a>
+                                    </div>
+                                </blockquote>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mr_edit mr_edit_fixed clear">
+
+                    <input type="hidden" id="recipeinfo_state" value="0">
+                    <input type="hidden" id="recipeinfo_id" value="<%= id %>">
+                    <input type="hidden" id="user_id" value="12754692">
+                    <input class="btn1" id="postbtn" type="button" value="发布菜谱" data-id="0">
+                    <input class="btn2" id="savebtn" type="button" value="存为草稿">
+                    <div id="save_tip"></div>
+                </div>
+
+            </div>
+    </div>
+    <script src="/public/js/edit_recipe.js"></script>
+<%- include('../../components/footer') -%>

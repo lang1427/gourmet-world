@@ -18,9 +18,6 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
             goods.belongsTo(models.users, {
                 foreignKey: 'user_id'
             })
-            goods.belongsTo(models.step, {
-                foreignKey: 'step_id'
-            })
             goods.belongsTo(models.category, {
                 foreignKey: 'category_id'
             })
@@ -87,16 +84,7 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
         status: {
             type: DataTypes.TINYINT,
             allowNull: false,
-            defaultValue: 0
-        },
-        step_id: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            references: {
-                model: Model.step,
-                key: 'id'
-            },
-            defaultValue:-1
+            defaultValue: 3
         },
         like_count: {
             type: DataTypes.INTEGER,

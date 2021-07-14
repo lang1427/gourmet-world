@@ -2,7 +2,7 @@ import { Context } from "koa";
 import { Controller, Ctx, Get, Post, RequestParam } from "koa-controllers";
 import { Session } from "koa-session";
 import { Model } from "sequelize/types";
-import { formatDate } from '../formatDate'
+import { formatDate } from '../utils/formatDate'
 
 @Controller
 export class Comment {

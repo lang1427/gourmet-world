@@ -23,7 +23,6 @@ module.exports = {
         tiaoliao: '油、葱花、盐、酱油、蚝油',
         category_id: 5,
         status: 1,
-        step_id: 1,
         like_count: 1,
         comment_count: 1
       },
@@ -38,7 +37,6 @@ module.exports = {
         tiaoliao: '玉米淀粉、葱、姜、干辣椒、油、料酒、生抽、白糖、陈醋、盐',
         category_id: 5,
         status: 1,
-        step_id: 2,
         like_count: 1,
         comment_count: 1
       },
@@ -53,7 +51,6 @@ module.exports = {
         tiaoliao: '花椒、葱、花椒粉、老干妈、豆瓣酱、盐、食用油、红薯淀粉、姜、蒜',
         category_id: 5,
         status: 1,
-        step_id: 3,
         like_count: 1,
         comment_count: 1
       },
@@ -68,7 +65,6 @@ module.exports = {
         tiaoliao: '面包糠、糯米粉、白糖、纯奶、花生油',
         category_id: 5,
         status: 1,
-        step_id: 4,
         like_count: 0,
         comment_count: 0
       },
@@ -83,7 +79,6 @@ module.exports = {
         tiaoliao: '冰糖、食盐、八角、料酒、生抽、香醋、花椒、熟白芝麻',
         category_id: 5,
         status: 1,
-        step_id: 5,
         like_count: 0,
         comment_count: 0
       },
@@ -98,7 +93,6 @@ module.exports = {
         tiaoliao: '小米椒、蒜末、葱花、生抽、老抽、蚝油、白糖',
         category_id: 5,
         status: 1,
-        step_id: 6,
         like_count: 0,
         comment_count: 0
       },
@@ -113,7 +107,6 @@ module.exports = {
         tiaoliao: '花生油、盐、生抽、五香粉',
         category_id: 5,
         status: 1,
-        step_id: 7,
         like_count: 0,
         comment_count: 0
       },
@@ -128,7 +121,6 @@ module.exports = {
         tiaoliao: '酱油、玉米油、水、水淀粉（水+淀粉）',
         category_id: 5,
         status: 1,
-        step_id: 8,
         like_count: 0,
         comment_count: 0
       },
@@ -143,7 +135,6 @@ module.exports = {
         tiaoliao: '糯米粉、清水、白糖',
         category_id: 5,
         status: 1,
-        step_id: 9,
         like_count: 0,
         comment_count: 0
       },
@@ -158,7 +149,6 @@ module.exports = {
         tiaoliao: '盐、糖、淀粉、胡椒粉、生抽',
         category_id: 5,
         status: 1,
-        step_id: 10,
         like_count: 0,
         comment_count: 0
       },
@@ -174,7 +164,6 @@ module.exports = {
         tiaoliao: '盐、酱油、蚝油',
         category_id: 6,
         status: 1,
-        step_id: 11,
         like_count: 0,
         comment_count: 0
       },
@@ -189,7 +178,6 @@ module.exports = {
         tiaoliao: '花生油、生抽、老抽、料酒、姜、蒜、盐',
         category_id: 6,
         status: 1,
-        step_id: 12,
         like_count: 0,
         comment_count: 0
       },
@@ -204,7 +192,6 @@ module.exports = {
         tiaoliao: '生粉、辣椒粉、胡椒粉',
         category_id: 6,
         status: 1,
-        step_id: 13,
         like_count: 0,
         comment_count: 0
       },
@@ -219,7 +206,6 @@ module.exports = {
         tiaoliao: '温水、黑糖浆、砂糖',
         category_id: 6,
         status: 1,
-        step_id: 14,
         like_count: 0,
         comment_count: 0
       },
@@ -234,7 +220,6 @@ module.exports = {
         tiaoliao: '葱花、盐、蚝油、花生油、玉米淀粉、生抽',
         category_id: 6,
         status: 1,
-        step_id: 15,
         like_count: 0,
         comment_count: 0
       },
@@ -249,7 +234,6 @@ module.exports = {
         tiaoliao: '淀粉、油、盐、料酒',
         category_id: 6,
         status: 1,
-        step_id: 16,
         like_count: 0,
         comment_count: 0
       },
@@ -264,7 +248,6 @@ module.exports = {
         tiaoliao: '蒜、陈醋、盐、生抽、辣椒酱、糖',
         category_id: 6,
         status: 1,
-        step_id: 17,
         like_count: 0,
         comment_count: 0
       },
@@ -279,7 +262,6 @@ module.exports = {
         tiaoliao: '食用油、食盐、花椒、鸡精、姜',
         category_id: 6,
         status: 1,
-        step_id: 18,
         like_count: 0,
         comment_count: 0
       },
@@ -294,7 +276,6 @@ module.exports = {
         tiaoliao: '豆瓣酱、姜、蒜、黑芝麻、植物油、生抽、蚝油、料酒',
         category_id: 6,
         status: 1,
-        step_id: 19,
         like_count: 0,
         comment_count: 0
       },
@@ -309,7 +290,6 @@ module.exports = {
         tiaoliao: '香油、盐、白糖、蚝油、醋、生抽、鸡精',
         category_id: 6,
         status: 1,
-        step_id: 20,
         like_count: 0,
         comment_count: 0
       },
@@ -325,7 +305,6 @@ module.exports = {
         tiaoliao: '糯米粉、粘米粉、艾草粉、清水、蚝油、花生油',
         category_id: 7,
         status: 1,
-        step_id: 21,
         like_count: 0,
         comment_count: 0
       },
@@ -340,7 +319,6 @@ module.exports = {
         tiaoliao: '水、五香粉、盐',
         category_id: 7,
         status: 1,
-        step_id: 22,
         like_count: 0,
         comment_count: 0
       },
@@ -355,7 +333,6 @@ module.exports = {
         tiaoliao: '香叶、八角、小葱、姜片、料酒、白糖、冰糖、红烧酱油、黄豆酱油、味极鲜、玫瑰腐乳、黄酒',
         category_id: 7,
         status: 1,
-        step_id: 23,
         like_count: 0,
         comment_count: 0
       },
@@ -370,7 +347,6 @@ module.exports = {
         tiaoliao: '盐、五香粉、食用油',
         category_id: 7,
         status: 1,
-        step_id: 24,
         like_count: 0,
         comment_count: 0
       },
@@ -385,7 +361,6 @@ module.exports = {
         tiaoliao: '生姜、盐、料酒、白糖、玉米淀粉、西红柿酱、清水',
         category_id: 7,
         status: 1,
-        step_id: 25,
         like_count: 0,
         comment_count: 0
       },
@@ -400,7 +375,6 @@ module.exports = {
         tiaoliao: '蒜末、姜末、金蒜、油、淡酱油、胡椒粉、酱油、糖、花生油、生粉',
         category_id: 7,
         status: 1,
-        step_id: 26,
         like_count: 0,
         comment_count: 0
       },
@@ -415,7 +389,6 @@ module.exports = {
         tiaoliao: '姜丝、红薯粉、油、盐',
         category_id: 7,
         status: 1,
-        step_id: 27,
         like_count: 0,
         comment_count: 0
       },
@@ -430,7 +403,6 @@ module.exports = {
         tiaoliao: '葱、姜、食用油、盐、鸡精、五香粉、生抽',
         category_id: 7,
         status: 1,
-        step_id: 28,
         like_count: 0,
         comment_count: 0
       },
@@ -445,7 +417,6 @@ module.exports = {
         tiaoliao: '八角、桂皮、香叶、干辣椒、花椒、葱、盐、油',
         category_id: 7,
         status: 1,
-        step_id: 29,
         like_count: 0,
         comment_count: 0
       },
@@ -460,7 +431,6 @@ module.exports = {
         tiaoliao: '葱花、食盐、鸡精、橄榄油、生抽',
         category_id: 7,
         status: 1,
-        step_id: 30,
         like_count: 0,
         comment_count: 0
       },
@@ -476,7 +446,6 @@ module.exports = {
         tiaoliao: '盐、白砂糖、黄油',
         category_id: 8,
         status: 1,
-        step_id: 31,
         like_count: 0,
         comment_count: 0
       },
@@ -491,7 +460,6 @@ module.exports = {
         tiaoliao: '',
         category_id: 8,
         status: 1,
-        step_id: 32,
         like_count: 0,
         comment_count: 0
       },
@@ -506,7 +474,6 @@ module.exports = {
         tiaoliao: '黄油、盐',
         category_id: 8,
         status: 1,
-        step_id: 33,
         like_count: 0,
         comment_count: 0
       },
@@ -521,7 +488,6 @@ module.exports = {
         tiaoliao: '食用油、酵母、食盐、白糖',
         category_id: 8,
         status: 1,
-        step_id: 34,
         like_count: 0,
         comment_count: 0
       },
@@ -536,7 +502,6 @@ module.exports = {
         tiaoliao: '水、五香粉、盐',
         category_id: 8,
         status: 1,
-        step_id: 35,
         like_count: 0,
         comment_count: 0
       },
@@ -551,7 +516,6 @@ module.exports = {
         tiaoliao: '香葱、盐',
         category_id: 8,
         status: 1,
-        step_id: 36,
         like_count: 0,
         comment_count: 0
       },
@@ -566,7 +530,6 @@ module.exports = {
         tiaoliao: '水、面粉',
         category_id: 8,
         status: 1,
-        step_id: 37,
         like_count: 0,
         comment_count: 0
       },
@@ -581,7 +544,6 @@ module.exports = {
         tiaoliao: '水、冰糖',
         category_id: 8,
         status: 1,
-        step_id: 38,
         like_count: 0,
         comment_count: 0
       },
@@ -596,7 +558,6 @@ module.exports = {
         tiaoliao: '奇亚籽、水',
         category_id: 8,
         status: 1,
-        step_id: 39,
         like_count: 0,
         comment_count: 0
       },
@@ -611,7 +572,6 @@ module.exports = {
         tiaoliao: '',
         category_id: 8,
         status: 1,
-        step_id: 40,
         like_count: 0,
         comment_count: 0
       },
@@ -627,7 +587,6 @@ module.exports = {
         tiaoliao: '植物油',
         category_id: 9,
         status: 1,
-        step_id: 41,
         like_count: 0,
         comment_count: 0
       },
@@ -642,7 +601,6 @@ module.exports = {
         tiaoliao: '油、盐、酱油、淀粉、黑胡椒酱',
         category_id: 9,
         status: 1,
-        step_id: 42,
         like_count: 0,
         comment_count: 0
       },
@@ -657,7 +615,6 @@ module.exports = {
         tiaoliao: '',
         category_id: 9,
         status: 1,
-        step_id: 43,
         like_count: 0,
         comment_count: 0
       },
@@ -672,7 +629,6 @@ module.exports = {
         tiaoliao: '六月鲜轻盐牡蛎酱油、白糖、玉米油',
         category_id: 9,
         status: 1,
-        step_id: 44,
         like_count: 0,
         comment_count: 0
       },
@@ -687,7 +643,6 @@ module.exports = {
         tiaoliao: '杏仁粉、草莓粉、糖',
         category_id: 9,
         status: 1,
-        step_id: 45,
         like_count: 0,
         comment_count: 0
       },
@@ -702,7 +657,6 @@ module.exports = {
         tiaoliao: '',
         category_id: 9,
         status: 1,
-        step_id: 46,
         like_count: 0,
         comment_count: 0
       },
@@ -717,7 +671,6 @@ module.exports = {
         tiaoliao: '',
         category_id: 9,
         status: 1,
-        step_id: 47,
         like_count: 0,
         comment_count: 0
       },
@@ -732,7 +685,6 @@ module.exports = {
         tiaoliao: '白砂糖、浅红糖、泡打粉、盐',
         category_id: 9,
         status: 1,
-        step_id: 48,
         like_count: 0,
         comment_count: 0
       },
@@ -747,7 +699,6 @@ module.exports = {
         tiaoliao: '玉米油、炼乳、细砂糖、红丝绒液、可可粉、低筋面粉、淡奶油、细砂糖',
         category_id: 9,
         status: 1,
-        step_id: 49,
         like_count: 0,
         comment_count: 0
       },
@@ -762,7 +713,6 @@ module.exports = {
         tiaoliao: '黄油、淡奶油、糖、草莓泥、吉利丁片、酸奶、草莓泥、吉利丁片',
         category_id: 9,
         status: 1,
-        step_id: 50,
         like_count: 0,
         comment_count: 0
       },
@@ -778,7 +728,6 @@ module.exports = {
         tiaoliao: '生抽、盐、辣椒油、芝麻油、糖',
         category_id: 10,
         status: 1,
-        step_id: 51,
         like_count: 0,
         comment_count: 0
       },
@@ -793,7 +742,6 @@ module.exports = {
         tiaoliao: '大蒜、泰椒、姜、生抽、米醋、白糖、盐',
         category_id: 10,
         status: 1,
-        step_id: 52,
         like_count: 0,
         comment_count: 0
       },
@@ -808,7 +756,6 @@ module.exports = {
         tiaoliao: '二荆条辣椒、泡辣椒、油醋汁、食用油、香油、生抽、蒸鱼豉油、白糖、昆布粉、盐',
         category_id: 10,
         status: 1,
-        step_id: 53,
         like_count: 0,
         comment_count: 0
       },
@@ -823,7 +770,6 @@ module.exports = {
         tiaoliao: '蒜、陈醋、盐、生抽、辣椒酱、糖',
         category_id: 10,
         status: 1,
-        step_id: 54,
         like_count: 0,
         comment_count: 0
       },
@@ -838,7 +784,6 @@ module.exports = {
         tiaoliao: '香油、盐、白糖、蚝油、醋、生抽、鸡精',
         category_id: 10,
         status: 1,
-        step_id: 55,
         like_count: 0,
         comment_count: 0
       },
@@ -853,7 +798,6 @@ module.exports = {
         tiaoliao: '葱花、蒜蓉、小米椒圈、食用油、花椒粒、生抽、香醋、芥末油',
         category_id: 10,
         status: 1,
-        step_id: 56,
         like_count: 0,
         comment_count: 0
       },
@@ -868,7 +812,6 @@ module.exports = {
         tiaoliao: '韩式辣椒酱、话梅粉、冷开水',
         category_id: 10,
         status: 1,
-        step_id: 57,
         like_count: 0,
         comment_count: 0
       },
@@ -883,7 +826,6 @@ module.exports = {
         tiaoliao: '生抽、醋、香油、盐',
         category_id: 10,
         status: 1,
-        step_id: 58,
         like_count: 0,
         comment_count: 0
       },
@@ -898,7 +840,6 @@ module.exports = {
         tiaoliao: '大蒜瓣、食盐、食醋、食糖、香油',
         category_id: 10,
         status: 1,
-        step_id: 59,
         like_count: 0,
         comment_count: 0
       },
@@ -913,7 +854,6 @@ module.exports = {
         tiaoliao: '',
         category_id: 10,
         status: 1,
-        step_id: 60,
         like_count: 0,
         comment_count: 0
       },
@@ -929,7 +869,6 @@ module.exports = {
         tiaoliao: '酱油、蚝油、胡椒粉、料酒、盐',
         category_id: 11,
         status: 1,
-        step_id: 61,
         like_count: 0,
         comment_count: 0
       },
@@ -944,7 +883,6 @@ module.exports = {
         tiaoliao: '稻米油、盐、胡椒粉、千禾酱油、蚝油',
         category_id: 11,
         status: 1,
-        step_id: 62,
         like_count: 0,
         comment_count: 0
       },
@@ -959,7 +897,6 @@ module.exports = {
         tiaoliao: '食用油、清水、食盐、椒盐粉',
         category_id: 11,
         status: 1,
-        step_id: 63,
         like_count: 0,
         comment_count: 0
       },
@@ -974,7 +911,6 @@ module.exports = {
         tiaoliao: '香葱、姜丝、蒜片、盐、白糖、料酒、水淀粉',
         category_id: 11,
         status: 1,
-        step_id: 64,
         like_count: 0,
         comment_count: 0
       },
@@ -989,7 +925,6 @@ module.exports = {
         tiaoliao: '蒜粒、小苏打、盐、水淀粉',
         category_id: 11,
         status: 1,
-        step_id: 65,
         like_count: 0,
         comment_count: 0
       },
@@ -1004,7 +939,6 @@ module.exports = {
         tiaoliao: '盐、蚝油、水淀粉',
         category_id: 11,
         status: 1,
-        step_id: 66,
         like_count: 0,
         comment_count: 0
       },
@@ -1019,7 +953,6 @@ module.exports = {
         tiaoliao: '葱、二锅头、叉烧酱、蚝油、红烧酱油、蜂蜜、盐、姜、蒜',
         category_id: 11,
         status: 1,
-        step_id: 67,
         like_count: 0,
         comment_count: 0
       },
@@ -1034,7 +967,6 @@ module.exports = {
         tiaoliao: '花生油、盐、蚝油、胡椒粉、生抽、老抽、沙茶酱、料酒、生粉、糖',
         category_id: 11,
         status: 1,
-        step_id: 68,
         like_count: 0,
         comment_count: 0
       },
@@ -1049,7 +981,6 @@ module.exports = {
         tiaoliao: '姜片、蒜粒、生抽、蚝油、芝麻、料酒、烧烤酱、糖',
         category_id: 11,
         status: 1,
-        step_id: 69,
         like_count: 0,
         comment_count: 0
       },
@@ -1064,7 +995,6 @@ module.exports = {
         tiaoliao: '葱、姜、盐、芝麻油、生抽、白胡椒粉、料酒、淀粉',
         category_id: 11,
         status: 1,
-        step_id: 70,
         like_count: 0,
         comment_count: 0
       },
@@ -1080,7 +1010,6 @@ module.exports = {
         tiaoliao: '水、五香粉、盐',
         category_id: 12,
         status: 1,
-        step_id: 71,
         like_count: 0,
         comment_count: 0
       },
@@ -1095,7 +1024,6 @@ module.exports = {
         tiaoliao: '食用油、食用油、食盐、生抽、鸡精、花椒粉、葱花',
         category_id: 12,
         status: 1,
-        step_id: 72,
         like_count: 0,
         comment_count: 0
       },
@@ -1110,7 +1038,6 @@ module.exports = {
         tiaoliao: '盐、酱油、蚝油',
         category_id: 12,
         status: 1,
-        step_id: 73,
         like_count: 0,
         comment_count: 0
       },
@@ -1125,7 +1052,6 @@ module.exports = {
         tiaoliao: '豆瓣酱、甜面酱、葱、姜末、蒜末、盐、糖、酱油、鸡精、饺子粉、开水、冷水',
         category_id: 12,
         status: 1,
-        step_id: 74,
         like_count: 0,
         comment_count: 0
       },
@@ -1140,7 +1066,6 @@ module.exports = {
         tiaoliao: '姜、盐、花椒粉、花生油',
         category_id: 12,
         status: 1,
-        step_id: 75,
         like_count: 0,
         comment_count: 0
       },
@@ -1155,7 +1080,6 @@ module.exports = {
         tiaoliao: '小葱、食用油、食盐',
         category_id: 12,
         status: 1,
-        step_id: 76,
         like_count: 0,
         comment_count: 0
       },
@@ -1170,7 +1094,6 @@ module.exports = {
         tiaoliao: '青椒、食用油、食盐',
         category_id: 12,
         status: 1,
-        step_id: 77,
         like_count: 0,
         comment_count: 0
       },
@@ -1185,7 +1108,6 @@ module.exports = {
         tiaoliao: '老抽、生抽、耗油、白糖、食用油',
         category_id: 12,
         status: 1,
-        step_id: 78,
         like_count: 0,
         comment_count: 0
       },
@@ -1200,7 +1122,6 @@ module.exports = {
         tiaoliao: '植物油',
         category_id: 12,
         status: 1,
-        step_id: 79,
         like_count: 0,
         comment_count: 0
       },
@@ -1215,7 +1136,6 @@ module.exports = {
         tiaoliao: '盐、油',
         category_id: 12,
         status: 1,
-        step_id: 80,
         like_count: 0,
         comment_count: 0
       },
@@ -1231,7 +1151,6 @@ module.exports = {
         tiaoliao: '小米辣、香叶、八角、桂皮、食盐、味精',
         category_id: 13,
         status: 1,
-        step_id: 81,
         like_count: 0,
         comment_count: 0
       },
@@ -1246,7 +1165,6 @@ module.exports = {
         tiaoliao: '盐',
         category_id: 13,
         status: 1,
-        step_id: 82,
         like_count: 0,
         comment_count: 0
       },
@@ -1261,7 +1179,6 @@ module.exports = {
         tiaoliao: '食用油、酵母、食盐、白糖',
         category_id: 13,
         status: 1,
-        step_id: 83,
         like_count: 0,
         comment_count: 0
       },
@@ -1276,7 +1193,6 @@ module.exports = {
         tiaoliao: '糯米粉、粘米粉、艾草粉、清水、蚝油、花生油',
         category_id: 13,
         status: 1,
-        step_id: 84,
         like_count: 0,
         comment_count: 0
       },
@@ -1291,7 +1207,6 @@ module.exports = {
         tiaoliao: '香葱、盐',
         category_id: 13,
         status: 1,
-        step_id: 85,
         like_count: 0,
         comment_count: 0
       },
@@ -1306,7 +1221,6 @@ module.exports = {
         tiaoliao: '甜面酱、海鲜酱、烧烤酱、油辣椒、植物油、孜然粉、熟白芝麻',
         category_id: 13,
         status: 1,
-        step_id: 86,
         like_count: 0,
         comment_count: 0
       },
@@ -1321,7 +1235,6 @@ module.exports = {
         tiaoliao: '蚝油、温水、孜然、食盐、辣椒粉、花椒粉、食用油、烧烤酱、熟白芝麻',
         category_id: 13,
         status: 1,
-        step_id: 87,
         like_count: 0,
         comment_count: 0
       },
@@ -1336,7 +1249,6 @@ module.exports = {
         tiaoliao: '葱、姜、蒜、料汁',
         category_id: 13,
         status: 1,
-        step_id: 88,
         like_count: 0,
         comment_count: 0
       },
@@ -1351,7 +1263,6 @@ module.exports = {
         tiaoliao: '玉米淀粉、盐、料酒',
         category_id: 13,
         status: 1,
-        step_id: 89,
         like_count: 0,
         comment_count: 0
       },
@@ -1366,7 +1277,6 @@ module.exports = {
         tiaoliao: '椰奶、糖',
         category_id: 13,
         status: 1,
-        step_id: 90,
         like_count: 0,
         comment_count: 0
       }

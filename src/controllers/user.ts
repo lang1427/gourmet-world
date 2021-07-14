@@ -3,7 +3,7 @@ import { Context } from 'koa'
 import { Model } from "sequelize/types";
 import { Session } from 'koa-session'
 import Sequelize from 'sequelize'
-import { formatDate } from '../formatDate'
+import { formatDate } from '../utils/formatDate'
 
 interface ISelectTypeObj {
     include: object

@@ -7,7 +7,7 @@
 npm install 
 ```
 2. 数据库创建   (请确保你已安装并启动了数据库软件)
-- 修改 dist/config/config.json 配置文件，（数据库链接相关）
+- 修改 dist/config/config.json 配置文件，同config/config.json   （数据库链接相关）
 - 创建数据库 执行 以下命令
 > ./node_modules/.bin/sequelize db:create
 - 执行迁移文件（创建数据库表，字段）
@@ -58,8 +58,7 @@ npm run app
 | fuliao | VARCHAR | No | "" | No | 辅料 |
 | tiaoliao | VARCHAR | No | "" | No | 调料 |
 | category_id | INTEGER | No | -1 | No | 分类id |
-| status | TINYINT | No | 0 | No | 审核状态 0：未审核  1：审核通过  2：审核不通过  3：存为草稿|
-| step_id | INTEGER | No | -1 | No | 步骤id |
+| status | TINYINT | No | 3 | No | 审核状态 0：未审核  1：审核通过  2：审核不通过  3：存为草稿|
 | like_count | INTEGER | No | 0 | No | 点赞数量 |
 | comment_count | INTEGER | No | 0 | No | 评论数量 |
 
@@ -68,7 +67,6 @@ npm run app
 |名称|外键表|外键表字段|
 |:--:|:--:|:--:|
 | user_id | users | id |
-| step_id | step | id |
 
 ### 步骤表
 > **Table: step**

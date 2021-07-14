@@ -29,4 +29,6 @@
  Bug?
    1.Class constructor Model cannot be invoked without 'new'
       设置tsconfig.json target 为 ES2015 即可解决    (保留class关键字)
+   
+   2.上传文件后，网页拿刚上传图像的url 404 ，需要tsc -w 监听变化后才能找到这个文件
  */

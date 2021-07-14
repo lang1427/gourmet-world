@@ -1,0 +1,37 @@
+<%- include('../../components/header'); -%>
+    <link rel="stylesheet" href="/public/css/publish.css">
+    <div class="w_main clear">
+        <%- include('./left_aside') %>
+        <div class="mod_right">
+            <div id="mod_location">
+                <div class="mod_location clear">
+                    <div class="left">
+                        <a href="https://member.meishichina.com/center/my_recipe_me/" title="回到我的菜谱" class="return"></a>
+                        发布新菜谱
+                    </div>
+                </div>
+            </div>
+            <form action="/publish/recipe-add" id="J_form" method="post">
+                <div class="mr_edit mr_edit_center clear">
+                    <ul>
+                        <li>
+                            <label class="must">菜谱名称</label><br>
+                            <input name="subject" class="inputL" type="text" id="J_subject">
+                        </li>
+                    </ul>
+                    <input name="submit" value="创建菜谱" class="btn1" type="submit">
+                </div>
+                <div class="mr_edit mr_edit_fixed clear">
+                    <ul>
+                        <li>
+                            <p class="note">
+                                <a target="_blank" href="https://home.meishichina.com/space-13-do-blog-id-588885.html">如何打造一篇精华菜谱</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="/public/js/add_recipe.js"></script>
+<%- include('../../components/footer') -%>

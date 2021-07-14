@@ -3,7 +3,7 @@ import Koa from 'koa'
 import { useControllers } from 'koa-controllers'
 import views from 'koa-views'  // 模板渲染中间件 
 import staticCache from 'koa-static-cache'     // 静态资源文件处理
-import BodyParser from 'koa-bodyparser'
+import koaBody from 'koa-body'
 import session from 'koa-session'
 import { Context } from 'koa'
 
@@ -25,7 +25,24 @@ const sessionConf = {
 }
 
 app.use(session(sessionConf, app))
-app.use(BodyParser())       // post解析，通过ctx.request.body 获取post请求传递过来的参数
+
+import check_dirExist from './utils/check_dirExist'
+import create_dirName from './utils/create_dirName'
+app.use(koaBody({
+    multipart: true, // 支持多文件上传
+    formidable: {
+        uploadDir: path.join(__dirname, 'static/upload'), // 文件上传的路径  默认保存在临时文件夹C:/xxx/temp
+        keepExtensions: true,    // 保留文件扩展名
+        hash:"md5",         // 文件md5值
+        onFileBegin: (name, file) => {      // 文件上传前执行的特殊回调函数
+            // console.log(name, file)  name: input:file name属性值； file: 文件信息
+            const dir = path.join(__dirname,'static/upload/'+create_dirName()) 
+            check_dirExist(dir)
+            // 重新覆盖文件保存的路径
+            file.path = `${dir}\\${path.basename(file.path)}`
+        }
+    }
+}))       // post解析，通过ctx.request.body 获取post请求传递过来的参数
 app.use(staticCache(path.join(__dirname, 'static'), {
     prefix: '/public',
     gzip: true

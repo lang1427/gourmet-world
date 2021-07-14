@@ -67,13 +67,8 @@ module.exports = {
       status: {
         type: Sequelize.TINYINT,
         allowNull: false,
-        default: 0,
+        default: 3,
         comment: '审核状态'
-      },
-      step_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        comment: '步骤id'
       },
       like_count: {
         type: Sequelize.INTEGER,

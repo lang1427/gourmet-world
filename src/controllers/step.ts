@@ -1,5 +1,5 @@
 import { Context } from "koa";
-import { Controller, Ctx, Get } from "koa-controllers";
+import { Controller, Ctx, Get, Post } from "koa-controllers";
 import { Model } from "sequelize/types";
 import { Session } from 'koa-session'
 
@@ -13,7 +13,7 @@ export class Step {
                 id: g_id,
                 status: 1
             },
-            include: [ctx.state.db['step'], ctx.state.db['users'], ctx.state.db['category']]
+            include: [ctx.state.db['users'], ctx.state.db['category']]
         })
         let category = {
             c_name: (<any>res)['category'].get('c_name'),
@@ -37,11 +37,14 @@ export class Step {
             like_count: res.get('like_count'),
             isLike: false,
             comment_count: res.get('comment_count'),
-            step_desc: (<any>res)['step'].get('desc'),
-            step_img: (<any>res)['step'].get('url'),
+            step_desc: "",
+            step_img: '',
             user_id: res.get('user_id'),
             user_name: (<any>res)['user'].get('username')
         }
+        let step: Model = await ctx.state.db['step'].findByPk(g_id)
+        data.step_desc = step.get('desc') as string
+        data.step_img = step.get('url') as string
         let description: string = ''
         for (let i in JSON.parse(data.step_desc)) {
             description += i + '.' + JSON.parse(data.step_desc)[i]
@@ -62,5 +65,32 @@ export class Step {
             if (islike === 1) data.isLike = true
         }
         await ctx.render('page/step/index', Object.assign({}, conf, data))
+    }
+
+    @Post('/get_recipe_step')
+    public async get_recipe_step(@Ctx ctx: Context) {
+        let { recipe_id } = ctx.request.body
+        if (!!recipe_id) {
+            let step: Model = await ctx.state.db['step'].findByPk(recipe_id)
+            if (!!step) {
+                let desc = step.get('desc')
+                let url = step.get('url')
+                ctx.body = {
+                    code: 1,
+                    desc,
+                    url
+                }
+            } else {
+                ctx.body = {
+                    code: 0,
+                    mes: '没有找到相关的信息'
+                }
+            }
+        } else {
+            ctx.body = {
+                code: 0,
+                mes: "参数错误"
+            }
+        }
     }
 }
