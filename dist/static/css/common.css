@@ -429,3 +429,15 @@ color: #bbb;
 input:-ms-input-placeholder { 
 color: #bbb;
 }
+
+
+body.dragging, body.dragging * {
+	cursor: move !important;
+}
+  
+.dragged {
+	position: absolute!important;
+	top: 0;
+	opacity: 0.5;
+	z-index: 2000; 
+}

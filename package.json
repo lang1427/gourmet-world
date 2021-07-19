@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/jquery": "^3.5.5",
     "@types/jquery-lazyload": "^1.9.2",
+    "@types/jquery-sortable": "^0.9.31",
     "@types/jquery.base64": "0.0.29",
     "@types/jquery.cookie": "^1.4.31",
     "@types/jquery.fileupload": "^9.22.2",
@@ -50,7 +51,6 @@
     "koa-static-cache": "^5.1.4",
     "koa-views": "^7.0.1",
     "md5": "^2.3.0",
-    "methods-util": "^0.3.1",
     "mysql2": "^2.2.5",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.6.2",

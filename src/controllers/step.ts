@@ -5,6 +5,7 @@ import { Session } from 'koa-session'
 
 @Controller
 export class Step {
+    public _step: Model | undefined = undefined
     @Get('/step')
     public async step(@Ctx ctx: Context) {
         let g_id = ctx.query['g_id']
@@ -69,17 +70,39 @@ export class Step {
 
     @Post('/get_recipe_step')
     public async get_recipe_step(@Ctx ctx: Context) {
+        await this.auth_step(ctx, () => {
+            let desc = this._step!.get('desc')
+            let url = this._step!.get('url')
+            ctx.body = {
+                code: 1,
+                desc,
+                url
+            }
+        })
+    }
+
+    @Post('/edit_recipe_step')
+    public async edit_recipe_step(@Ctx ctx: Context) {
+        await this.auth_step(ctx, () => {
+            let { desc, url } = ctx.request.body
+            this._step!.update({
+                desc,
+                url
+            })
+            ctx.body = {
+                code: 1,
+                mes: '更新成功'
+            }
+
+        })
+    }
+
+    private async auth_step(ctx: Context, successCallback: Function) {
         let { recipe_id } = ctx.request.body
         if (!!recipe_id) {
-            let step: Model = await ctx.state.db['step'].findByPk(recipe_id)
-            if (!!step) {
-                let desc = step.get('desc')
-                let url = step.get('url')
-                ctx.body = {
-                    code: 1,
-                    desc,
-                    url
-                }
+            this._step = await ctx.state.db['step'].findByPk(recipe_id)
+            if (!!this._step) {
+                successCallback && successCallback()
             } else {
                 ctx.body = {
                     code: 0,

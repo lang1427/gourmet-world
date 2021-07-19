@@ -260,6 +260,7 @@ blockquote{margin:0;padding:0;text-indent:0}
 .step a.up{top:40px}
 .step a.down{top:80px}
 .step a.add{top:120px}
+.step a.dragsort{top: 160px;cursor: move;}
 .step blockquote.cp_block{clear:both;position:relative;top:0;left:0;padding:10px 6% 10px 0;width:94.5%}
 .step blockquote.cp_block .right{float:none;margin:0 0 0 220px;padding:10px 5px 10px 40px;border:1px solid #ccc;position:relative}
 .step .textArea{width:100%;height:135px;margin:0;padding:0;border:none;resize:none}
@@ -288,6 +289,7 @@ blockquote{margin:0;padding:0;text-indent:0}
 .step .right a.add:hover:before{background-color:#ff838b}
 .step .right a.delete:before{background-position:center -51px}
 .step .right a.up:before{background-position:center -15px}
+.step .right a.dragsort:before{background:url(/public/images/sort.png) no-repeat center 0;content:'';display:block;width:22px;height:24px;border-right:1px solid #ccc}
 .step .right a.down:before{background-position:center -33px}
 .step .right a.add:before{background-position:center 4px;background-color:#ff6767}
 .addicon{width: 320px;height: 240px}
