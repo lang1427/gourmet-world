@@ -36,7 +36,7 @@ export class Publish {
         } else {
             await ctx.redirect('/publish/recipe-add')
         }
-    }  
+    }
 
     @Get('/publish/recipe-edit')
     public async editRecipe(@Ctx ctx: Context) {
@@ -64,5 +64,112 @@ export class Publish {
 
         }
 
+    }
+
+    @Post('/publish/recipe-edit')
+    public async editRecipe_post(@Ctx ctx: Context) {
+        let { recipe_id, g_name, desc, difficulty, zhuliao, fuliao, tiaoliao } = ctx.request.body
+        if (!!recipe_id) {
+            let RecipeModel: Model = await ctx.state.db['goods'].findByPk(recipe_id)
+            if (!!RecipeModel) {
+                await RecipeModel.update({
+                    g_name,
+                    desc,
+                    difficulty,
+                    zhuliao,
+                    fuliao,
+                    tiaoliao
+                })
+                ctx.body = {
+                    code: 1,
+                    mes: '更新成功'
+                }
+            } else {
+                ctx.body = {
+                    code: 0,
+                    mes: '菜谱不存在'
+                }
+            }
+        } else {
+            ctx.body = {
+                code: 0,
+                mes: '参数错误'
+            }
+        }
+    }
+
+    @Post('/publish/recipe-save')
+    public async saveRecipe(@Ctx ctx: Context) {
+        let { recipe_id, g_name, desc, difficulty, zhuliao, fuliao, tiaoliao, cover_img, step_desc, step_url, status } = ctx.request.body
+        if (!!recipe_id && !!status) {
+            let RecipeModel: Model = await ctx.state.db['goods'].findByPk(recipe_id)
+            let StepModel: Model = await ctx.state.db['step'].findByPk(recipe_id)
+            if (!!RecipeModel) {
+                switch (parseInt(status)) {
+                    case 1:
+                        if (!!g_name && !!difficulty && !!zhuliao && !!cover_img && !!step_desc) {
+                            await RecipeModel.update({
+                                g_name,
+                                img: cover_img,
+                                desc,
+                                difficulty,
+                                zhuliao,
+                                fuliao,
+                                tiaoliao,
+                                status: 0
+                            })
+                            await StepModel.update({
+                                desc: step_desc,
+                                url: step_url
+                            })
+                            ctx.body = {
+                                code: 1,
+                                mes: "发表成功，请耐性等待审核"
+                            }
+                        } else {
+                            ctx.body = {
+                                code: 0,
+                                mes: '菜谱名称，成品图片，主料，制作难度，步骤 不能为空'
+                            }
+                        }
+                        break;
+                    case 3:
+                        await RecipeModel.update({
+                            g_name,
+                            img: cover_img,
+                            desc,
+                            difficulty,
+                            zhuliao,
+                            fuliao,
+                            tiaoliao,
+                            status
+                        })
+                        await StepModel.update({
+                            desc: step_desc,
+                            url: step_url
+                        })
+                        ctx.body = {
+                            code: 1,
+                            mes: '保存草稿成功！'
+                        }
+                        break;
+                    default:
+                        ctx.body = {
+                            code: 0,
+                            mes: '参数status值不被允许'
+                        }
+                }
+            } else {
+                ctx.body = {
+                    code: 0,
+                    mes: '菜谱不存在'
+                }
+            }
+        } else {
+            ctx.body = {
+                code: 0,
+                mes: '参数错误'
+            }
+        }
     }
 }

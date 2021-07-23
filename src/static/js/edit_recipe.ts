@@ -7,6 +7,72 @@ $(function () {
         [attr: number]: any
     }
 
+    $('#J_m_cover').fileupload({
+        done: function (e, data) {
+            if (data.result.code === 1) {
+                if ($('#cover').children().length == 0) {
+                    $('#cover').html(`
+                    <div>
+                        <img class="imgLoad" src="${data.result.img}" style="display: inline-block;">
+                        <input type="hidden" name="allpic" value="${data.result.img}">
+                    </div>
+                    `)
+                } else {
+                    $('#cover').find('img').attr('src', data.result.img)
+                    $('#cover').find('input[name="allpic"]').val(data.result.img)
+                }
+                saveTip('成品图片')
+            }
+        }
+    })
+
+    // 间隔2分钟检查数据，保存草稿功能
+    let oldData = get_recipe_data()
+    window.setInterval(function () {
+        let newData = get_recipe_data()
+        if (newData.subject !== oldData.subject) {
+            var { subject } = newData
+        }
+        if (newData.message !== oldData.message) {
+            var { message } = newData
+        }
+        if (newData.difficulty !== oldData.difficulty) {
+            var { difficulty } = newData
+        }
+        if (JSON.stringify({ zhuliao: newData.zhuliao }) !== JSON.stringify({ zhuliao: oldData.zhuliao })) {
+            var { zhuliao } = newData
+        }
+        if (JSON.stringify({ fuliao: newData.fuliao }) !== JSON.stringify({ fuliao: oldData.fuliao })) {
+            var { fuliao } = newData
+        }
+        if (JSON.stringify({ tiaoliao: newData.tiaoliao }) !== JSON.stringify({ tiaoliao: oldData.tiaoliao })) {
+            var { tiaoliao } = newData
+        }
+        if (!!subject || !!message || !!difficulty || !!zhuliao || !!tiaoliao || !!fuliao) {
+            $.ajax({
+                url: '/publish/recipe-edit',
+                type: 'post',
+                data: {
+                    recipe_id: $('#recipeinfo_id').val(),
+                    g_name: subject,
+                    desc: message,
+                    difficulty,
+                    zhuliao: zhuliao && zhuliao.join('、'),
+                    fuliao: fuliao && fuliao.join('、'),
+                    tiaoliao: tiaoliao && tiaoliao.join('、'),
+                },
+                success: function (rsp) {
+                    if (rsp.code === 1) {
+                        saveTip('菜谱名称，描述，制作难度，食材明细')
+                        oldData = get_recipe_data()
+                    } else {
+                        layer.msg(rsp.mes, { icon: 5 })
+                    }
+                }
+            })
+        }
+    }, 12 * 1e4)
+
     // 食材明细相关
     $('.ingredient').on('focus', '.liao', function () {
         var parent_dom = $(this).parent()
@@ -20,6 +86,13 @@ $(function () {
             </div>`)
         }
     })
+    $('.ingredient').on('click', '.delete', function () {
+        $(this).parent().remove()
+    })
+    $('.del').on('click', function (this: any) {
+        $(this).closest('blockquote').remove()
+    })
+
 
     // 制作难度 相关
     $('.difficulty span').each(function () {
@@ -29,10 +102,11 @@ $(function () {
     })
     $(".things_type1 span").on('click', function (this: any) {
         $(this).addClass('on').siblings().removeClass('on');
-        $(this).closest('li').find('input').val(<string>$(this).attr("data-value"));
+        $(this).closest('li').find('input').val(<string>$(this).text());
     })
 
     // 步骤相关
+    var file_len: number = 0, isMultiple: boolean = false;
     $('.step').on('click', 'input[name="gourmet"]', function () {
         // https://github.com/blueimp/jQuery-File-Upload/wiki/Options
         $(this).fileupload({
@@ -45,16 +119,29 @@ $(function () {
             },
             send: function (e, data) { }, // 每个文件上传请求开始时触发
             done: function (e, data) { // 文件上传成功
-                if (data.result.code === 1) {
-                    $(this).parent().find('.file_img').attr('src', data.result.url)
-                    saveTip()
+                if (isMultiple === false) {
+                    if (data.result.code === 1) {
+                        $(this).parent().find('.file_img').attr('src', data.result.url)
+                        saveTip('菜谱步骤')
+                    }
+                } else {
+                    file_len--;
+                    if (file_len === 0) {
+                        // 全部上传完成
+                        renderStep_template()
+                        saveTip('菜谱步骤')
+                        isMultiple = false
+                    }
                 }
             },
             fail: function () { },  // 上传文件中止或失败时触发
             always: function () { },  // 文件上传完毕触发（成功，失败，中止）
             progress: function () { },  // 当前文件上传进度条
             progressall: function () { },  // 全局文件上传进度
-            change: function (e, data) { },    // 文件发生改变时触发
+            change: function (e, data) { // 文件发生改变时触发
+                file_len = data.files.length
+                if (file_len >= 2) isMultiple = true
+            },
             paste: function () { },      // 粘贴 时触发的事件
             drop: function () { },       // 拖拽区域的拖拽事件
             dragover: function () { },   // 拖拽离开执行
@@ -131,13 +218,13 @@ $(function () {
         set_recipe_step(desc, url)
     })
     $('#dragsort').on('click', '.down', function () {
-        var cur_step_index=$(this).parent().parent().index();
-        if(cur_step_index==$('#dragsort blockquote').length-1){
+        var cur_step_index = $(this).parent().parent().index();
+        if (cur_step_index == $('#dragsort blockquote').length - 1) {
             layer.msg('已经是最后一步了')
             return false
         }
-        cur_step_index++;$('#dragsort').find('blockquote:eq('+cur_step_index+')').after($(this).parent().parent().clone().hide());
-        cur_step_index++;$('#dragsort').find('blockquote:eq('+cur_step_index+')').fadeIn('800');
+        cur_step_index++; $('#dragsort').find('blockquote:eq(' + cur_step_index + ')').after($(this).parent().parent().clone().hide());
+        cur_step_index++; $('#dragsort').find('blockquote:eq(' + cur_step_index + ')').fadeIn('800');
         $(this).closest('.J_blockQ').remove();
         _resetStepInfo()
         let { desc, url } = _buildStepData()
@@ -200,6 +287,15 @@ $(function () {
             url
         }
     }
+
+    // 步骤描述 输入过程 超过1分钟则向后台保存草稿
+    let input_step_desc = debounce(() => {
+        let { desc, url } = _buildStepData()
+        set_recipe_step(desc, url)
+    }, 60000)
+    $('#dragsort').on('input', '.textArea', function () {
+        input_step_desc()
+    })
 
 
     renderStep_template()
@@ -265,15 +361,113 @@ $(function () {
             success: function (res) {
                 if (res.code === 1) {
                     if (isRender) renderStep_template();
-                    saveTip()
+                    saveTip('菜谱步骤')
                 }
             }
         })
     }
 
-    function saveTip(): void {
+    function saveTip(mes: string): void {
         let time = new Date().getHours().toString().padStart(2, '0') + ':' + new Date().getMinutes().toString().padStart(2, '0')
-        $('#save_tip').html('已于 ' + time + ' 自动保存')
+        $('#save_tip').html('已于 ' + time + ' 自动保存: ' + mes)
     }
 
+    interface IRecipeData {
+        subject: string
+        message: string
+        difficulty: string
+        zhuliao: string[]
+        fuliao: string[]
+        tiaoliao: string[]
+    }
+    function get_recipe_data(): IRecipeData {
+        var zhuliao: string[] = [],
+            fuliao: string[] = [],
+            tiaoliao: string[] = [];
+        $('.ingredient blockquote').eq(0).find('.liao').each(function () {
+            zhuliao.push($(this).val() + '')
+        })
+        $('.ingredient blockquote').eq(1).find('.liao').each(function () {
+            fuliao.push($(this).val() + '')
+        })
+        $('.ingredient blockquote').eq(2).find('.liao').each(function () {
+            tiaoliao.push($(this).val() + '')
+        })
+        var data: IRecipeData = {
+            subject: $.trim($('input[name="subject"]').val() + ''),
+            message: $.trim($('textarea[name="message"]').val() + ''),
+            difficulty: $.trim($('#difficulty').val() + ''),
+            zhuliao,
+            fuliao,
+            tiaoliao
+        }
+        return data
+    }
+
+
+    function saveRecipe(recipe_data: IRecipeData, step_data: Istep_data, cover_img: undefined | string, status: number) {
+        $.ajax({
+            url: '/publish/recipe-save',
+            type: 'post',
+            data: {
+                recipe_id: $('#recipeinfo_id').val(),
+                g_name: recipe_data.subject,
+                desc: recipe_data.message,
+                difficulty: recipe_data.difficulty,
+                zhuliao: recipe_data.zhuliao && recipe_data.zhuliao.join(''),
+                fuliao: recipe_data.fuliao && recipe_data.fuliao.join(''),
+                tiaoliao: recipe_data.tiaoliao && recipe_data.tiaoliao.join(''),
+                cover_img: cover_img,
+                step_desc: step_data.desc,
+                step_url: step_data.url,
+                status
+            },
+            success: function (rsp) {
+                layer.msg(rsp.mes)
+            }
+        })
+    }
+    // 手动存为草稿
+    $('#savebtn').on('click', function () {
+        let recipe_data = get_recipe_data()
+        let recipe_step = _buildStepData()
+        let cover_img: undefined | string = ($('input[name="allpic"]').val() as undefined | string)
+        let obj: Istep_data = {
+            desc: JSON.stringify(recipe_step.desc),
+            url: JSON.stringify(recipe_step.url)
+        }
+        saveRecipe(recipe_data, obj, cover_img, 3)
+    })
+    // 发布菜谱
+    $('#postbtn').on('click', function () {
+        let recipe_data = get_recipe_data()
+        let recipe_step = _buildStepData()
+        let cover_img: undefined | string = ($('input[name="allpic"]').val() as undefined | string)
+        let obj: Istep_data = {
+            desc: JSON.stringify(recipe_step.desc),
+            url: JSON.stringify(recipe_step.url)
+        }
+
+        if (recipe_data.subject == '' || recipe_data.difficulty == '' || typeof cover_img == 'undefined') {
+            layer.msg('菜谱名称，成品图片，制作难度 不能为空')
+            return false
+        }
+        if (($('.ingredient blockquote').eq(0).find('.liao')[0] as HTMLInputElement).value == '') {
+            layer.msg('主料不能为空')
+            return false
+        }
+        let stepArr = Object.values(recipe_step.desc)
+        if (stepArr.length < 3) {
+            layer.msg('步骤必须存在3步')
+            return false
+        }
+        let flag: boolean = stepArr.some(function (item) {
+            return item == ""
+        })
+        if (flag) {
+            layer.msg('步骤描述不能为空')
+            return false
+        }
+        saveRecipe(recipe_data, obj, cover_img, 1)
+    })
 })

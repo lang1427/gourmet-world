@@ -19,23 +19,19 @@
                     <ul>
                         <li>
                             <label class="must">菜谱名称</label><br>
-                            <input name="subject" class="inputL" type="text" value="<%= g_name %> ">
+                            <input name="subject" class="inputL" type="text" value="<%= g_name %>">
                         </li>
                         <li>
                             <label class="must">成品图片</label><br>
                             <div class="J_upload">上传成品图
-                                <input multiple="" class="J_img" id="J_m_cover" type="file"
-                                    accept="image/png,image/gif,image/jpeg" name="gourmet" data-url="/upload/recipe_step" onchange="fileChange(this)">
+                                <input class="J_img" id="J_m_cover" type="file"
+                                    accept="image/png,image/gif,image/jpeg" name="cover" data-url="/upload/recipe_img">
                             </div>
-                            <span class="img_status" id="multi_cover_status"> </span>
                             <div id="cover" class="clear">
                                 <% if(!!cover_img){ %>
                                 <div>
-                                    <a href="javascript:void(0);" class="del">删除</a>
-                                    <span></span>
-                                    <img class="imgLoad" src="//static.meishichina.com/v6/img/blank.gif" data-original="<%= cover_img %>" data-w="120" style="display: inline-block;">
+                                    <img class="imgLoad" src="<%= cover_img %>" style="display: inline-block;">
                                     <input type="hidden" name="allpic" value="<%= cover_img %>">
-                                    <a href="javascript:void(0);" class="picw picws">图过小</a>
                                 </div>
                                 <% } %>
                             </div>
@@ -119,7 +115,7 @@
                             <label class="must">做法步骤</label><br>
                             <div class="J_upload">批量上传
                                 <input multiple="" class="J_img" id="J_s_cover" type="file"
-                                    accept="image/png,image/gif,image/jpeg" name="gourmet" data-url="/upload/recipe_step" onchange="fileChange(this)">
+                                    accept="image/png,image/gif,image/jpeg" name="gourmet" data-url="/upload/recipe_step">
                             </div>
                             <span class="img_status" id="multi_step_status"></span>
 
