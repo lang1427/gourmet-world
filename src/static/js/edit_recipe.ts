@@ -26,9 +26,19 @@ $(function () {
         }
     })
 
+    document.addEventListener("visibilitychange", function () {
+        document.hidden ? window.clearInterval(auto_timer) : interval();
+    });
+
     // 间隔2分钟检查数据，保存草稿功能
     let oldData = get_recipe_data()
-    window.setInterval(function () {
+    let auto_timer = interval()
+    function interval() {
+        return window.setInterval(function () {
+            auto_save_data()
+        }, 12 * 1e4)  
+    }
+    function auto_save_data() {
         let newData = get_recipe_data()
         if (newData.subject !== oldData.subject) {
             var { subject } = newData
@@ -71,7 +81,7 @@ $(function () {
                 }
             })
         }
-    }, 12 * 1e4)
+    }
 
     // 食材明细相关
     $('.ingredient').on('focus', '.liao', function () {

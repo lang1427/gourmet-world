@@ -83,18 +83,26 @@ export class Step {
 
     @Post('/edit_recipe_step')
     public async edit_recipe_step(@Ctx ctx: Context) {
-        await this.auth_step(ctx, () => {
-            let { desc, url } = ctx.request.body
-            this._step!.update({
-                desc,
-                url
-            })
-            ctx.body = {
-                code: 1,
-                mes: '更新成功'
-            }
+        let user_id = (<Session>ctx.session).userID
+        if (!!user_id) {
+            await this.auth_step(ctx, () => {
+                let { desc, url } = ctx.request.body
+                this._step!.update({
+                    desc,
+                    url
+                })
+                ctx.body = {
+                    code: 1,
+                    mes: '更新成功'
+                }
 
-        })
+            })
+        } else {
+            ctx.body = {
+                code: -1,
+                mes: '登录超时，请重新登录'
+            }
+        }
     }
 
     private async auth_step(ctx: Context, successCallback: Function) {
