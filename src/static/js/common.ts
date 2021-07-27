@@ -27,3 +27,13 @@ const debounce = function (fn: Function, delay: number) {
         }, delay)
     }
 }
+
+const getUrlParam = (name: string, href?: string) => {
+    const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    const search = href ? href.split('?')[1] : window.location.href.split('?')[1];
+    if (!!search) {
+        const r = search.match(reg) || [];
+        return r[2];
+    }
+    return ''
+}

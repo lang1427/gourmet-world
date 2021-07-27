@@ -1,0 +1,67 @@
+<%- include('../../../components/header'); -%>
+    <link rel="stylesheet" href="/public/css/publish.css">
+    <style>
+        .ui_newlist_1 a.isshow {display:none;}
+        .m_search {display:block;left:0;top:0px;background:#f8f8f8;width:100%;padding:15px 0 15px 15px;position:relative;}
+        .m_search input.inputS {width: 200px!important;}
+        .m_search input {padding:0 0 0 5px;font-size:16px;border:1px solid #ccc;}
+        .m_search {vertical-align:middle;}
+        .m_search .ui_btn.btn {border:1px solid #ff6767;background:#fff;border-radius:3px;color:#ff6767;cursor:pointer;display:inline-block;outline:0 none;padding:0 5px;font-size: 14px;line-height: 26px;
+        background:#ff6767;padding:0 10px;border-radius:3px;color:#fff;outline:0;display:inline-block;height:27px;line-height:27px;border:0;cursor:pointer;vertical-align:middle;text-align:center;font-size:14px;}
+    </style>
+    <div class="w_main clear">
+        <%- include('../../../components/my_left') %>
+            <div class="mod_right">
+                <%- include('./location') %>
+                    <div class="ui_newlist_1 get_num mt60 clear" id="J_list">
+                        <div class="m_search clear search_b">
+                            <form action="/user/my_recipe" method="get" >
+                                <input name="recipename" id="tbid" class="inputS"
+                                    placeholder="搜索我发布的菜谱" type="text" value="">&nbsp;
+                                <input value="　搜索　" type="submit" id="tbid_btn" class="ui_btn btn">
+                            </form>
+                        </div>
+                        <% if(total == 0){ %>
+                            <div class="ui_no_data">
+                                <p>
+                                    您还没有发布新菜谱噢，快点击这里<a href="/publish/recipe-add">发布新菜谱</a>吧！
+                                </p>
+                            </div>
+                        <% }else{ %>
+                            <ul>
+                                <% for(let i = 0;i<list.length;i++){ %>
+                                <li data-id="<%= list[i].recipe_id %>">
+                                    <div class="left">
+                                        <div class="pic">
+                                            <a href="/publish/recipe-edit?goods_id=<%= list[i].recipe_id %>" target="_blank">
+                                                <img class="imgLoad"  src="<%= list[i].recipe_cover %>" width="180" height="180" style="display: block;">
+                                            </a>
+                                        </div>
+                                        <div class="detail">
+                                            <h2>
+                                                <a title=""
+                                                    href="/publish/recipe-edit?goods_id=<%= list[i].recipe_id %>"
+                                                    target="_blank"><%= list[i].recipe_name ? list[i].recipe_name : '无标题' %> </a>
+                                            </h2>
+                                            <p class="subline"><%= list[i].good_time %> </p>
+                                            <p class="subcontent">原料：<%= list[i].ingredients %> 
+                                            </p>
+                                            <div class="substatus clear">
+                                                <span class="get_nums"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <a href="/publish/recipe-edit?goods_id=<%= list[i].recipe_id %>"
+                                            target="_blank">编辑</a>
+                                        <a class="del" href="javascript:void(0);" data-id="<%= list[i].recipe_id %>">删除</a>
+                                    </div>
+                                </li>
+                                <% } %>
+                            </ul>
+                        <% } %>
+                    </div>
+            </div>
+    </div>
+    <script src="/public/js/user_recipe.js"></script>
+    <%- include('../../../components/footer') -%>

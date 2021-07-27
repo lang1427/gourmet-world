@@ -236,3 +236,138 @@ export class Logout {
 
     }
 }
+
+@Controller
+export class UserRecipe {
+
+    public conf = {
+        title: `我的菜谱 - 美食天下`,
+        keywords: ``,
+        description: ``
+    }
+
+    @Get('/user/my_recipe')
+    public async myRecipe(@Ctx ctx: Context, @RequestParam('recipename', { required: false }) recipe_name?: string) {
+        const data = await this._getRecipe(ctx, 1, recipe_name ? recipe_name : '')
+        if (!!data) {
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+        } else {
+            ctx.redirect('/user/login')
+        }
+    }
+
+    @Get('/user/my_recipe_pending')
+    public async myRecipePending(@Ctx ctx: Context) {
+        const data = await this._getRecipe(ctx, 0)
+        if (!!data) {
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+        } else {
+            ctx.redirect('/user/login')
+        }
+    }
+
+    @Get('/user/my_recipe_fail')
+    public async myRecipeFail(@Ctx ctx: Context) {
+        const data = await this._getRecipe(ctx, 2)
+        if (!!data) {
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+        } else {
+            ctx.redirect('/user/login')
+        }
+    }
+
+    @Get('/user/my_recipe_draft')
+    public async myRecipeDraft(@Ctx ctx: Context) {
+        const data = await this._getRecipe(ctx, 3)
+        if (!!data) {
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+        } else {
+            ctx.redirect('/user/login')
+        }
+    }
+
+    @Post('/del/recipe')
+    public async delRecipe(@Ctx ctx: Context) {
+        let user_id = (<Session>ctx.session).userID
+        if (!!user_id) {
+            let { recipe_id } = ctx.request.body
+            if (!!recipe_id) {
+                let recipe: Model = await ctx.state.db['goods'].findByPk(recipe_id)
+                if (!!recipe) {
+                    await recipe.destroy()
+                    let step: Model = await ctx.state.db['step'].findByPk(recipe_id)
+                    step.destroy()
+                    ctx.body = {
+                        code: 1,
+                        mes: '删除成功'
+                    }
+                } else {
+                    ctx.body = {
+                        code: 0,
+                        mes: '没有找到该菜谱信息'
+                    }
+                }
+            } else {
+                ctx.body = {
+                    code: 0,
+                    mes: '参数错误'
+                }
+            }
+        } else {
+            ctx.body = {
+                code: -1,
+                mes: "登录超时，请重新登录"
+            }
+        }
+    }
+
+    /** 获取当前登录用户的菜谱数据
+     * 
+     * @param ctx ctx上下文对象
+     * @param status 菜谱当前的状态
+     */
+    private async _getRecipe(@Ctx ctx: Context, status: number, search_name: string = ''): Promise<void | object> {
+        let user_id = (<Session>ctx.session).userID
+        if (!!user_id) {
+            let recipe_list = await ctx.state.db['goods'].findAll({
+                where: {
+                    user_id,
+                    status,
+                    g_name: {
+                        [Sequelize.Op.like]: `%${search_name}%`
+                    }
+                },
+                limit: 10,
+                order: [
+                    ['createdAt', 'desc']
+                ],
+                attributes: ['id', 'g_name', 'img', 'zhuliao', 'fuliao', 'createdAt'],
+            })
+            let list = recipe_list.map((model: Model) => {
+                return {
+                    recipe_id: model.get('id'),
+                    recipe_name: model.get('g_name'),
+                    recipe_cover: model.get('img'),
+                    ingredients: model.get('zhuliao') + '、' + (model.get('fuliao') ? model.get('fuliao') : '无'),
+                    good_time: Number.isNaN((<Date>model.get('createdAt')).getTime()) ? '2021-01-01 11:11' : formatDate((<Date>model.get('createdAt')), 'yyyy-MM-dd hh:mm')
+                }
+            })
+            const data = {
+                list,
+                total: list.length
+            }
+            if (data.total >= 10) {
+                data.total = await ctx.state.db['goods'].count({
+                    where: {
+                        user_id,
+                        status,
+                        g_name: {
+                            [Sequelize.Op.like]: `%${search_name}%`
+                        }
+                    },
+                })
+            }
+            return data
+        }
+    }
+}
