@@ -7,12 +7,17 @@ import { Model } from "sequelize/types";
 export class Publish {
     @Get('/publish/recipe-add')
     public async addRecipe(@Ctx ctx: Context) {
-        const conf = {
-            title: '发布新菜谱 - 美食天下',
-            keywords: ``,
-            description: ''
+        let user_id = (<Session>ctx.session).userID
+        if (!!user_id) {
+            const conf = {
+                title: '发布新菜谱 - 美食天下',
+                keywords: ``,
+                description: ''
+            }
+            await ctx.render('page/publish/add_recipe', Object.assign({}, conf))
+        } else {
+            ctx.redirect('/user/login/')
         }
-        await ctx.render('page/publish/add_recipe', Object.assign({}, conf))
     }
 
     @Post('/publish/recipe-add')
@@ -56,7 +61,8 @@ export class Publish {
                 zhuliao: recipe.get('zhuliao'),
                 fuliao: recipe.get('fuliao'),
                 tiaoliao: recipe.get('tiaoliao'),
-                step_id: recipe.get('step_id')
+                step_id: recipe.get('step_id'),
+                status: recipe.get('status')
             }
             const conf = {
                 title: `编辑菜谱:${recipe_info.g_name} - 美食天下`,

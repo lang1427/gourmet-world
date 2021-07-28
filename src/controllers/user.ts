@@ -65,6 +65,7 @@ export class User {
             let good_len: number = await ctx.state.db['goods'].count({
                 where: {
                     user_id: userid,
+                    status: 1,
                     g_name: {
                         [Sequelize.Op.like]: `%${type.search_str ? type.search_str : ''}%`
                     }
@@ -103,6 +104,9 @@ export class User {
                     // 后面加上话题 日志。。。
                     include: [{
                         model: ctx.state.db['goods'],
+                        where: {
+                            status: 1
+                        },
                         limit: limitCount
                     }]
                 }
@@ -114,7 +118,8 @@ export class User {
                         where: {
                             g_name: {
                                 [Sequelize.Op.like]: `%${search_str ? search_str : ''}%`
-                            }
+                            },
+                            status: 1
                         },
                         limit: limitCount,
                         offset: ((<number>offset) - 1) * limitCount
@@ -339,9 +344,9 @@ export class UserRecipe {
                 },
                 limit: 10,
                 order: [
-                    ['createdAt', 'desc']
+                    ['updatedAt', 'desc']
                 ],
-                attributes: ['id', 'g_name', 'img', 'zhuliao', 'fuliao', 'createdAt'],
+                attributes: ['id', 'g_name', 'img', 'zhuliao', 'fuliao', 'updatedAt', 'status_mes'],
             })
             let list = recipe_list.map((model: Model) => {
                 return {
@@ -349,7 +354,8 @@ export class UserRecipe {
                     recipe_name: model.get('g_name'),
                     recipe_cover: model.get('img'),
                     ingredients: model.get('zhuliao') + '、' + (model.get('fuliao') ? model.get('fuliao') : '无'),
-                    good_time: Number.isNaN((<Date>model.get('createdAt')).getTime()) ? '2021-01-01 11:11' : formatDate((<Date>model.get('createdAt')), 'yyyy-MM-dd hh:mm')
+                    good_time: Number.isNaN((<Date>model.get('updatedAt')).getTime()) ? '2021-01-01 11:11' : formatDate((<Date>model.get('updatedAt')), 'yyyy-MM-dd hh:mm'),
+                    status_mes: model.get('status_mes')
                 }
             })
             const data = {

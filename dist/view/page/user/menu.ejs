@@ -52,7 +52,7 @@
                         <div class="ui-page-inner">
                             <% let total_page = Math.ceil(good_num / 10) %> 
                             <% if(total_page > 1){ %> 
-                                <% if(total_page < 6){ %> 
+                                <% if(total_page <= 6){ %> 
                                     <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)-1)+'?userid='+ userid %> ">上一页</a>
                                     <% for(let i = 1;i <= total_page;i++){ %> 
                                         <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "

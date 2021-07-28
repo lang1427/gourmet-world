@@ -37,7 +37,7 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
         img: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue:''
+            defaultValue: ''
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -50,27 +50,27 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
         desc: {
             type: DataTypes.STRING(500),
             allowNull: true,
-            defaultValue:''
+            defaultValue: ''
         },
         difficulty: {
             type: DataTypes.ENUM(['简单', '初级', '中级', '高级']),
             allowNull: false,
-            defaultValue:'简单'
+            defaultValue: '简单'
         },
         zhuliao: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue:''
+            defaultValue: ''
         },
         fuliao: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue:''
+            defaultValue: ''
         },
         tiaoliao: {
             type: DataTypes.STRING,
             allowNull: false,
-            defaultValue:''
+            defaultValue: ''
         },
         category_id: {
             type: DataTypes.INTEGER,
@@ -79,12 +79,16 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
                 model: Model.category,
                 key: 'id'
             },
-            defaultValue:-1
+            defaultValue: -1
         },
         status: {
             type: DataTypes.TINYINT,
             allowNull: false,
             defaultValue: 3
+        },
+        status_mes: {
+            type: DataTypes.STRING(100),
+            allowNull: true
         },
         like_count: {
             type: DataTypes.INTEGER,

@@ -70,6 +70,11 @@ module.exports = {
         default: 3,
         comment: '审核状态'
       },
+      status_mes: {
+        type: Sequelize.STRING(100),
+        allowNull: true,
+        comment: "审核不通过描述信息"
+      },
       like_count: {
         type: Sequelize.INTEGER,
         allowNull: false,

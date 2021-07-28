@@ -1,0 +1,476 @@
+<%- include('../../components/header'); -%>
+    <style>
+        .ui_title {
+            height: 35px;
+            border-bottom: 1px solid #E8E8E8;
+            position: relative
+        }
+
+        .ui_title_wrap {
+            line-height: 30px;
+            font-size: 20px
+        }
+
+        .ui_title_wrap h1,
+        .ui_title_wrap h2,
+        .ui_title_wrap h3 {
+            float: left;
+            font-weight: 400;
+            font-size: 20px;
+            margin-right: 20px;
+            color: #666;
+            padding-bottom: 4px;
+            outline: 0;
+            color: #333;
+            max-width: 100%;
+            overflow: hidden;
+            text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .ui_title_wrap h1 a,
+        .ui_title_wrap h2 a,
+        .ui_title_wrap h3 a {
+            color: #666
+        }
+
+        .ui_title_wrap h1.on,
+        .ui_title_wrap h2.on,
+        .ui_title_wrap h3.on {
+            color: #ff6767;
+            border-bottom: 3px solid #ff6767
+        }
+
+        .ui_title_wrap h1.on a,
+        .ui_title_wrap h2.on a,
+        .ui_title_wrap h3.on a {
+            color: #ff6767
+        }
+
+        .ui_title_wrap a.on {
+            color: #ff6767
+        }
+
+        .ui_title_wrap a {
+            text-decoration: none
+        }
+
+        .ui_title_wrap .right {
+            float: right;
+            margin: 0 0 0 20px;
+            font-size: 16px
+        }
+
+        .ui_title_wrap span.right {
+            color: #999
+        }
+
+        .search_nav {
+            padding: 90px 0 10px 0
+        }
+
+        .search_nav .nv {
+            width: 640px;
+            height: 44px;
+            line-height: 44px;
+            margin: auto
+        }
+
+        .search_nav .nv a {
+            float: left;
+            padding: 0 10px;
+            font-size: 16px;
+            height: 100%
+        }
+
+        .search_nav .nv a.on {
+            color: #ff6767
+        }
+
+        .search_nav .searchBox {
+            width: 640px;
+            margin: auto;
+            position: relative;
+            height: 40px;
+            border: 2px solid #ff6767;
+            border-radius: 0 3px 3px 0
+        }
+
+        .search_nav .searchBox .search_Text {
+            height: 24px;
+            line-height: 24px;
+            padding: 0 10px;
+            border: 0;
+            margin-top: 8px;
+            width: 518px;
+            font-size: 14px;
+            border-right: 0;
+            float: left
+        }
+
+        .search_nav .searchBox .search_Btn {
+            background: #ff6767;
+            color: #fff;
+            font-size: 16px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            width: 100px;
+            float: right
+        }
+
+        .space_left {
+            width: 818px;
+            float: left;
+            overflow: hidden;
+            min-height: 400px
+        }
+
+        .space_right {
+            width: 300px;
+            float: right;
+            overflow: hidden;
+            min-height: 460px
+        }
+
+        .ui_list_1 li {
+            padding: 10px 0;
+            overflow: hidden;
+            vertical-align: top;
+            zoom: 1
+        }
+
+        .ui_list_1 .pic {
+            float: left;
+            width: 120px;
+            height: auto
+        }
+
+        .ui_list_1 .detail {
+            color: #999;
+            padding-left: 135px
+        }
+
+        .ui_list_1 h4 {
+            font-size: 20px
+        }
+
+        .ui_list_1 .subcontent {
+            font-size: 14px;
+            height: 24px;
+            line-height: 24px;
+            color: #666
+        }
+
+        .ui_list_1 .subcontent a,
+        .ui_list_1 .subcontent a:hover {
+            color: #666
+        }
+
+        .ui_list_1 .substatus {
+            height: 22px;
+            line-height: 22px;
+            overflow: hidden;
+            padding-top: 1px
+        }
+
+        .ui_list_1 .substatus p {
+            margin-left: -10px;
+            font-size: 0
+        }
+
+        .ui_list_1 .substatus .right span {
+            padding: 0 5px
+        }
+
+        .ui_list_1 .subcontent,
+        .ui_list_1 h4 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .ui_list_1 .substatus .left {
+            font-size: 0
+        }
+
+        .ui_list_1 .substatus .left a,
+        .ui_list_1 .substatus .left span {
+            color: #999;
+            margin-right: 10px;
+            zoom: 1;
+            display: inline-block;
+            font-size: 12px;
+            vertical-align: top
+        }
+
+        .ui_list_1 .substatus .right {
+            display: none;
+            padding-right: 10px
+        }
+
+        .ui_list_1 li:hover .substatus .right {
+            display: block
+        }
+
+        .ui_list_1 .substatus .right,
+        .ui_list_1 .substatus .right a {
+            color: #6599ff
+        }
+
+        .ui_list_1 .subline a {
+            padding-right: 5px
+        }
+
+        .ui_list_1 .substatusLine a {
+            border: 1px dashed #eee;
+            background-color: #fff;
+            height: 20px;
+            line-height: 20px;
+            padding: 0 5px
+        }
+
+        .ui_list_1 .substatusLine a.on,
+        .ui_list_1 .substatusLine a:hover {
+            color: #ff6767
+        }
+
+        .ui_list_1 li.user .pic {
+            width: 80px
+        }
+
+        .ui_list_1 li.user .detail {
+            padding-left: 95px
+        }
+
+        #search_res_list em {
+            color: #ff6767;
+            font-style: normal;
+            font-weight: 400
+        }
+
+        .arinfo {
+            padding: 10px 0;
+            line-height: 22px
+        }
+
+        .search_t {
+            color: #999;
+            font-size: 16px;
+            padding: 0 0 10px 0
+        }
+
+        .search_hot {
+            padding: 10px 0
+        }
+
+        .search_hot li {
+            float: left;
+            width: 80px;
+            padding: 5px 0 0
+        }
+
+        .search_hot li a {
+            color: #666;
+            font-size: 14px
+        }
+
+        .search_r {
+            padding: 7px 0 7px 30px
+        }
+
+        .no-data {
+            font-size: 16px;
+            color: #999;
+            padding: 50px 0
+        }
+
+        .no-data em {
+            color: #ff6767;
+            font-style: normal;
+            font-weight: 400
+        }
+
+        .s_left li {
+            width: 50%;
+            float: left;
+            padding: 10px 0;
+            line-height: 30px;
+        }
+
+        .s_left li img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .s_left li a {
+            font-size: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+        }
+
+        .s_left li a.img {
+            float: left;
+            width: 70px;
+            height: 70px;
+            display: block;
+        }
+
+        .s_left li p {
+            font-size: 14px;
+            color: #999;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+
+        .s_left li div {
+            padding: 0 5px 0 10px;
+            overflow: hidden;
+        }
+
+        .s_right li {
+            font-size: 16px;
+            padding: 0 0 10px
+        }
+
+        .s_right li a:before {
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            content: "";
+            float: left;
+            height: 5px;
+            margin: 8px 8px 0 2px;
+            vertical-align: middle;
+            width: 5px
+        }
+
+        .s_footer {
+            z-index: 1;
+            background: #f5f5f5;
+            color: #444;
+            font-size: 14px;
+            height: 160px;
+            left: 0;
+            min-width: 990px;
+            position: fixed;
+            bottom: 0;
+            width: 100%
+        }
+
+        .s_footer div {
+            width: 670px;
+            margin: auto
+        }
+
+        .s_footer .ui-dialog-close {
+            display: none;
+            background-position: -20px 0;
+            text-decoration: none
+        }
+
+        .s_footer:hover .ui-dialog-close {
+            display: block
+        }
+
+        #proposal-box {
+            position: absolute;
+            width: 541px;
+            background: #fff;
+            border-left: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+            box-shadow: 1px 1px 3px #ededed;
+            top: 42px;
+            left: -2px;
+            z-index: 1;
+            display: none
+        }
+
+        #proposal-box ul {
+            padding: 0
+        }
+
+        #proposal-box li {
+            font-size: 14px;
+            line-height: 26px;
+            padding: 0 10px;
+            cursor: default
+        }
+
+        #proposal-box li.on {
+            background: #f0f0f0
+        }
+
+        .safari_b {
+            float: left
+        }
+    </style>
+
+    <div class="w clear search_nav">
+        <div class="searchBox J_search">
+            <input type="text" id="q" class="search_Text J_searchTxt" value="<%= keyword %>" autocomplete="off"
+                placeholder="搜索菜谱、食材或专题……">
+            <a href="javascript:;" title="搜索" class="search_Btn J_searchBTN" id="search">搜 索</a>
+            <div id="proposal-box" style="display: none;">
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    <div class="wrap none" id="no-data">
+        <div class="w clear">
+            <div class="space_left">
+                <div class="arinfo clear">
+                    <div class="no-data">抱歉，没有找到相关的内容。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% if(total > 0){ %>
+    <div class="wrap">
+        <div class="w clear">
+            <div class="space_left">
+                <div class="arinfo clear">
+                    <div class="ui_title mt10">
+                        <div class="ui_title_wrap">
+                            <h2 class="on"><%= keyword %> </h2>
+                            <span style="color:#999;font-size:14px"><%= total %>条结果</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui_list_1" id="search_res_list">
+                    <ul>
+                        <% for(let i = 0;i < recipe_list.length;i++){ %>
+                            <li>
+                                <div class="pic"> 
+                                    <a href="/step?g_id=<% recipe_list[i].recipe_id %>" target="_blank"> 
+                                        <img class="imgLoad" src="//static.meishichina.com/v6/img/blank.gif" data-original="<%=recipe_list[i].recipe_cover %>"  width="120" height="120" style="display: block;">
+                                    </a> 
+                                </div>
+                                <div class="detail">
+                                    <!-- 使用html形式渲染文本内容-  将指定文本内容替换成<em>文本内容</em> -->
+                                    <% let recipe_name = recipe_list[i].recipe_name.replace(`${keyword}`,`<em>${keyword}</em>`) %>
+                                    <h4><a href="/step?g_id=<% recipe_list[i].recipe_id %>" target="_blank"><%- recipe_name %></a></h4>                  
+                                  <div class="substatus clear">
+                                      <div class="left">
+                                          <a href="/user?userid=<%= recipe_list[i].user_id %>" target="_blank"><%= recipe_list[i].user_name %> </a>
+                                      </div>
+                                    <div class="right"></div>
+                                  </div>
+                                  <p class="subcontent">原料：<%= recipe_list[i].ingredients %> </p>
+                                </div>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <% } %>
+    <script src="/public/js/search.js"></script>
+<%- include('../../components/footer') -%>

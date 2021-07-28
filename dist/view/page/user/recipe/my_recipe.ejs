@@ -44,8 +44,11 @@
                                                     target="_blank"><%= list[i].recipe_name ? list[i].recipe_name : '无标题' %> </a>
                                             </h2>
                                             <p class="subline"><%= list[i].good_time %> </p>
-                                            <p class="subcontent">原料：<%= list[i].ingredients %> 
-                                            </p>
+                                            <% if(!!list[i].status_mes){ %>
+                                                <p class="subcontent" style="color:red;">退稿原因：<%= list[i].status_mes %> </p>
+                                            <% }else{ %>
+                                                <p class="subcontent">原料：<%= list[i].ingredients %> </p>
+                                            <% } %>
                                             <div class="substatus clear">
                                                 <span class="get_nums"></span>
                                             </div>

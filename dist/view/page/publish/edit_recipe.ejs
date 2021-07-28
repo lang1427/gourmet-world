@@ -128,12 +128,11 @@
                 </div>
 
                 <div class="mr_edit mr_edit_fixed clear">
-
-                    <input type="hidden" id="recipeinfo_state" value="0">
                     <input type="hidden" id="recipeinfo_id" value="<%= id %>">
-                    <input type="hidden" id="user_id" value="12754692">
                     <input class="btn1" id="postbtn" type="button" value="发布菜谱" data-id="0">
+                    <% if(status!==1){ %>
                     <input class="btn2" id="savebtn" type="button" value="存为草稿">
+                    <% } %>
                     <div id="save_tip"></div>
                 </div>
 

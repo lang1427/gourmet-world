@@ -59,6 +59,7 @@ npm run app
 | tiaoliao | VARCHAR | No | "" | No | 调料 |
 | category_id | INTEGER | No | -1 | No | 分类id |
 | status | TINYINT | No | 3 | No | 审核状态 0：未审核  1：审核通过  2：审核不通过  3：存为草稿|
+| status_mes | VARCHAR(100) | YES | - | No | 审核不通过描述信息
 | like_count | INTEGER | No | 0 | No | 点赞数量 |
 | comment_count | INTEGER | No | 0 | No | 评论数量 |
 

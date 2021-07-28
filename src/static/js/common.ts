@@ -20,9 +20,7 @@ const debounce = function (fn: Function, delay: number) {
             window.clearTimeout(timer)
             timer = null
         }
-        console.log(timer)
         timer = window.setTimeout(() => {
-
             fn.apply(that, arg)
         }, delay)
     }

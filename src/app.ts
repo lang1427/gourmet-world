@@ -33,10 +33,10 @@ app.use(koaBody({
     formidable: {
         uploadDir: path.join(__dirname, 'static/upload'), // 文件上传的路径  默认保存在临时文件夹C:/xxx/temp
         keepExtensions: true,    // 保留文件扩展名
-        hash:"md5",         // 文件md5值
+        hash: "md5",         // 文件md5值
         onFileBegin: (name, file) => {      // 文件上传前执行的特殊回调函数
             // console.log(name, file)  name: input:file name属性值； file: 文件信息
-            const dir = path.join(__dirname,'static/upload/'+create_dirName()) 
+            const dir = path.join(__dirname, 'static/upload/' + create_dirName())
             check_dirExist(dir)
             // 重新覆盖文件保存的路径
             file.path = `${dir}\\${path.basename(file.path)}`
@@ -59,4 +59,9 @@ useControllers(app, __dirname + '/controllers/**/*.js', {    // 这里不填*.ts
     }
 })
 
-app.listen(8888)
+app.listen(8888, () => {
+    console.log(`
+        App running at:
+            http://localhost:8888/
+    `)
+})
