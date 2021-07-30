@@ -66,7 +66,7 @@
                                             <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "
                                                 href="<%= (i === parseInt(page))? 'javascript:;' : '/user/menu-page/'+i+'?userid='+ userid %> "><%= i %></a> 
                                         <% } %> 
-                                        <span>...</span>
+                                        <% if(total_page != 7){ %>  <span>...</span> <% } %>
                                         <a href="<%= '/user/menu-page/'+total_page+'?userid='+ userid %> "><%= total_page %> </a>    
                                         <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/user/menu-page/'+(parseInt(page)+1)+'?userid='+ userid %> ">下一页</a>    
                                     <% }else{ %> 

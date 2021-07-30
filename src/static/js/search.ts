@@ -1,6 +1,6 @@
 $(function () {
 
-    if($.trim((<string>$('#q').val())) !== '' && $('#search_res_list').length == 0){
+    if ($.trim((<string>$('#q').val())) !== '' && $('#search_res_list').length == 0) {
         $('#no-data').removeClass('none')
     }
 
@@ -14,7 +14,7 @@ $(function () {
 
     function searchSubmit() {
         if ($.trim((<string>$('#q').val())) !== '') {
-            window.location.href = '/search/' + $('#q').val()
+            window.location.href = '/search/' + $('#q').val() + '/1'
         }
     }
 })

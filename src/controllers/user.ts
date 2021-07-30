@@ -245,13 +245,15 @@ export class Logout {
 @Controller
 export class UserRecipe {
 
+    public limitCount: number = 10
+    public _total: number = 0
     public conf = {
         title: `我的菜谱 - 美食天下`,
         keywords: ``,
         description: ``
     }
 
-    @Get('/user/my_recipe')
+    @Get('/user/my_recipe/:page')
     public async myRecipe(@Ctx ctx: Context, @RequestParam('recipename', { required: false }) recipe_name?: string) {
         const data = await this._getRecipe(ctx, 1, recipe_name ? recipe_name : '')
         if (!!data) {
@@ -261,7 +263,7 @@ export class UserRecipe {
         }
     }
 
-    @Get('/user/my_recipe_pending')
+    @Get('/user/my_recipe_pending/:page')
     public async myRecipePending(@Ctx ctx: Context) {
         const data = await this._getRecipe(ctx, 0)
         if (!!data) {
@@ -271,7 +273,7 @@ export class UserRecipe {
         }
     }
 
-    @Get('/user/my_recipe_fail')
+    @Get('/user/my_recipe_fail/:page')
     public async myRecipeFail(@Ctx ctx: Context) {
         const data = await this._getRecipe(ctx, 2)
         if (!!data) {
@@ -281,7 +283,7 @@ export class UserRecipe {
         }
     }
 
-    @Get('/user/my_recipe_draft')
+    @Get('/user/my_recipe_draft/:page')
     public async myRecipeDraft(@Ctx ctx: Context) {
         const data = await this._getRecipe(ctx, 3)
         if (!!data) {
@@ -333,6 +335,7 @@ export class UserRecipe {
      */
     private async _getRecipe(@Ctx ctx: Context, status: number, search_name: string = ''): Promise<void | object> {
         let user_id = (<Session>ctx.session).userID
+        let { page } = ctx.params
         if (!!user_id) {
             let recipe_list = await ctx.state.db['goods'].findAll({
                 where: {
@@ -342,7 +345,8 @@ export class UserRecipe {
                         [Sequelize.Op.like]: `%${search_name}%`
                     }
                 },
-                limit: 10,
+                limit: this.limitCount,
+                offset: (page - 1) * this.limitCount,
                 order: [
                     ['updatedAt', 'desc']
                 ],
@@ -360,10 +364,11 @@ export class UserRecipe {
             })
             const data = {
                 list,
+                page,
                 total: list.length
             }
-            if (data.total >= 10) {
-                data.total = await ctx.state.db['goods'].count({
+            if (page == 1) {
+                this._total = await ctx.state.db['goods'].count({
                     where: {
                         user_id,
                         status,
@@ -373,6 +378,7 @@ export class UserRecipe {
                     },
                 })
             }
+            data.total = this._total
             return data
         }
     }

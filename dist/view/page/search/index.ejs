@@ -447,14 +447,14 @@
                         <% for(let i = 0;i < recipe_list.length;i++){ %>
                             <li>
                                 <div class="pic"> 
-                                    <a href="/step?g_id=<% recipe_list[i].recipe_id %>" target="_blank"> 
+                                    <a href="/step?g_id=<%= recipe_list[i].recipe_id %>" target="_blank"> 
                                         <img class="imgLoad" src="//static.meishichina.com/v6/img/blank.gif" data-original="<%=recipe_list[i].recipe_cover %>"  width="120" height="120" style="display: block;">
                                     </a> 
                                 </div>
                                 <div class="detail">
                                     <!-- 使用html形式渲染文本内容-  将指定文本内容替换成<em>文本内容</em> -->
                                     <% let recipe_name = recipe_list[i].recipe_name.replace(`${keyword}`,`<em>${keyword}</em>`) %>
-                                    <h4><a href="/step?g_id=<% recipe_list[i].recipe_id %>" target="_blank"><%- recipe_name %></a></h4>                  
+                                    <h4><a href="/step?g_id=<%= recipe_list[i].recipe_id %>" target="_blank"><%- recipe_name %></a></h4>                  
                                   <div class="substatus clear">
                                       <div class="left">
                                           <a href="/user?userid=<%= recipe_list[i].user_id %>" target="_blank"><%= recipe_list[i].user_name %> </a>
@@ -466,6 +466,47 @@
                             </li>
                         <% } %>
                     </ul>
+                </div>
+
+                <div class="ui-page mt10">
+                    <div class="ui-page-inner">
+                        <% let total_page = Math.ceil(total / page_count) %> 
+                        <% if(total_page > 1){ %> 
+                            <% if(total_page <= 6){ %> 
+                                <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+(parseInt(page)-1) %>" >上一页</a>
+                                <% for(let i = 1;i <= total_page;i++){ %> 
+                                    <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "
+                                        href="<%= (i === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+i %>"><%= i %></a> 
+                                <% } %> 
+                                <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+(parseInt(page)+1) %>">下一页</a>
+                            <% }else{ %> 
+                                <% if(page < 6){ %> 
+                                    <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+(parseInt(page)-1) %>"> 上一页</a>
+                                    <% for(let i = 1;i <= 6;i++){ %> 
+                                        <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "
+                                            href="<%= (i === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+i %>"><%= i %></a> 
+                                    <% } %> 
+                                    <% if(total_page != 7){ %>  <span>...</span> <% } %>
+                                    <a href="<%= '/search/'+keyword+'/'+total_page %>"><%= total_page %> </a>    
+                                    <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+(parseInt(page)+1) %>">下一页</a>    
+                                <% }else{ %> 
+                                    <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+(parseInt(page)-1) %>">上一页</a>
+                                    <a href="/search/'+keyword+'/1"> 1 </a> 
+                                    <span>...</span>
+                                    <a href="<%= '/search/'+keyword+'/'+(parseInt(page)-1) %>"><%= (parseInt(page)-1) %></a> 
+                                    <a class="now_page" href="javascript:;"><%= parseInt(page) %></a> 
+                                    <% if(page != total_page){ %> 
+                                        <a href="<%= '/search/'+keyword+'/'+(parseInt(page)+1) %>"><%= (parseInt(page)+1) %></a>
+                                        <% if(page != total_page - 1){ %> 
+                                            <% if(page != total_page - 2){ %> <span>...</span><% } %> 
+                                            <a href="<%= '/search/'+keyword+'/'+total_page %>"><%= total_page %> </a>
+                                        <% } %>     
+                                    <% } %> 
+                                    <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/search/'+keyword+'/'+(parseInt(page)+1) %>">下一页</a>    
+                                <% } %> 
+                            <% } %> 
+                        <% } %> 
+                    </div>
                 </div>
 
             </div>

@@ -12,10 +12,12 @@
     <div class="w_main clear">
         <%- include('../../../components/my_left') %>
             <div class="mod_right">
+                <input type="hidden" id="total" value="<%= total %>">
+                <input type="hidden" id="page" value="<%= page %>">
                 <%- include('./location') %>
                     <div class="ui_newlist_1 get_num mt60 clear" id="J_list">
                         <div class="m_search clear search_b">
-                            <form action="/user/my_recipe" method="get" >
+                            <form action="/user/my_recipe/1" method="get" >
                                 <input name="recipename" id="tbid" class="inputS"
                                     placeholder="搜索我发布的菜谱" type="text" value="">&nbsp;
                                 <input value="　搜索　" type="submit" id="tbid_btn" class="ui_btn btn">
@@ -63,6 +65,11 @@
                                 <% } %>
                             </ul>
                         <% } %>
+                    </div>
+                    <div class="ui-page mt10">
+                        <div class="ui-page-inner">
+                            
+                        </div>
                     </div>
             </div>
     </div>
