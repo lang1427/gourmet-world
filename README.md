@@ -34,6 +34,17 @@ npm run app
 | username | VARCHAR(20) | No | - | No | 用户名 |
 | password | CHAR(32) | No | - | No | 密码 |
 
+### 用户扩展信息表
+> **Table: users_info**
+
+|名称|类型|允许空|默认值|主键|说明|
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| id | INTEGER | No | - | Yes | 用户id |
+| avatar | VARCHAR | No | '/public/images/avatar.png' | No | 用户头像
+| sex | ENUM(['男','女','保密']) | No | '男' | No | 性别
+| birthprovince | CHAR(10) | Yes | - | No | 所在省份
+| birthcity | CHAR(10) | Yes | - | No | 所在城市
+
 ### 分类表
 > **Table: category**
 
