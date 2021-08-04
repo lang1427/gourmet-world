@@ -1,0 +1,39 @@
+<%- include('../../../components/header'); -%>
+    <link rel="stylesheet" href="/public/css/publish.css">
+    <script src="/public/js/city-select.js"></script>
+    <div class="w_main clear">
+        <%- include('../../../components/my_left') %>
+            <div class="mod_right">
+                <%- include('./navbar') %>
+                    <form action="/change/my_settings_profile" id="J_form" enctype="multipart/form-data" method="post">
+                        <div class="mr_edit mr_edit_center clear">
+                            <ul>
+                                <li>
+                                    <label>头像</label><br>
+                                    <img class="imgLoad" src="<%= avatar %>" width="120" height="120" style="display: block;"><br>
+                                    <input name="avatar_img" class="inputS" type="file">
+                                </li>
+                                <li>
+                                    <label>性别</label><br>
+                                    <input type="hidden" id="things_type" name="sex" value="<%= sex %>">
+                                    <div class="things_type1 clear">
+                                        <span>&nbsp;&nbsp;男&nbsp;&nbsp;</span>
+                                        <span>&nbsp;&nbsp;女&nbsp;&nbsp;</span>
+                                        <span>&nbsp;保密&nbsp;</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box clear">
+
+                                    </div>
+                                </li>
+                            </ul>
+                            <input name="save_submit" value="保存修改" class="btn1" type="button">
+                        </div>
+                    </form>
+                    <input type="hidden" id="province" value="<%= birthprovince %>">
+                    <input type="hidden" id="city" value="<%= birthcity %>">
+            </div>
+    </div>
+    <script src="/public/js/user_setting.js"></script>
+    <%- include('../../../components/footer') -%>

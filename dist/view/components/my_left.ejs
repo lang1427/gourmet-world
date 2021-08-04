@@ -1,13 +1,13 @@
 <div class="mod_left">
+    <input type="hidden" name="my_left_val" value="<%= my_left_val %>">
     <div class="menu_wrap">
         <ul>
             <li>
                 <a href="https://member.meishichina.com/center/">会员<br>中心</a>
             </li>
             <li>
-                <a class="on" href="/user/my_recipe/1">菜谱</a>
+                <a href="/user/my_recipe/1">菜谱</a>
             </li>
-
             <li>
                 <a href="https://member.meishichina.com/center/my_pai_list/">话题</a>
             </li>
@@ -21,9 +21,11 @@
                 <a href="https://member.meishichina.com/center/my_fav_recipe/">收藏</a>
             </li>
             <li>
-                <a href="https://member.meishichina.com/center/my_settings_profile/">账户<br>设置</a>
+                <a href="/user/my_settings_profile">账户<br>设置</a>
             </li>
         </ul>
     </div>
-
+    <script>
+        $('.mod_left .menu_wrap li').eq(parseInt($('input[name="my_left_val"]').val())).children('a').addClass('on')
+    </script>
 </div>

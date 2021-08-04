@@ -5,6 +5,7 @@ import { Model } from "sequelize/types";
 
 @Controller
 export class Publish {
+    public my_left_val: number = 1
     @Get('/publish/recipe-add')
     public async addRecipe(@Ctx ctx: Context) {
         let user_id = (<Session>ctx.session).userID
@@ -14,7 +15,7 @@ export class Publish {
                 keywords: ``,
                 description: ''
             }
-            await ctx.render('page/publish/add_recipe', Object.assign({}, conf))
+            await ctx.render('page/publish/add_recipe', Object.assign({}, conf ,{ my_left_val: this.my_left_val }))
         } else {
             ctx.redirect('/user/login/')
         }
@@ -69,7 +70,7 @@ export class Publish {
                 keywords: ``,
                 description: ''
             }
-            await ctx.render('page/publish/edit_recipe', Object.assign({}, conf, recipe_info))
+            await ctx.render('page/publish/edit_recipe', Object.assign({}, conf, recipe_info, { my_left_val: this.my_left_val }))
         } else {
 
         }

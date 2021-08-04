@@ -4,6 +4,9 @@ import { Model } from "sequelize/types";
 import { Session } from 'koa-session'
 import Sequelize from 'sequelize'
 import { formatDate } from '../utils/formatDate'
+import create_dirName from '../utils/create_dirName'
+const fs = require('fs')
+const path = require('path')
 
 interface ISelectTypeObj {
     include: object
@@ -11,6 +14,15 @@ interface ISelectTypeObj {
     menus: boolean
     pai: boolean
     log: boolean
+}
+
+interface Iupload_res {
+    size?: number
+    path?: string
+    name?: string
+    type?: string
+    mtime?: string
+    hash?: string
 }
 
 @Controller
@@ -244,7 +256,7 @@ export class Logout {
 
 @Controller
 export class UserRecipe {
-
+    public my_left_val: number = 1
     public limitCount: number = 10
     public _total: number = 0
     public conf = {
@@ -257,7 +269,7 @@ export class UserRecipe {
     public async myRecipe(@Ctx ctx: Context, @RequestParam('recipename', { required: false }) recipe_name?: string) {
         const data = await this._getRecipe(ctx, 1, recipe_name ? recipe_name : '')
         if (!!data) {
-            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data, { my_left_val: this.my_left_val }))
         } else {
             ctx.redirect('/user/login')
         }
@@ -267,7 +279,7 @@ export class UserRecipe {
     public async myRecipePending(@Ctx ctx: Context) {
         const data = await this._getRecipe(ctx, 0)
         if (!!data) {
-            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data, { my_left_val: this.my_left_val }))
         } else {
             ctx.redirect('/user/login')
         }
@@ -277,7 +289,7 @@ export class UserRecipe {
     public async myRecipeFail(@Ctx ctx: Context) {
         const data = await this._getRecipe(ctx, 2)
         if (!!data) {
-            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data, { my_left_val: this.my_left_val }))
         } else {
             ctx.redirect('/user/login')
         }
@@ -287,7 +299,7 @@ export class UserRecipe {
     public async myRecipeDraft(@Ctx ctx: Context) {
         const data = await this._getRecipe(ctx, 3)
         if (!!data) {
-            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data))
+            await ctx.render('page/user/recipe/my_recipe', Object.assign({}, this.conf, data, { my_left_val: this.my_left_val }))
         } else {
             ctx.redirect('/user/login')
         }
@@ -380,6 +392,125 @@ export class UserRecipe {
             }
             data.total = this._total
             return data
+        }
+    }
+}
+
+@Controller
+export class UserSetting {
+    public my_left_val: number = 6
+    public conf = {
+        title: ``,
+        keywords: ``,
+        description: ``
+    }
+
+    @Get('/user/my_settings_profile')
+    public async mySettingProfile(@Ctx ctx: Context) {
+        let user_id = (<Session>ctx.session).userID
+        this.conf.title = '个人资料 - 美食天下'
+        if (!!user_id) {
+            let userInfo: Model = await ctx.state.db['users_info'].findByPk(user_id)
+            let data = {
+                avatar: userInfo.get('avatar'),
+                sex: userInfo.get('sex'),
+                birthprovince: userInfo.get('birthprovince'),
+                birthcity: userInfo.get('birthcity')
+            }
+            await ctx.render('page/user/settings/profile', Object.assign({}, this.conf, data, { my_left_val: this.my_left_val }))
+        } else {
+            ctx.redirect('/user/login')
+        }
+    }
+
+    @Post('/change/my_settings_profile')
+    public async changeProfile(@Ctx ctx: Context) {
+        let user_id = (<Session>ctx.session).userID
+        if (!!user_id) {
+            let avatar_img: Iupload_res = (<any>ctx.request.files).avatar_img
+            let upload_url = ''
+            if (!!avatar_img && fs.existsSync(avatar_img.path)) {
+                let new_name = `${avatar_img.size}-${avatar_img.hash}-${avatar_img.name}`
+                // 将上传过来的文件 重命名为 文件大小-文件md5-文件名
+                fs.renameSync(avatar_img.path, avatar_img.path?.replace(path.basename(avatar_img.path), new_name))
+                upload_url = `/public/upload/${create_dirName()}/${new_name}`
+            }
+            let { sex, province, city } = ctx.request.body
+            let userInfoModel: Model = await ctx.state.db['users_info'].findByPk(user_id)
+            await userInfoModel.update({
+                avatar: upload_url === '' ? userInfoModel.get('avatar') : upload_url,
+                sex,
+                birthprovince: province,
+                birthcity: city
+            })
+            ctx.body = {
+                code: 1,
+                mes: '更改成功'
+            }
+        } else {
+            ctx.body = {
+                code: -1,
+                mes: '登录超时，请重新登录'
+            }
+        }
+    }
+
+    @Get('/user/my_settings_password')
+    public async mySettingPawd(@Ctx ctx: Context) {
+        let user_id = (<Session>ctx.session).userID
+        this.conf.title = '修改密码 - 美食天下'
+        if (!!user_id) {
+            await ctx.render('page/user/settings/change_pawd', Object.assign({}, this.conf, { my_left_val: this.my_left_val }))
+        } else {
+            ctx.redirect('/user/login')
+        }
+    }
+
+    @Post('/modify/password')
+    public async modifyPawd(@Ctx ctx: Context) {
+        let { oldpassword, newpassword } = ctx.request.body
+        let user_id = (<Session>ctx.session).userID
+        if (!!user_id) {
+            if (!!oldpassword && !!newpassword) {
+                let user: Model = await ctx.state.db['users'].findByPk(user_id, {
+                    attributes: {
+                        include: ['password']
+                    }
+                })
+                if (user.get('password') == oldpassword) {
+                    if (oldpassword !== newpassword) {
+                        await user.update({
+                            password: newpassword
+                        })
+                        ctx.body = {
+                            code: 1,
+                            mes: '更改密码成功'
+                        }
+                        ctx.session = null
+                        ctx.cookies.set('username', '', { signed: false, httpOnly: false, maxAge: 0 })
+                    } else {
+                        ctx.body = {
+                            code: 0,
+                            mes: '原密码不能和新密码一致'
+                        }
+                    }
+                } else {
+                    ctx.body = {
+                        code: 0,
+                        mes: '原密码错误'
+                    }
+                }
+            } else {
+                ctx.body = {
+                    code: 0,
+                    mes: "参数错误"
+                }
+            }
+        } else {
+            ctx.body = {
+                code: -1,
+                mes: "登录超时，请重新登录"
+            }
         }
     }
 }

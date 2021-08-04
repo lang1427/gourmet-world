@@ -1,14 +1,3 @@
-
-declare function md5(message: string | Buffer | number[] | Uint8Array, options: md5.Options & { asBytes: true }): number[];
-declare function md5(message: string | Buffer | number[] | Uint8Array, options?: Pick<md5.Options, 'asString' | 'encoding'>): string;
-declare function md5(message: string | Buffer | number[] | Uint8Array, options?: md5.Options): string | number[];
-declare namespace md5 {
-    interface Options {
-        asBytes?: boolean;
-        asString?: boolean;
-        encoding?: 'binary' | string;
-    }
-}
 var ibgs: object[] = [
     { src: 'https://i3.meishichina.com/attachment/magic/2017/04/11/20170411149189588154913.jpg' },
     { src: 'https://i3.meishichina.com/attachment/magic/2016/07/20/20160720146900157818213.jpg' },

@@ -1,0 +1,30 @@
+<%- include('../../../components/header'); -%>
+    <link rel="stylesheet" href="/public/css/publish.css">
+    <div class="w_main clear">
+        <%- include('../../../components/my_left') %>
+            <div class="mod_right">
+                <%- include('./navbar') %>
+                    <form action="/modify/password" id="J_form" enctype="multipart/form-data" method="post">
+                        <div class="mr_edit mr_edit_center clear">
+                            <ul>
+                                <li>
+                                    <label>原密码</label><br>
+                                    <input class="inputS" id="J_password_cur" name="" type="password" autocomplete="off">
+                                </li>
+                                <li>
+                                    <label>新密码</label><br>
+                                    <input class="inputS" id="J_password_new" name="" type="password"
+                                        autocomplete="off">&nbsp;&nbsp;<span class="tip">密码为16-32个字符</span>
+                                </li>
+                                <li>
+                                    <label>确认密码</label><br>
+                                    <input class="inputS" id="J_password_new_2" name="" type="password" autocomplete="off">
+                                </li>
+                            </ul>
+                            <input name="submit" value="保存修改" class="btn1" type="button">
+                        </div>
+                    </form>
+            </div>
+    </div>
+    <script src="/public/js/user_setting.js"></script>
+    <%- include('../../../components/footer') -%>

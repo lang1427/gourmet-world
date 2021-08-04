@@ -41,7 +41,8 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
         },
     }, {
         sequelize,
-        modelName: 'users_info'
+        modelName: 'users_info',
+        freezeTableName: true
     });
     return users_info;
 };
