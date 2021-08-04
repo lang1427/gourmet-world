@@ -133,6 +133,7 @@ li.feed{display:none}
 .space_info .subname .icon1{width:15px;height:16px;display:inline-block;margin-left:5px;}
 .space_info .subname .man{background-position:-16px 0;margin: -10px 0 0 5px;}
 .space_info .subname .woman{background-position:0 0;margin: -10px 0 0 5px;}
+.space_info .subname .mi{background-position:16px 0;margin: -10px 0 0 5px;}
 .space_info .subname .messagenum{ color:#666}
 .space_info .subinfo{margin-top:5px;height:24px;line-height:24px;overflow:hidden;font-size:14px;color:#585858;}
 .space_info .substatus{text-align:center;height:40px;color:#000;}
@@ -178,7 +179,7 @@ li.feed{display:none}
 .pin_list li.clear{float:right}
 .pin_list div.u{height:40px}
 .pin_list div.u div{float:left;width:80%}
-.pin_list div.u img.imgLoad{float:left;margin:0 10px 0 0;width:40px;height:40px;border-radius:50%;background:#f2f2f2 url(//static.meishichina.com/v6/img/loading-16-16.gif) no-repeat scroll center center}
+.pin_list div.u img.imgLoad{float:left;margin:0 10px 0 0;width:40px;height:40px;border-radius:50%}
 .pin_list div.u a.t{float:left;display:block;overflow:hidden;max-width:590px;color:#111;text-overflow:ellipsis;white-space:nowrap;font-size:14px}
 .pin_list div.u span{float:left;clear:both;color:#666;font-size:10px}
 .pin_list div.c{display:block;padding:5px 0 0 0}

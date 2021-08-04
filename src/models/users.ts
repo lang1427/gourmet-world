@@ -6,20 +6,23 @@ import { Sequelize, Model } from "sequelize";
 import { IDataTypes } from "../@type-app/data-types";
 import { IModelsName } from "../@type-app/models-name";
 
-module.exports = (sequelize:Sequelize, DataTypes:IDataTypes) => {
+module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
   class users extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models:IModelsName) {
+    static associate(models: IModelsName) {
       // define association here
-      users.hasMany(models.goods,{
-        foreignKey:'user_id'
+      users.hasMany(models.goods, {
+        foreignKey: 'user_id'
+      })
+      users.hasOne(models.users_info, {
+        foreignKey: 'id'
       })
     }
-  }; 
+  };
   users.init({
     id: {
       type: DataTypes.INTEGER,

@@ -45,6 +45,12 @@ npm run app
 | birthprovince | CHAR(10) | Yes | - | No | 所在省份
 | birthcity | CHAR(10) | Yes | - | No | 所在城市
 
+> **Foregin Key**
+
+|名称|外键表|外键表字段|
+|:--:|:--:|:--:|
+| id | users | id |
+
 ### 分类表
 > **Table: category**
 

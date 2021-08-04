@@ -19,7 +19,11 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
+            references: {
+                model: (<any>Model).users,
+                key: 'id'
+            }
         },
         avatar: {
             type: DataTypes.STRING,

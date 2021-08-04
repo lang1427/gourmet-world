@@ -18,7 +18,7 @@ $(function () {
                         <li data-id="${res.data[i].content_id}">
                             <div class="pic">
                                 <a href="/user?userid=${res.data[i].user_id}" target="_blank" title="点击进入 ${res.data[i].user_name} 的主页">
-                                    <img class="imgLoad" src="https://i5.meishichina.com/data/avatar/010/27/43/98_avatar_big.jpg?x-oss-process=style/c180&amp;v=20210622" width="48" height="48" style="display: block;">
+                                    <img class="imgLoad" src="${res.data[i].user_avatar}" width="48" height="48" style="display: block;">
                                 </a>
                             </div>
                             <div class="detail">
@@ -44,6 +44,7 @@ $(function () {
                 }
             },
             complete: function () {
+                $('.comment-list .pic img').css('background', 'initial')
                 $('.comment-loading').hide()
             }
         })

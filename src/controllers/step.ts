@@ -14,7 +14,7 @@ export class Step {
                 id: g_id,
                 status: 1
             },
-            include: [ctx.state.db['users'], ctx.state.db['category']]
+            include: [{ model: ctx.state.db['users'], include: { model: ctx.state.db['users_info'], attributes: ['avatar'] } }, ctx.state.db['category']]
         })
         let category = {
             c_name: (<any>res)['category'].get('c_name'),
@@ -41,7 +41,8 @@ export class Step {
             step_desc: "",
             step_img: '',
             user_id: res.get('user_id'),
-            user_name: (<any>res)['user'].get('username')
+            user_name: (<any>res)['user'].get('username'),
+            user_avatar: (<any>res).user.users_info.get('avatar')
         }
         let step: Model = await ctx.state.db['step'].findByPk(g_id)
         data.step_desc = step.get('desc') as string

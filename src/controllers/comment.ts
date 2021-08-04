@@ -15,7 +15,7 @@ export class Comment {
             order: [
                 ['createdAt', 'desc']
             ],
-            include: [ctx.state.db['users']]
+            include: [{ model: ctx.state.db['users'], include: [{ model: ctx.state.db['users_info'], attributes: ['avatar'] }] }]
         })
         if (res.count === 0) {
             ctx.body = {
@@ -27,6 +27,7 @@ export class Comment {
                 return {
                     user_id: comment.get('user_id'),
                     user_name: (<any>comment).user.get('username'),
+                    user_avatar: (<any>comment).user.users_info.get('avatar'),
                     content_id: comment.get('id'),
                     content: comment.get('comment'),
                     content_time: formatDate((<Date>comment.get('createdAt')), 'yyyy-MM-dd hh:mm')

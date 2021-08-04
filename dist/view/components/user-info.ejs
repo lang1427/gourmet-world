@@ -6,16 +6,14 @@
         <div class="mod clear">
             <div class="pic">
                 <a href="javascript:window.location.reload();">
-                    <img class="imgLoad"
-                        src="https://i5.meishichina.com/data/avatar/001/80/65/50_avatar_big.jpg?x-oss-process=style/c320&amp;v=2021061510"
-                        width="150" height="150" alt="" style="display: block;"></a>
+                    <img class="imgLoad" src="<%= user_avatar %>" width="150" height="150" alt="" style="display: block;"></a>
             </div>
             <div class="detail">
                 <div class="subname">
                     <em><a href="javascript:window.location.reload();">
                             <%= username %>
                         </a></em>
-                    <i class="space_icon woman"></i>
+                    <i class="space_icon <%= user_sex == '保密' ? 'mi' : user_sex == '男' ? 'man' : 'woman' %>"></i>
                     <br>
                     <i class="messagenum">
                         <%= create_user %> 加入

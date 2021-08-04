@@ -28,8 +28,9 @@ interface Iupload_res {
 @Controller
 export class User {
     @Get('/user')
-    public async user(@Ctx ctx: Context, @RequestParam('userid') userid: number) {
-        const { data, conf } = await this.getUserInfo(ctx, userid, this.selectType(ctx, 0))
+    public async user(@Ctx ctx: Context, @RequestParam('userid', { required: false }) userid: number) {
+        let _userid = userid || (<Session>ctx.session).userID
+        const { data, conf } = await this.getUserInfo(ctx, _userid, this.selectType(ctx, 0))
         await ctx.render('page/user/index', Object.assign({}, data, conf))
     }
 
@@ -43,6 +44,9 @@ export class User {
     public async getUserInfo(ctx: Context, userid: number, type: ISelectTypeObj) {
 
         let user: Model = await ctx.state.db['users'].findByPk(userid, type.include)
+        let user_info: Model = await ctx.state.db['users_info'].findByPk(userid, {
+            attributes: ['avatar', 'sex']
+        })
         let like_count: Model = await ctx.state.db['like'].count({
             where: {
                 user_id: userid
@@ -52,6 +56,8 @@ export class User {
         const data = {
             userid,
             username: user.get('username'),
+            user_avatar: user_info.get('avatar'),
+            user_sex: user_info.get('sex'),
             create_user: formatDate(user.get('createdAt') as Date, 'yyyy-MM-dd'),
             like_count,
             goods_list: [],
@@ -182,7 +188,9 @@ export class Register {
                     username,
                     password
                 })
+                let userInfo: Model = ctx.state.db['users_info'].build()
                 await user.save()
+                await userInfo.save()
                 ctx.body = {
                     code: 1,
                     mes: '注册成功！'
@@ -221,6 +229,10 @@ export class Login {
             }
         })
         if (res.length > 0) {
+            let user_info: Model = await ctx.state.db['users_info'].findByPk(res[0].get('id'), {
+                attributes: ['avatar']
+            });
+            ctx.cookies.set('avatar', user_info.get('avatar') as string, { signed: false, httpOnly: false, expires: new Date(Date.now() + 86400000) });
             (<Session>ctx.session).userID = res[0].get('id')
             // koa中cookie不能存放中文的解决办法: 用buffer将中文转换为base64编码,从cookie获取时，再用buffer转换回来
             ctx.cookies.set('username', new Buffer(username).toString('base64'), { signed: false, httpOnly: false, expires: new Date(Date.now() + 86400000) })
@@ -242,6 +254,7 @@ export class Logout {
     public async Logout(@Ctx ctx: Context) {
         ctx.session = null
         ctx.cookies.set('username', '', { signed: false, httpOnly: false, maxAge: 0 })
+        ctx.cookies.set('avatar', '', { signed: false, httpOnly: false, maxAge: 0 })
         let url = ctx.url
         if (url === ('/my_fav_recipe' || '/my_manage' || '/my_privately_list' || '/my_notice_list')) {
             ctx.redirect('/user/login/')
@@ -488,6 +501,7 @@ export class UserSetting {
                         }
                         ctx.session = null
                         ctx.cookies.set('username', '', { signed: false, httpOnly: false, maxAge: 0 })
+                        ctx.cookies.set('avatar', '', { signed: false, httpOnly: false, maxAge: 0 })
                     } else {
                         ctx.body = {
                             code: 0,
