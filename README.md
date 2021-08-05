@@ -23,6 +23,69 @@ npm run compile
 npm run app
 ```
 
+## 实现进度
+
+**菜谱相关**
+
+- [x] 菜谱列表预览
+- [x] 菜谱详情预览 (制作步骤详细)
+- [x] 给菜谱点赞
+- [x] 给菜谱评论
+- [x] 发布菜谱
+- [x] 编辑菜谱
+- [x] 保存菜谱草稿箱
+- [x] 删除菜谱
+
+**用户相关**
+
+- [x] 用户注册
+- [x] 用户登录
+- [x] 退出登录
+- [x] 修改密码 (账号设置)
+- [x] 修改个人信息 (账号设置)
+- [x] 用户信息展示 (账号设置)
+- [x] 用户详情页 
+- [x] 用户菜谱相关页 (已发布/待审核/退稿箱/草稿箱)
+- [] 用户收藏
+- [] 用户管理 (会员中心)
+- [] 用户私信
+- [] 用户通知
+- [] 用户话题
+- [] 用户日志
+
+**搜索相关**
+
+- [x] 搜索菜谱
+- [x] 搜索关键字高亮显示
+
+> 以下待定
+
+**食材相关**
+**珍选相关**
+**健康相关**
+**专题相关**
+**社区相关**
+**话题相关**
+**日志相关**
+**活动相关**
+
+
+## 相关界面截图
+
+<details>
+<summary> 展开查看demo (推荐运行此项目)</summary>
+
+首页 ![首页](./dist/static/images/product/index.png)
+登录/注册 ![登录/注册](./dist/static/images/product/login.png)
+菜谱详情页 ![菜谱详情页](./dist/static/images/product/recipe_step.png)
+用户详情页 ![用户详情页](./dist/static/images/product/user_detail.png)
+用户菜谱页 ![用户菜谱页](./dist/static/images/product/user_recipe.png)
+用户设置页 ![用户设置页](./dist/static/images/product/user_setting.png)
+添加菜谱页 ![添加菜谱页](./dist/static/images/product/add_recipe.png)
+编辑菜谱页 ![编辑菜谱页](./dist/static/images/product/edit_recipe.png)
+
+</details>
+
 ## 表结构
 
 ### 用户表
@@ -127,3 +190,12 @@ npm run app
 |:--:|:--:|:--:|
 | user_id | users | id |
 | g_id | goods | id |
+
+
+## Bug ?? (遇到的坑)
+
+1. Class constructor Model cannot be invoked without 'new'
+> 设置tsconfig.json target 为 ES2015 即可解决    (保留class关键字)
+   
+2. 上传文件后，网页拿刚上传图像的url 404 
+> 需要tsc -w 监听变化后才能找到这个文件 / 重启服务

@@ -52,6 +52,14 @@ const render = views(__dirname + '/view', {  // 加载当前view目录下所有�
 })
 app.use(render)
 
+// 统一配置404界面
+app.use(async (ctx, next) => {
+    await next();
+    if (ctx.status === 404) {
+        await ctx.render('page/not_found/index')
+    }
+})
+
 // 配置所有的控制层（路由规则）： 即会读取当前文件夹 controllers 下所有的文件作为路由规则
 useControllers(app, __dirname + '/controllers/**/*.js', {    // 这里不填*.ts的原因是因为打包之后生成的都是js文件，ts编译不会更改这个字符串为.js
     multipart: {
