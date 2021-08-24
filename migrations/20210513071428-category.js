@@ -25,11 +25,11 @@ module.exports = {
         comment:'上一级菜单id'
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     }, {

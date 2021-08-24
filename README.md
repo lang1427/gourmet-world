@@ -1,5 +1,5 @@
 # gourmet-world
- koa typescript  实现美食天下项目
+ koa typescript  实现美食天下项目 [线上访问地址](http://47.93.187.37:8888/)
 
 ## 项目运行步骤
 1. 安装依赖项

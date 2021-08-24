@@ -28,11 +28,11 @@ module.exports = {
         comment: '步骤图片存放路径'
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       }
     }, {
