@@ -23,7 +23,7 @@ export class Publish {
 
     @Post('/publish/recipe-add')
     public async addRecipe_post(@Ctx ctx: Context) {
-        let { subject } = ctx.request.body
+        let { subject } = (<koaBody>ctx.request).body
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
             if (!!subject) {
@@ -79,7 +79,7 @@ export class Publish {
 
     @Post('/publish/recipe-edit')
     public async editRecipe_post(@Ctx ctx: Context) {
-        let { recipe_id, g_name, desc, difficulty, zhuliao, fuliao, tiaoliao } = ctx.request.body
+        let { recipe_id, g_name, desc, difficulty, zhuliao, fuliao, tiaoliao } = (<koaBody>ctx.request).body
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
             if (!!recipe_id) {
@@ -119,7 +119,7 @@ export class Publish {
 
     @Post('/publish/recipe-save')
     public async saveRecipe(@Ctx ctx: Context) {
-        let { recipe_id, g_name, desc, difficulty, zhuliao, fuliao, tiaoliao, cover_img, step_desc, step_url, status } = ctx.request.body
+        let { recipe_id, g_name, desc, difficulty, zhuliao, fuliao, tiaoliao, cover_img, step_desc, step_url, status } = (<koaBody>ctx.request).body
         let user_id = (<Session>ctx.session).userID
 
         if (!!user_id) {

@@ -2,7 +2,7 @@ import { Controller, Ctx, Get, Post, RequestParam } from "koa-controllers";
 import { Context } from 'koa'
 import { Model } from "sequelize/types";
 import { Session } from 'koa-session'
-import Sequelize from 'sequelize'
+const Sequelize = require('sequelize')
 import { formatDate } from '../utils/formatDate'
 import create_dirName from '../utils/create_dirName'
 const fs = require('fs')
@@ -69,6 +69,7 @@ export class User {
             description: `欢迎来到美食天下${data.username}的个人主页，这里有${data.username}的原创菜谱、美食照片，及${data.username}所喜爱的各种美食相关。`
         }
         if (type.menus) {
+
             let goods_list = (<any>user).goods.map((good: Model) => {
                 return {
                     good_id: good.get('id'),
@@ -77,7 +78,7 @@ export class User {
                     like_count: good.get('like_count'),
                     ingredients: good.get('zhuliao') + '、' + (good.get('fuliao') ? good.get('fuliao') : '无'),
                     // 获取当前数据表=>菜谱的时间  伪造数据没有创建时间统一指定为'2021-01-01 11:11'这个日期
-                    good_time: Number.isNaN((<Date>good.get('createdAt')).getTime()) ? '2021-01-01 11:11' : formatDate((<Date>good.get('createdAt')), 'yyyy-MM-dd hh:mm')
+                    good_time: (<Date>good.get('createdAt')) ? formatDate((<Date>good.get('createdAt')), 'yyyy-MM-dd hh:mm') : '2021-01-01 11:11'
                 }
             })
             let good_len: number = await ctx.state.db['goods'].count({
@@ -171,7 +172,7 @@ export class Register {
 
     @Post('/user/register')
     public async register_post(@Ctx ctx: Context) {
-        let { username, password } = ctx.request.body
+        let { username, password } = (<koaBody>ctx.request).body
         if (!!username && !!password) {
             let res = await ctx.state.db['users'].findAll({
                 where: {
@@ -221,7 +222,7 @@ export class Login {
 
     @Post('/user/login')
     public async login_post(@Ctx ctx: Context) {
-        let { username, password } = ctx.request.body
+        let { username, password } = (<koaBody>ctx.request).body
         let res = await ctx.state.db['users'].findAll({
             where: {
                 username,
@@ -322,7 +323,7 @@ export class UserRecipe {
     public async delRecipe(@Ctx ctx: Context) {
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
-            let { recipe_id } = ctx.request.body
+            let { recipe_id } = (<koaBody>ctx.request).body
             if (!!recipe_id) {
                 let recipe: Model = await ctx.state.db['goods'].findByPk(recipe_id)
                 if (!!recipe) {
@@ -383,7 +384,7 @@ export class UserRecipe {
                     recipe_name: model.get('g_name'),
                     recipe_cover: model.get('img'),
                     ingredients: model.get('zhuliao') + '、' + (model.get('fuliao') ? model.get('fuliao') : '无'),
-                    good_time: Number.isNaN((<Date>model.get('updatedAt')).getTime()) ? '2021-01-01 11:11' : formatDate((<Date>model.get('updatedAt')), 'yyyy-MM-dd hh:mm'),
+                    good_time: (<Date>model.get('updatedAt')) ? formatDate((<Date>model.get('updatedAt')), 'yyyy-MM-dd hh:mm') : '2021-01-01 11:11',
                     status_mes: model.get('status_mes')
                 }
             })
@@ -440,7 +441,7 @@ export class UserSetting {
     public async changeProfile(@Ctx ctx: Context) {
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
-            let avatar_img: Iupload_res = (<any>ctx.request.files).avatar_img
+            let avatar_img: Iupload_res = (<any>(ctx.request as koaBody).files).avatar_img
             let upload_url = ''
             if (!!avatar_img && fs.existsSync(avatar_img.path)) {
                 let new_name = `${avatar_img.size}-${avatar_img.hash}-${avatar_img.name}`
@@ -448,7 +449,7 @@ export class UserSetting {
                 fs.renameSync(avatar_img.path, avatar_img.path?.replace(path.basename(avatar_img.path), new_name))
                 upload_url = `/public/upload/${create_dirName()}/${new_name}`
             }
-            let { sex, province, city } = ctx.request.body
+            let { sex, province, city } = (<koaBody>ctx.request).body
             let userInfoModel: Model = await ctx.state.db['users_info'].findByPk(user_id)
             await userInfoModel.update({
                 avatar: upload_url === '' ? userInfoModel.get('avatar') : upload_url,
@@ -481,7 +482,7 @@ export class UserSetting {
 
     @Post('/modify/password')
     public async modifyPawd(@Ctx ctx: Context) {
-        let { oldpassword, newpassword } = ctx.request.body
+        let { oldpassword, newpassword } = (<koaBody>ctx.request).body
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
             if (!!oldpassword && !!newpassword) {

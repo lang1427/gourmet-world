@@ -43,7 +43,7 @@ export class Comment {
 
     @Post('/add_comment')
     public async addComment(@Ctx ctx: Context) {
-        let { good_id, content } = ctx.request.body
+        let { good_id, content } = (<koaBody>ctx.request).body
         if (!!good_id || !!content) {
             let user_id = (<Session>ctx.session).userID
             if (!!user_id) {

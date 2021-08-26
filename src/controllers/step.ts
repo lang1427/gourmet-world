@@ -87,7 +87,7 @@ export class Step {
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
             await this.auth_step(ctx, () => {
-                let { desc, url } = ctx.request.body
+                let { desc, url } = (<koaBody>ctx.request).body
                 this._step!.update({
                     desc,
                     url
@@ -107,7 +107,7 @@ export class Step {
     }
 
     private async auth_step(ctx: Context, successCallback: Function) {
-        let { recipe_id } = ctx.request.body
+        let { recipe_id } = (<koaBody>ctx.request).body
         if (!!recipe_id) {
             this._step = await ctx.state.db['step'].findByPk(recipe_id)
             if (!!this._step) {

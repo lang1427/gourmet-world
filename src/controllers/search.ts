@@ -1,6 +1,7 @@
 import { Context } from "koa";
 import { Controller, Ctx, Get } from "koa-controllers";
-import Sequelize, { Model } from 'sequelize'
+import { Model } from 'sequelize'
+const Sequelize = require('sequelize')
 
 @Controller
 export class Search {

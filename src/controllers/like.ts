@@ -8,7 +8,7 @@ export class Like {
     @Post('/add_recipe_like')
     public async addRecipeLike(@Ctx ctx: Context) {
         if (!!(<Session>ctx.session).userID) {
-            const { good_id } = ctx.request.body
+            const { good_id } = (<koaBody>ctx.request).body
             if (!!good_id) {
                 let is_like = await ctx.state.db['like'].count({
                     where: {

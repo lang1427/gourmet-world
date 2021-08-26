@@ -29,7 +29,7 @@ export class Upload {
     public async upload(@Ctx ctx: Context) {
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
-            let gourmet: Iupload_res = (<any>ctx.request.files).gourmet
+            let gourmet: Iupload_res = (<any>(ctx.request as koaBody).files).gourmet
             let upload_url = ''
             if (fs.existsSync(gourmet.path)) {
                 let new_name = `${gourmet.size}-${gourmet.hash}-${gourmet.name}`
@@ -37,7 +37,7 @@ export class Upload {
                 fs.renameSync(gourmet.path, gourmet.path?.replace(path.basename(gourmet.path), new_name))
                 upload_url = `/public/upload/${create_dirName()}/${new_name}`
             }
-            let { step } = ctx.request.body
+            let { step } = (<koaBody>ctx.request).body
             let goods_id = getUrlParam('goods_id', ctx.request.header['referer'])
             let stepModel: Model = await ctx.state.db['step'].findByPk(goods_id)
             let step_url = JSON.parse(stepModel.get('url') as string)
@@ -73,12 +73,16 @@ export class Upload {
     public async upload_recipe(@Ctx ctx: Context) {
         let user_id = (<Session>ctx.session).userID
         if (!!user_id) {
-            let cover: Iupload_res = (<any>ctx.request.files).cover
+            let cover: Iupload_res = (<any>(ctx.request as koaBody).files).cover
             let upload_url = ''
             if (fs.existsSync(cover.path)) {
                 let new_name = `${cover.size}-${cover.hash}-${cover.name}`
                 // 将上传过来的文件 重命名为 文件大小-文件md5-文件名
-                fs.renameSync(cover.path, cover.path?.replace(path.basename(cover.path), new_name))
+                // fs.renameSync(cover.path, cover.path?.replace(path.basename(cover.path), new_name))
+                const readStream = fs.createReadStream(cover.path)
+                const writeStream = fs.createWriteStream(cover.path?.replace(path.basename(cover.path), new_name))
+                // 可读流 通过管道写入 可写流
+                readStream.pipe(writeStream)
                 upload_url = `/public/upload/${create_dirName()}/${new_name}`
             }
             let goods_id = getUrlParam('goods_id', ctx.request.header['referer'])
