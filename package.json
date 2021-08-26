@@ -4,7 +4,7 @@
   "description": "koa typescript  实现美食天下项目",
   "main": "./src/app.ts",
   "scripts": {
-    "compile": "tsc --baseUrl ./src/**/*.ts --outDir ./dist --target ES2015 --module commonjs --strict true --experimentalDecorators true --emitDecoratorMetadata true --skipLibCheck true --forceConsistentCasingInFileNames true",
+    "compile": "tsc --baseUrl ./src/*.ts --outDir ./dist --target ES2015 --module commonjs --strict true --experimentalDecorators true --emitDecoratorMetadata true --skipLibCheck true --forceConsistentCasingInFileNames true",
     "app": "node ./dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
