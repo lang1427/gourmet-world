@@ -37,6 +37,8 @@ export class Step {
             category,
             like_count: res.get('like_count'),
             isLike: false,
+            star_count: res.get('star_count'),
+            isStar: false,
             comment_count: res.get('comment_count'),
             step_desc: "",
             step_img: '',
@@ -65,6 +67,16 @@ export class Step {
                 }
             })
             if (islike === 1) data.isLike = true
+        }
+        // 判断当前用户是否已收藏
+        if (!!(<Session>ctx.session).userID) {
+            let is_star = await ctx.state.db['star'].count({
+                where: {
+                    user_id: (<Session>ctx.session).userID,
+                    g_id
+                }
+            })
+            if (is_star === 1) data.isStar = true
         }
         await ctx.render('page/step/index', Object.assign({}, conf, data))
     }

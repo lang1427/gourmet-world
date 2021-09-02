@@ -95,6 +95,11 @@ module.exports = (sequelize: Sequelize, DataTypes: IDataTypes) => {
             allowNull: false,
             defaultValue: 0
         },
+        star_count: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0
+        },
         comment_count: {
             type: DataTypes.INTEGER,
             allowNull: false,

@@ -81,6 +81,12 @@ module.exports = {
         default: 0,
         comment: '点赞数量'
       },
+      star_count: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        default: 0,
+        comment: '收藏数量'
+      },
       comment_count: {
         type: Sequelize.INTEGER,
         allowNull: false,

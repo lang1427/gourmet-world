@@ -29,8 +29,12 @@ $(function () {
             url: '/logout',
             type: 'post',
             success: function (rsp) {
-                if (rsp.code) {
-                    window.location.reload()
+                if (rsp.code === 1) {
+                    if (rsp.hasOwnProperty('href')) {
+                        window.location.href = rsp.href
+                    } else {
+                        window.location.reload()
+                    }
                 }
             }
         })

@@ -24,6 +24,7 @@ module.exports = {
         category_id: 5,
         status: 1,
         like_count: 1,
+        star_count: 1,
         comment_count: 1
       },
       {
@@ -38,6 +39,7 @@ module.exports = {
         category_id: 5,
         status: 1,
         like_count: 1,
+        star_count: 1,
         comment_count: 1
       },
       {
@@ -52,6 +54,7 @@ module.exports = {
         category_id: 5,
         status: 1,
         like_count: 1,
+        star_count: 1,
         comment_count: 1
       },
       {

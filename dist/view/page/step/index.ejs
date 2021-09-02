@@ -141,6 +141,8 @@
                             <ul class="collect_da">
                                 <li class="lik"><a title="<%= isLike ? '已点赞' : '点赞' %> " href="javascript:void(0);" class="J_lik <%= isLike? 'on' :'' %> "
                                         data=""><i></i><span><%= like_count %> </span>人点赞</a></li>
+                                <li class="fav"><a title="收藏" href="javascript:void(0);" class="J_fav <%= isStar? 'on' : '' %>" 
+                                        data=""><i></i><span><%= star_count %></span>人收藏</a></li>
                                 <li class="col"><a title="加入菜单" href="javascript:void(0);" class="J_col"
                                         data=""><i></i>加入菜单</a></li>
                                 <li class="com"><a title="评论" href="javascript:void(0);" class="J_com"

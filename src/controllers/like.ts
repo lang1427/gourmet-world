@@ -45,6 +45,7 @@ export class Like {
             }
         } else {
             ctx.cookies.set('username', '', { signed: false, httpOnly: false, maxAge: 0 })
+            ctx.cookies.set('avatar', '', { signed: false, httpOnly: false, maxAge: 0 })
             ctx.body = {
                 code: -1,    // 未登陆
                 mes: '您还没有登陆呢，请先登陆后操作'

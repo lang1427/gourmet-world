@@ -256,9 +256,15 @@ export class Logout {
         ctx.session = null
         ctx.cookies.set('username', '', { signed: false, httpOnly: false, maxAge: 0 })
         ctx.cookies.set('avatar', '', { signed: false, httpOnly: false, maxAge: 0 })
-        let url = ctx.url
-        if (url === ('/my_fav_recipe' || '/my_manage' || '/my_privately_list' || '/my_notice_list')) {
-            ctx.redirect('/user/login/')
+        //    重大bug 这里的url 是 /logout 而不是浏览器的url地址
+        // let url = ctx.url
+        // if (url.match(/\/user/) != null) {
+        if (ctx.request.header['referer']?.match(/\/user/) != null) {
+            // ctx.redirect('/user/login')  重定向无效  不清楚什么原因  改为前端处理跳转到登录页
+            ctx.body = {
+                code: 1,
+                href: '/user/login'
+            }
         } else {
             ctx.body = {
                 code: 1

@@ -46,7 +46,7 @@ npm run app
 - [x] 用户信息展示 (账号设置)
 - [x] 用户详情页 
 - [x] 用户菜谱相关页 (已发布/待审核/退稿箱/草稿箱)
-- [ ] 用户收藏
+- [x] 用户收藏
 - [ ] 用户管理 (会员中心)
 - [ ] 用户私信
 - [ ] 用户通知
@@ -57,6 +57,14 @@ npm run app
 
 - [x] 搜索菜谱
 - [x] 搜索关键字高亮显示
+
+**收藏相关**
+
+- [x] 收藏的菜谱
+- [ ] 收藏的话题
+- [ ] 收藏的日志
+- [ ] 收藏的菜单
+- [ ] 收藏的专题
 
 > 以下待定
 
@@ -141,6 +149,7 @@ npm run app
 | status | TINYINT | No | 3 | No | 审核状态 0：未审核  1：审核通过  2：审核不通过  3：存为草稿|
 | status_mes | VARCHAR(100) | YES | - | No | 审核不通过描述信息
 | like_count | INTEGER | No | 0 | No | 点赞数量 |
+| star_count | INTEGER | No | 0 | No | 收藏数量
 | comment_count | INTEGER | No | 0 | No | 评论数量 |
 
 > **Foregin Key**
@@ -160,6 +169,22 @@ npm run app
 
 ### 点赞表
 > **Table: like**
+
+|名称|类型|允许空|默认值|主键|说明|
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| id | INTEGER | No | - | Yes | 主键 |
+| user_id | INTEGER | No | - | No | 用户id |
+| g_id | INTEGER | No | - | No | 菜谱id |
+
+> **Foregin Key**
+
+|名称|外键表|外键表字段|
+|:--:|:--:|:--:|
+| user_id | users | id |
+| g_id | goods | id |
+
+### 收藏表
+> **Table: star**
 
 |名称|类型|允许空|默认值|主键|说明|
 |:--:|:--:|:--:|:--:|:--:|:--:|

@@ -1,0 +1,91 @@
+<%- include('../../../components/header'); -%>
+    <link rel="stylesheet" href="/public/css/publish.css">
+    <div class="w_main clear">
+        <%- include('../../../components/my_left') %>
+            <div class="mod_right">
+                <%- include('./location') %>
+                    <% if(total !== 0){ %>
+                    <div class="ui_newlist_1 get_num mt60 clear" id="J_list">
+                        <ul>
+                            <% for(let i = 0; i < data.length; i++){ %> 
+                            <li data-id="<%= data[i].star_id %>">
+                                <div class="left">
+                                    <div class="pic">
+                                        <a title="<%= data[i].recipe_name %>" href="/step?g_id=<%= data[i].recipe_id %>"
+                                            target="_blank">
+                                            <img class="imgLoad"
+                                                src="//static.meishichina.com/v6/img/blank.gif" data-original="<%= data[i].recipe_img %>"
+                                                width="180" height="180" style="display: block;">
+                                        </a>
+                                    </div>
+                                    <div class="detail">
+                                        <h2>
+                                            <a title="<%= data[i].recipe_name %>" href="/step?g_id=<%= data[i].recipe_id %>"
+                                                target="_blank"><%= data[i].recipe_name %></a>
+                                        </h2>
+                                        <p class="subline"><a href="/user?userid=<%= data[i].recipe_userid %>"
+                                                target="_blank"><%= data[i].recipe_username %></a></p>
+                                        <p class="subcontent">原料：<%= data[i].ingredients %>。</p>
+                                        <div class="substatus clear">
+                                            <span class="get_nums" style="display: none;"><%= data[i].star_count %>人收藏</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <a class="del" href="javascript:void(0);" data-star_id="<%= data[i].star_id %>" data-recipe_id="<%= data[i].recipe_id %>">移除</a>
+                                </div>
+                            </li> 
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="ui-page mt10">
+                        <div class="ui-page-inner">
+                            <% let total_page = Math.ceil(total / 20) %> 
+                            <% if(total_page > 1){ %> 
+                                <% if(total_page <= 6){ %> 
+                                    <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+(parseInt(page)-1) %>" >上一页</a>
+                                    <% for(let i = 1;i <= total_page;i++){ %> 
+                                        <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "
+                                            href="<%= (i === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+i %>"><%= i %></a> 
+                                    <% } %> 
+                                    <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+(parseInt(page)+1) %>">下一页</a>
+                                <% }else{ %> 
+                                    <% if(page < 6){ %> 
+                                        <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+(parseInt(page)-1) %>"> 上一页</a>
+                                        <% for(let i = 1;i <= 6;i++){ %> 
+                                            <a class="<%= (i === parseInt(page))? 'now_page' : '' %> "
+                                                href="<%= (i === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+i %>"><%= i %></a> 
+                                        <% } %> 
+                                        <% if(total_page != 7){ %>  <span>...</span> <% } %>
+                                        <a href="<%= '/user/my_star_recipe/'+total_page %>"><%= total_page %> </a>    
+                                        <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+(parseInt(page)+1) %>">下一页</a>    
+                                    <% }else{ %> 
+                                        <a href="<%= (1 === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+(parseInt(page)-1) %>">上一页</a>
+                                        <a href="/user/my_star_recipe/1"> 1 </a> 
+                                        <span>...</span>
+                                        <a href="<%= '/user/my_star_recipe/'+(parseInt(page)-1) %>"><%= (parseInt(page)-1) %></a> 
+                                        <a class="now_page" href="javascript:;"><%= parseInt(page) %></a> 
+                                        <% if(page != total_page){ %> 
+                                            <a href="<%= '/user/my_star_recipe/'+(parseInt(page)+1) %>"><%= (parseInt(page)+1) %></a>
+                                            <% if(page != total_page - 1){ %> 
+                                                <% if(page != total_page - 2){ %> <span>...</span><% } %> 
+                                                <a href="<%= '/user/my_star_recipe/'+total_page %>"><%= total_page %> </a>
+                                            <% } %>     
+                                        <% } %> 
+                                        <a href="<%= (total_page === parseInt(page))? 'javascript:;' : '/user/my_star_recipe/'+(parseInt(page)+1) %>">下一页</a>    
+                                    <% } %> 
+                                <% } %> 
+                            <% } %> 
+                        </div>
+                    </div>
+                    <% }else{ %>
+                    <div class="ui_no_data">
+						<p>
+							您还没有收藏任何菜谱。
+						</p>
+					</div>
+                    <% } %>
+            </div>
+    </div>
+    <script src="/public/js/user_star.js"></script>
+    <%- include('../../../components/footer') -%>

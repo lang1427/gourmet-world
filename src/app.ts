@@ -24,7 +24,7 @@ const sessionConf = {
     // maxAge: 900000   // 过期时间15分钟
 }
 
-app.use(session(sessionConf, app))
+app.use(session(sessionConf, app)) 
 
 import check_dirExist from './utils/check_dirExist'
 import create_dirName from './utils/create_dirName'
@@ -39,7 +39,7 @@ app.use(koaBody({
             const dir = path.join(__dirname, 'static/upload/' + create_dirName())
             check_dirExist(dir)
             // 重新覆盖文件保存的路径
-            file.path = `${dir}\\${path.basename(file.path)}`
+            file.path = `${dir}/${path.basename(file.path)}`
         }
     }
 }))       // post解析，通过ctx.request.body 获取post请求传递过来的参数
